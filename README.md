@@ -30,13 +30,16 @@ As sprints foram organizadas para acompanhar o desenvolvimento do projeto de for
 Segue o link de ambos os repositórios usados para todas as materias:
 
 - Back Node:
-
+https://github.com/luanzeraa-lab/Achamigos_Back-End-P.I-3.git
 
 - Front React:
+https://github.com/luanzeraa-lab/Achamigos_Front-End-P.I-3.git
 
+- Microsserviço Node:
+https://github.com/luanzeraa-lab/Achamigos_Microsservicos.git
 
 - Back Java:
-
+https://github.com/luanzeraa-lab/VacinaSpringBoot.git
 
 ## Tecnologias
 
