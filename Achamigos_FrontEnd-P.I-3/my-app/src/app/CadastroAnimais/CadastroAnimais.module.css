@@ -1,0 +1,192 @@
+
+
+#allpage {
+
+  display: grid;
+     grid-template-columns: 51.25% 48.75%;
+     height: 100vh;
+     overflow: hidden;
+     margin: 0;
+     padding: 0;
+     
+}
+
+#main_ {
+    overflow: auto;
+    padding: 4rem;
+    background-color: white;
+
+    & .main-container {
+        max-width: 33rem;
+        margin-left: auto;
+
+       & .back {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            margin-bottom: 1.5rem;
+        }
+
+       & h1 {
+           font: 600 2.5rem/1.25 var(--font-family-poppins);
+           margin-bottom: .5rem;
+        }
+
+         & p {
+
+    font: 400 1.5rem/1.5 var(--font-family-poppins);
+    color: var(--text-secondary);
+  }
+
+  & span {
+
+ font: 400 1.25rem/1.5 var(--font-family-poppins);
+    color: var(--text-secondary);
+
+  }
+
+  & Form {
+     display: flex;
+        flex-direction: column;
+        gap: 2rem;
+  
+
+& .dog-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+
+ 
+   
+}
+
+   & .dog-health {
+
+         &  .checkbox-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+
+
+         }
+    }
+
+    .droparea {
+outline: 1px dashed #D6D3D1;
+border: 2px dashed transparent;
+border-radius: .25rem;
+display: grid;
+justify-items: center;
+gap: .5rem;
+text-align: center;
+padding: 1.75rem 1rem;
+position: relative;
+
+& .inputcontrol {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    opacity: 0;
+}
+
+& p {
+    color: #A8A29E;
+}
+
+&:hover, &:focus .inputcontrol {
+    outline-width: 0;
+    border-color: #dee2e6;
+   
+    
+  & p {
+
+    color: #8F8881;
+    }
+
+    & svg path{
+        stroke: #A8A29E;
+    }
+
+}
+}
+
+.action-wrapper {
+    display: flex;
+    gap: 1rem;
+Button {
+    
+    all: unset;
+    font-weight: 500;
+    color: blue;
+    padding: .75rem 1.5rem;
+    border-radius: .5rem;
+    cursor: pointer;
+
+    &.btn-primary {
+     color: white;
+     background-color: rgb(65, 65, 250);
+     
+     &:hover, &:focus {
+        background-color: rgb(14, 14, 248);
+     }
+
+    }
+
+    &.btn-secondary {
+        margin-left: auto;
+        border: 1px solid rgb(65, 65, 250);;
+
+          &:hover, &:focus {
+            color: rgb(14, 14, 248);
+            outline: .25rem solid  rgba(97, 97, 248, 0.486);;
+        
+     }
+    }
+}
+}
+
+}
+
+
+
+
+
+
+    }
+
+}
+
+.asideee {
+    padding: 4rem;
+    background-color: #ffeccf;
+
+    & .aside-container {
+        max-width: 31rem;
+      
+        & > Image {
+            width: 100%;
+            margin-top: 2rem;
+        }
+
+    }
+
+    & h2 {
+        font: 600 2.5rem/1.25 var(--font-family-poppins);
+        margin-bottom: .5rem;
+
+        & span {
+            color: var(--text-highlight);
+        }
+   
+
+    }
+
+  & p {
+
+    font: 400 1.5rem/1.5 var(--font-family-poppins);
+    color: var(--text-secondary);
+  }
+
+}
