@@ -7,7 +7,9 @@
   },
   "host": "localhost:3002",
   "basePath": "/",
-  "schemes": ["http"],
+  "schemes": [
+    "http"
+  ],
   "securityDefinitions": {
     "apiKeyAuth": {
       "type": "apiKey",
@@ -18,244 +20,353 @@
   "paths": {
     "/animais": {
       "get": {
-        "description": "Lista todos os animais cadastrados",
+        "description": "",
         "responses": {
-          "200": { "description": "OK" },
-          "403": { "description": "Forbidden" }
+          "403": {
+            "description": "Forbidden"
+          },
+          "default": {
+            "description": ""
+          }
         }
       },
       "post": {
-        "description": "Cadastra um novo animal",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "description": "Dados do animal a cadastrar",
-            "required": true,
-            "schema": {
-              "type": "object",
-              "properties": {
-                "nome": { "type": "string", "example": "Rex" },
-                "idade": { "type": "string", "example": "2 anos" },
-                "raca": { "type": "string", "example": "Vira-lata" },
-                "sexo": { "type": "string", "example": "Macho" },
-                "porte": { "type": "string", "example": "Médio" },
-                "peso": { "type": "string", "example": "12kg" },
-                "observacoes": { "type": "string", "example": "Brincalhão e dócil" },
-                "castracao": { "type": "boolean", "example": true },
-                "imagem": { "type": "string", "example": "/public/rex.jpg" },
-                "userId": {
-                  "type": "string",
-                  "format": "ObjectId",
-                  "example": "6718a4f23b90c4a6f7b2a123",
-                  "description": "ID do usuário dono do animal (referência à coleção User)"
-                }
-              },
-              "required": ["nome", "raca", "sexo", "porte"]
-            }
-          }
-        ],
+        "description": "",
         "responses": {
-          "201": { "description": "Animal criado com sucesso" },
-          "400": { "description": "Erro nos dados enviados" },
-          "403": { "description": "Acesso negado" }
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
         }
       }
     },
-
     "/animais/{id}": {
       "put": {
-        "description": "Atualiza um animal existente",
-        "parameters": [
-          { "name": "id", "in": "path", "required": true, "type": "string" },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "nome": { "example": "any" },
-                "idade": { "example": "any" },
-                "raca": { "example": "any" },
-                "sexo": { "example": "any" },
-                "porte": { "example": "any" },
-                "peso": { "example": "any" },
-                "observacoes": { "example": "any" },
-                "castracao": { "example": "any" },
-                "localizacao": { "example": "any" }
-              }
-            }
-          }
-        ],
+        "description": "",
         "responses": {
-          "200": { "description": "Animal atualizado" },
-          "400": { "description": "Bad Request" },
-          "403": { "description": "Forbidden" }
+          "403": {
+            "description": "Forbidden"
+          },
+          "default": {
+            "description": ""
+          }
         }
       },
       "delete": {
-        "description": "Exclui um animal",
-        "parameters": [
-          { "name": "id", "in": "path", "required": true, "type": "string" }
-        ],
+        "description": "",
         "responses": {
-          "200": { "description": "Animal excluído com sucesso" },
-          "400": { "description": "Bad Request" },
-          "403": { "description": "Forbidden" }
-        }
-      }
-    },
-
-    "/users": {
-      "post": {
-        "description": "Cadastra um novo usuário",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "description": "Dados do usuário a cadastrar",
-            "required": true,
-            "schema": {
-              "type": "object",
-              "properties": {
-                "nome": { "type": "string", "example": "João da Silva" },
-                "telefone": { "type": "string", "example": "(11) 99999-9999" },
-                "cnpj": { "type": "string", "example": "12.345.678/0001-90" },
-                "userLogin": { "type": "string", "example": "joaosilva" },
-                "senha": { "type": "string", "example": "123456" },
-                "email": { "type": "string", "example": "joao@email.com" },
-                "endereco": { "type": "string", "example": "Rua das Flores, 123" },
-                "tipo": { "type": "string", "example": "adotante" },
-                "userStatus": { "type": "string", "example": "ativo" },
-                "linkUser": { "type": "string", "example": "https://linkfoto.com/joao" }
-              },
-              "required": ["nome", "email", "senha", "tipo"]
-            }
+          "403": {
+            "description": "Forbidden"
+          },
+          "default": {
+            "description": ""
           }
-        ],
-        "responses": {
-          "201": { "description": "Usuário criado com sucesso" },
-          "400": { "description": "Dados inválidos" },
-          "403": { "description": "Acesso negado" }
         }
       }
     },
-
+    "/users": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
     "/users/{id}": {
       "put": {
-        "description": "Atualiza um usuário",
+        "description": "",
         "parameters": [
-          { "name": "id", "in": "path", "required": true, "type": "string" },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
           {
             "name": "body",
             "in": "body",
             "schema": {
               "type": "object",
               "properties": {
-                "nome": { "example": "any" },
-                "telefone": { "example": "any" },
-                "cnpj": { "example": "any" },
-                "userLogin": { "example": "any" },
-                "senha": { "example": "any" },
-                "email": { "example": "any" },
-                "endereco": { "example": "any" },
-                "tipo": { "example": "any" },
-                "userStatus": { "example": "any" },
-                "linkUser": { "example": "any" }
+                "nome": {
+                  "example": "any"
+                },
+                "telefone": {
+                  "example": "any"
+                },
+                "cnpj": {
+                  "example": "any"
+                },
+                "userLogin": {
+                  "example": "any"
+                },
+                "senha": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "endereco": {
+                  "example": "any"
+                },
+                "tipo": {
+                  "example": "any"
+                },
+                "userStatus": {
+                  "example": "any"
+                },
+                "linkUser": {
+                  "example": "any"
+                }
               }
             }
           }
         ],
         "responses": {
-          "200": { "description": "Usuário atualizado" },
-          "400": { "description": "Bad Request" },
-          "403": { "description": "Forbidden" }
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
         }
       },
       "delete": {
-        "description": "Exclui um usuário",
-        "parameters": [
-          { "name": "id", "in": "path", "required": true, "type": "string" }
-        ],
-        "responses": {
-          "200": { "description": "Usuário excluído com sucesso" },
-          "400": { "description": "Bad Request" },
-          "403": { "description": "Forbidden" }
-        }
-      }
-    },
-
-    "/eventos": {
-      "post": {
-        "description": "Cadastra um novo evento",
+        "description": "",
         "parameters": [
           {
-            "in": "body",
-            "name": "body",
-            "description": "Dados do evento a cadastrar",
+            "name": "id",
+            "in": "path",
             "required": true,
-            "schema": {
-              "type": "object",
-              "properties": {
-                "idEvento": { "type": "number", "example": 1 },
-                "idUsuario": { "type": "number", "example": 101 },
-                "data_Publicacao": { "type": "string", "example": "2025-10-23T12:00:00Z" },
-                "data_Exclusao": { "type": "string", "example": "2025-12-31T23:59:59Z" },
-                "tipo_Evento": { "type": "string", "example": "Feira de Adoção" },
-                "texto": { "type": "string", "example": "Evento com adoção de cães e gatos" },
-                "eventoStatus": { "type": "string", "example": "ativo" },
-                "imagem": { "type": "string", "example": "../public/imagem_evento.png" }
-              },
-              "required": ["tipo_Evento", "texto", "eventoStatus"]
-            }
+            "type": "string"
           }
         ],
         "responses": {
-          "201": { "description": "Evento criado com sucesso" },
-          "400": { "description": "Erro nos dados enviados" },
-          "403": { "description": "Acesso negado" },
-          "500": { "description": "Erro interno" }
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
         }
       }
     },
-
+    "/eventos": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
     "/eventos/{id}": {
       "put": {
-        "description": "Atualiza um evento",
+        "description": "",
         "parameters": [
-          { "name": "id", "in": "path", "required": true, "type": "string" },
           {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "tipo_Evento": { "example": "any" },
-                "texto": { "example": "any" },
-                "eventoStatus": { "example": "any" },
-                "imagem": { "example": "any" }
-              }
-            }
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
-          "200": { "description": "Evento atualizado com sucesso" },
-          "400": { "description": "Bad Request" },
-          "403": { "description": "Forbidden" }
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
         }
       },
       "delete": {
-        "description": "Exclui um evento",
+        "description": "",
         "parameters": [
-          { "name": "id", "in": "path", "required": true, "type": "string" }
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
         ],
         "responses": {
-          "200": { "description": "Evento excluído com sucesso" },
-          "400": { "description": "Bad Request" },
-          "403": { "description": "Forbidden" }
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/filtros/animais/cidade/{cidade}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "cidade",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/filtros/animais/porte/{porte}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "porte",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/animais/cidade/{cidade}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "cidade",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/animais/porte/{porte}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "porte",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
         }
       }
     }
   },
-  "security": [{ "apiKeyAuth": [] }]
+  "security": [
+    {
+      "apiKeyAuth": []
+    }
+  ]
 }

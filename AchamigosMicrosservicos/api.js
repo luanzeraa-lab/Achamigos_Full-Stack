@@ -6,6 +6,12 @@ const userRoutes = require('./routes/UserRoute');
 
 
 const app = express(); 
+const apiKeyAuth = require('./middlewares/apiKeyAuth')
+const swaggerUI = require('swagger-ui-express')
+const swaggerFile = require('./swagger-output.json')
+app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerFile))
+
+app.use(apiKeyAuth)
 app.use(express.json()); 
 app.use(cors({ origin: "*" })); 
 app.use(userRoutes);

@@ -1,16 +1,28 @@
 
 const UserModel = require ('../models/UserModel')
 
-exports.cadastrarUser = async(req, res) => {
-    try {
-        const newUser = await UserModel.cadastrarUser(req.body);
-        
-        res.status(200).json(newUser);
-
-    } catch (error) {
-        res.status(400).json({error: error.message})
+exports.listarUser = async (req, res) =>{
+  try {
+    const users = await UserModel.listarUser();
+    if(!users){
+      return res.status(404).json({message: "Nenhum usuário encontrado"})
     }
+    res.status(200).json(users)
+  } catch (error) {
+    res.status(400).json({error: error.message})
+  }
 }
+
+// exports.cadastrarUser = async(req, res) => {
+//     try {
+//         const newUser = await UserModel.cadastrarUser(req.body);
+        
+//         res.status(200).json(newUser);
+
+//     } catch (error) {
+//         res.status(400).json({error: error.message})
+//     }
+// }
 
 exports.alterarUser = async(req, res) => {
     try {

@@ -21,12 +21,17 @@ const UserSchema = new mongoose.Schema({
 });
 const User = mongoose.model("User", UserSchema)
 
-const cadastrarUser = async (dados) => {
-  const newUser = new User({
-    ...dados
-  });
-  return await newUser.save();
-};
+const listarUser = async (req, res) => {
+    return await User.find();
+}
+
+
+// const cadastrarUser = async (dados) => {
+//   const newUser = new User({
+//     ...dados
+//   });
+//   return await newUser.save();
+// };
 
 const alterarUser = async (id, dados) => {
    return await User.findByIdAndUpdate(
@@ -39,4 +44,4 @@ const excluirUser = async (id) => {
   return await User.findByIdAndDelete(id);
 }
 
-module.exports = {User, cadastrarUser, alterarUser, excluirUser};
+module.exports = {User, listarUser,  alterarUser, excluirUser};

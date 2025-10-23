@@ -1,5 +1,18 @@
 const EventoModel = require('../models/EventoModel');
 
+exports.listarEvento = async (req, res) =>{
+  try {
+    const eventos = await EventoModel.listarEvento();
+    if(!eventos){
+      return res.status(404).json({message: "Nenhum evento encontrado"})
+    }
+    res.status(200).json(eventos)
+  } catch (error) {
+    res.status(400).json({error: error.message})
+  }
+}
+
+
 exports.cadastrarEvento = async (req, res) => {
     try {
         const newEvento = await EventoModel.cadastrarEvento(req.body, req.file);

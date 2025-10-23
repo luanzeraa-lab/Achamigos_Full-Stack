@@ -14,6 +14,7 @@ const storage = multer.diskStorage({
 const upload = multer({storage})
     
 
+router.get('/eventos', EventoController.listarEvento)
 router.post('/eventos', upload.single('imagem'), EventoController.cadastrarEvento);
 router.put('/eventos/:id', EventoController.alterarEvento);
 router.delete('/eventos/:id', EventoController.excluirEvento);

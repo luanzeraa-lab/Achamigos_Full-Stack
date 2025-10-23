@@ -15,6 +15,11 @@ const EventoSchema = new mongoose.Schema({
 });
 const Evento = mongoose.model("Evento", EventoSchema)
 
+const listarEvento = async (req, res) => {
+    return await Evento.find();
+}
+
+
 const cadastrarEvento = async (dados, file) =>{
     const newEvento = new Evento({
         ...dados,
@@ -32,4 +37,4 @@ const excluirEvento = async (id) => {
     return await Evento.findByIdAndDelete(id);
 }
 
-module.exports = {Evento, cadastrarEvento, alterarEvento, excluirEvento};
+module.exports = {Evento, listarEvento, cadastrarEvento, alterarEvento, excluirEvento};
