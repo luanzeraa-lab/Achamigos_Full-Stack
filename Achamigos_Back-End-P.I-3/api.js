@@ -1,63 +1,73 @@
 require('dotenv').config();
 const express = require("express");
 const cors = require("cors");
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 const multer = require("multer");
 const fs = require("fs");
 const { ppid } = require('process');
 
-console.log("MONGO_URI =", process.env.MONGO_URI);
 
 const animalRoute = require('./routes/AnimalRoute');
 const userRoute = require('./routes/UserRoute');
 const filtroRoute = require('./routes/FiltroRoute');
-const eventoRoute = require('./routes/EventoRoute')
+const eventoRoute = require('./routes/EventoRoute');
+
+
+const apiKeyAuth = require('./middleware/apiKeyAuth');
+
+
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger-output.json');
+
 
 const app = express();
-const apiKeyAuth = require('./middleware/apiKeyAuth')
-const swaggerUI = require('swagger-ui-express')
-const swaggerFile = require('./swagger-output.json')
-app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerFile))
 
-app.use(apiKeyAuth)
 
 app.use(express.json());
 app.use(cors({ origin: "*" }));
 app.use('/public', express.static(`${__dirname}/public`));
 
+
+const swaggerOptions = {
+  customCssUrl: '/public/custom.css',
+  customSiteTitle: "API Achamigos",
+  customfavIcon: "/public/AchamigosFav.png",
+};
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, swaggerOptions));
+
+
+app.use(apiKeyAuth);
+
+// Rotas protegidas
 app.use(animalRoute);
 app.use(userRoute);
 app.use(eventoRoute);
 app.use('/filtros', filtroRoute);
 
-const port = 3002;
-
-//----------------CONEXÃO COM MONGO------------
-const connectDB = async () =>{
+//---------------- CONEXÃO COM MONGO ----------------
+const connectDB = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI);
-    console.log("Conexão com o banco de dados bem sucedida")
+    console.log("Conexão com o banco de dados bem-sucedida!");
   } catch (error) {
-
-    console.log("Erro: ", error)
+    console.log("Erro ao conectar ao banco:", error);
   }
 };
-connectDB()
+connectDB();
 
-
-//---------SALVAMENTO DE IMAGENS----------
+//---------------- SALVAMENTO DE IMAGENS ----------------
 const storage = multer.diskStorage({
-  destination: function(req, file, cb){
-    cb(null, `${__dirname}/public`)
+  destination: function (req, file, cb) {
+    cb(null, `${__dirname}/public`);
   },
-  filename: function(req, file, cb){
-    cb(null, Date.now() +".jpg");
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + ".jpg");
   }
 });
-const upload = multer({storage})
-    
+const upload = multer({ storage });
 
-    
-app.listen (port, ()=>{
-    console.log(`servidor iniciado com sucesso na porta ${port}`);
+//---------------- INICIAR SERVIDOR ----------------
+const port = 3002;
+app.listen(port, () => {
+  console.log(`🚀 Servidor iniciado com sucesso na porta ${port}`);
 });

@@ -1,0 +1,37 @@
+
+.swagger-ui .information-container::before {
+    content: "";
+    display: block;
+    
+    background: url('/public/meu-logo.png') no-repeat center; 
+    
+    background-size: 500px auto; 
+    height: 180px;
+    margin-bottom: 20px;
+}
+
+.swagger-ui .topbar {
+    background-color: #ffffff ; 
+    border-bottom: 3px solid #ff8e3c 
+}
+
+
+.swagger-ui .topbar-wrapper .link svg {
+    display: none !important;
+}
+
+.swagger-ui .topbar-wrapper .link span {
+    display: none !important;
+}
+
+.swagger-ui .info h2, 
+.swagger-ui .info h3 {
+    color: #333 !important;
+    font-family: "Poppins", sans-serif; /* Certifique-se de que a fonte 'Poppins' está carregada */
+}
+
+.swagger-ui .btn.authorize,
+.swagger-ui .opblock-tag {
+    background: #ff8e3c;
+    color: white;
+}
