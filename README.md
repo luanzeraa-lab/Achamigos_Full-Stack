@@ -12,6 +12,10 @@ Educação: informar sobre cuidados, processos de adoção, eventos e benefício
 
 O site visa resolver a dificuldade que pessoas têm em encontrar animais para adoção e a falta de visibilidade que abrigos enfrentam para promover seus animais, reduzindo assim o número de pets abandonados e ajudando a encontrar lares adequados. 
 
+## Casos de uso
+
+<img width="822" height="438" alt="casos_de_uso" src="https://github.com/user-attachments/assets/ae8f6a1b-331a-4389-a362-7143ccc72514" />
+
 
 ## Colaboradores
 
@@ -27,6 +31,13 @@ O site visa resolver a dificuldade que pessoas têm em encontrar animais para ad
 As sprints foram organizadas para acompanhar o desenvolvimento do projeto de forma gradual, garantindo a entrega contínua de novas funcionalidades e melhorias
 ## Repositórios Individuais
 
+| Sprint               | Datas                                                |
+| ----------------- | ---------------------------------------------------------------- |
+| Sprint 1    ✅   | 15/09/25  -  29/09/25 |
+| Sprint 2    ✅   | 29/09/25  -  13/10/25 |
+| Sprint 3    ✅   | 13/10/25  -  27/10/25 |
+
+## Repositórios Individuais
 Segue o link de ambos os repositórios usados para todas as materias:
 
 - Back Node:
