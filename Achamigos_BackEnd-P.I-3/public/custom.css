@@ -11,7 +11,7 @@
 }
 
 .swagger-ui .topbar {
-    background-color: #ffffff ; 
+    background-color: #ff8e3c  ; 
     border-bottom: 3px solid #ff8e3c 
 }
 
@@ -33,5 +33,5 @@
 .swagger-ui .btn.authorize,
 .swagger-ui .opblock-tag {
     background: #ff8e3c;
-    color: white;
+    color: black;
 }

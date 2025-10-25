@@ -11,7 +11,7 @@
 }
 
 .swagger-ui .topbar {
-    background-color: #ffffff ; 
+    background-color: #ff8e3c  ; 
     border-bottom: 3px solid #ff8e3c 
 }
 
@@ -27,11 +27,11 @@
 .swagger-ui .info h2, 
 .swagger-ui .info h3 {
     color: #333 !important;
-    font-family: "Poppins", sans-serif; /* Certifique-se de que a fonte 'Poppins' está carregada */
+    font-family: "Poppins", sans-serif; 
 }
 
 .swagger-ui .btn.authorize,
 .swagger-ui .opblock-tag {
     background: #ff8e3c;
-    color: white;
+    color: black;
 }

@@ -1,13 +1,13 @@
 {
-  "name": "app.js",
+  "name": "microsservicos-api",
   "version": "1.0.0",
-  "description": "apiAchamigos",
+  "description": "MicrosservicosAchamigos",
   "license": "ISC",
   "author": "",
   "type": "commonjs",
-  "main": "index.js",
+  "main": "api.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node api.js"
   },
   "dependencies": {
     "bcryptjs": "^3.0.2",
