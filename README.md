@@ -29,7 +29,6 @@ O site visa resolver a dificuldade que pessoas têm em encontrar animais para ad
 ## Sprints
 
 As sprints foram organizadas para acompanhar o desenvolvimento do projeto de forma gradual, garantindo a entrega contínua de novas funcionalidades e melhorias
-## Repositórios Individuais
 
 | Sprint               | Datas                                                |
 | ----------------- | ---------------------------------------------------------------- |
