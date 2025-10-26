@@ -99,4 +99,4 @@ Utilizamos os seguintes recursos e ferramentas:
 
 ---
 
-💙 _Projeto desenvolvido com dedicação por estudantes do curso de Análise e Desenvolvimento de Software Multiplataforma._
+💙 _Projeto desenvolvido com dedicação por estudantes do curso de Desenvolvimento de Software Multiplataforma._
