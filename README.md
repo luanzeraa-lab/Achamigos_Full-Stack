@@ -1,5 +1,5 @@
 <!-- 🖼️ Capa -->
-![Capa do Projeto](https://github.com/user-attachments/assets/5efacdb3-64b4-4d43-b02f-6b83cf07b0ab)
+![Capa do Projeto](./assets/Logo.png)
 
 # 🐾 Projeto Integrador — Achamigos
 
