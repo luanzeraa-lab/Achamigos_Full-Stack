@@ -1,5 +1,5 @@
 <!-- 🖼️ Capa -->
-![Capa do Projeto](./assets/Logo.png)
+![Capa do Projeto](https://github.com/luanzeraa-lab/Achamigos_Full-Stack/blob/main/assets/Logo.png?raw=true)
 
 # 🐾 Projeto Integrador — Achamigos
 
