@@ -1,5 +1,5 @@
 
-# Projeto integrado Achamigos
+# Projeto integrador Achamigos
 
 O site Achamigos é uma plataforma que visa conectar pessoas interessadas em adoção de animais a instituições de adoção, abrigos, e organizações de proteção animal, facilitando a busca e o processo de adoção. 
 Os principais objetivos do site são: 
