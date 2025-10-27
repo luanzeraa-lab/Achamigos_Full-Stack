@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "API Achamigos",
-    "description": "Documentação da API Achamigos usando Swagger",
+    "description": "Documentação da API Achamigos",
     "version": "1.0.0"
   },
   "host": "localhost:3002",
@@ -32,6 +32,27 @@
       },
       "post": {
         "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nome": { "example": "any" },
+                "idade": { "example": "any" },
+                "raca": { "example": "any" },
+                "sexo": { "example": "any" },
+                "porte": { "example": "any" },
+                "peso": { "example": "any" },
+                "observacoes": { "example": "any" },
+                "castracao": { "example": true },
+                "imagem": { "example": "any" },
+                "userId": { "example": "any" }
+              }
+            }
+          }
+        ],
         "responses": {
           "201": {
             "description": "Created"
@@ -48,6 +69,32 @@
     "/animais/{id}": {
       "put": {
         "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nome": { "example": "any" },
+                "idade": { "example": "any" },
+                "raca": { "example": "any" },
+                "sexo": { "example": "any" },
+                "porte": { "example": "any" },
+                "peso": { "example": "any" },
+                "observacoes": { "example": "any" },
+                "castracao": { "example": true },
+                "imagem": { "example": "any" }
+              }
+            }
+          }
+        ],
         "responses": {
           "403": {
             "description": "Forbidden"
@@ -59,6 +106,14 @@
       },
       "delete": {
         "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "403": {
             "description": "Forbidden"
@@ -104,36 +159,16 @@
             "schema": {
               "type": "object",
               "properties": {
-                "nome": {
-                  "example": "any"
-                },
-                "telefone": {
-                  "example": "any"
-                },
-                "cnpj": {
-                  "example": "any"
-                },
-                "userLogin": {
-                  "example": "any"
-                },
-                "senha": {
-                  "example": "any"
-                },
-                "email": {
-                  "example": "any"
-                },
-                "endereco": {
-                  "example": "any"
-                },
-                "tipo": {
-                  "example": "any"
-                },
-                "userStatus": {
-                  "example": "any"
-                },
-                "linkUser": {
-                  "example": "any"
-                }
+                "nome": { "example": "any" },
+                "telefone": { "example": "any" },
+                "cnpj": { "example": "any" },
+                "userLogin": { "example": "any" },
+                "senha": { "example": "any" },
+                "email": { "example": "any" },
+                "endereco": { "example": "any" },
+                "tipo": { "example": "any" },
+                "userStatus": { "example": "any" },
+                "linkUser": { "example": "any" }
               }
             }
           }
@@ -193,6 +228,23 @@
       },
       "post": {
         "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data_Publicacao": { "example": "any" },
+                "data_Exclusao": { "example": "any" },
+                "tipo_Evento": { "example": "any" },
+                "texto": { "example": "any" },
+                "eventoStatus": { "example": "any" },
+                "imagem": { "example": "any" }
+              }
+            }
+          }
+        ],
         "responses": {
           "201": {
             "description": "Created"
@@ -305,54 +357,6 @@
           },
           "403": {
             "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/animais/cidade/{cidade}": {
-      "get": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "cidade",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/animais/porte/{porte}": {
-      "get": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "porte",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
           },
           "404": {
             "description": "Not Found"

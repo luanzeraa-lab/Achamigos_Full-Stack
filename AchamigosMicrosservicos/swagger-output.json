@@ -2,9 +2,13 @@
   "swagger": "2.0",
   "info": {
     "title": "Microsserviço Achamigos",
-    "description": "Documentação do cadastro de usuário usando Swagger",
+    "description": "Documentação do cadastro e autenticação de usuário",
     "version": "1.0.0"
   },
+  "host": "localhost:5001",
+  "schemes": [
+    "http"
+  ],
   "basePath": "/",
   "securityDefinitions": {
     "apiKeyAuth": {

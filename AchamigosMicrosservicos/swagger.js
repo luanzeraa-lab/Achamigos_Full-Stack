@@ -3,7 +3,7 @@ const swaggerAutogen = require('swagger-autogen')();
 const docs = {
   info: {
     title: 'Microsserviço Achamigos',
-    description: 'Documentação do cadastro de usuário usando Swagger',
+    description: 'Documentação do cadastro e autenticação de usuário',
   },
   host: 'localhost:5001',
   schemes: ['http'],

@@ -30,7 +30,7 @@ app.get('/swagger-output.json', (req, res) => {
 const swaggerOptions = {
   customCssUrl: '/public/custom.css',
   customSiteTitle: "API Achamigos",
-  customfavIcon: "/public/AchamigosFav.png",
+  customfavIcon: "/public/fav2.png",
 };
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, swaggerOptions));
 

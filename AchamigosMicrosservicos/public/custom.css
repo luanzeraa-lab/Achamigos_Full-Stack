@@ -10,6 +10,15 @@
     margin-bottom: 20px;
 }
 
+
+.swagger-ui .topbar-wrapper .link::before {
+  content: "";
+  background: url('/public/gatinho.png') no-repeat left center;
+  background-size: contain;
+  width: 180px;    
+  height: 45px;    
+}
+
 .swagger-ui .topbar {
     background-color: #ff8e3c  ; 
     border-bottom: 3px solid #ff8e3c 

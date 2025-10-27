@@ -44,7 +44,7 @@ exports.alterarEvento = async (req, res) => {
 exports.excluirEvento = async (req, res) => {
     try {
         const {id} = req.params;
-        const eventoDeletado = await EventoModel.alterarEvento(id);
+        const eventoDeletado = await EventoModel.excluirEvento(id);
         
         if(!eventoDeletado){
              res.status(400).json({message: "Erro ao alterar Evento"})
