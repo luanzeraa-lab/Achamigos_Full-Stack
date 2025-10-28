@@ -20,6 +20,7 @@ O site busca resolver a dificuldade que pessoas têm em encontrar animais para a
 ## 🔗 Índice
 
 - [📋 Casos de Uso](#-casos-de-uso)
+- [📋 Requisitos](#-requisitos)
 - [📅 Sprints](#-sprints)
 - [📁 Repositórios Individuais](#-repositórios-individuais)
 - [⚙️ Tecnologias](#️-tecnologias)
@@ -33,11 +34,12 @@ O site busca resolver a dificuldade que pessoas têm em encontrar animais para a
 
 ---
 
-## 📋 Requisitos funcionais e não funcionais
+## 📋 Requisitos
 
 <img width="886" height="343" alt="image" src="https://github.com/user-attachments/assets/a65cd939-7e3c-4720-8fe8-2e348a282139" />
 
-<img width="886" height="343" alt="image" src="https://github.com/user-attachments/assets/5e488e35-d407-414c-afd6-beaf07e1a29c" />
+<img width="886" height="504" alt="image" src="https://github.com/user-attachments/assets/05bfddf6-e95a-41c1-968f-241d1ad1a18e" />
+
 
 ---
 
