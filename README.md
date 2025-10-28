@@ -33,6 +33,14 @@ O site busca resolver a dificuldade que pessoas têm em encontrar animais para a
 
 ---
 
+## 📋 Requisitos funcionais e não funcionais
+
+<img width="886" height="343" alt="image" src="https://github.com/user-attachments/assets/a65cd939-7e3c-4720-8fe8-2e348a282139" />
+
+<img width="886" height="343" alt="image" src="https://github.com/user-attachments/assets/5e488e35-d407-414c-afd6-beaf07e1a29c" />
+
+---
+
 ## 📅 Sprints
 
 As sprints foram organizadas para acompanhar o desenvolvimento do projeto de forma gradual, garantindo a entrega contínua de novas funcionalidades e melhorias.
