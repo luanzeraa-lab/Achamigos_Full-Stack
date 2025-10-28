@@ -1,7 +1,3 @@
-<!-- 🖼️ Capa -->
-<p align="center">
-  <img src="https://raw.githubusercontent.com/luanzeraa-lab/Achamigos_Full-Stack/main/assets/Logo.jpg" alt="Capa do Projeto" width="800"/>
-</p>
 
 <h1 align="center">🐾 Projeto Integrador — Achamigos</h1>
 
@@ -52,7 +48,7 @@ As sprints foram organizadas para acompanhar o desenvolvimento do projeto de for
 | Sprint 1 | 15/09/2025 - 29/09/2025 | ✅ Concluída |
 | Sprint 2 | 29/09/2025 - 13/10/2025 | ✅ Concluída |
 | Sprint 3 | 13/10/2025 - 27/10/2025 | ✅ Concluída |
-| Sprint 4 | 27/10/2025 - 10/11/2025 | 🕓 Em andamento |
+| Sprint 4 | 28/10/2025 - 11/11/2025 | 🕓 Em andamento |
 
 ---
 
