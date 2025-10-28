@@ -1,82 +1,76 @@
-"use client";
-
-import 'bootstrap/dist/css/bootstrap.min.css';
-
+'use client';
 import { useRouter } from 'next/navigation';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from "yup";
-import Nav2 from "@/components/Nav2";
-import Footer from "@/components/Footer";
-
-
-
+import { Button } from '../../components/Button';
+import * as Yup from 'yup';
+import Nav2 from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 const Login = () => {
-
   const validation = Yup.object({
-          emailcpf: Yup.string().required("Campo obrigatório"),
-          password: Yup.string().required("Campo obrigatório"),
-      })
-  
-      const router = useRouter();
+    emailcpf: Yup.string().required('Campo obrigatório'),
+    password: Yup.string().required('Campo obrigatório'),
+  });
+
+  const router = useRouter();
 
   return (
     <>
-      <div className="min-h-screen flex flex-col bg-[#ffeccf]">
+    
+      <Nav2 />
+      <main className="min-h-screen flex flex-col bg-[#fffffe] mt-[6rem]">
+        <Formik
+          initialValues={{ emailcpf: '', password: '' }}
+          validationSchema={validation}
+          onSubmit={(valores) => {
+            console.log(valores.emailcpf);
+            console.log(valores.password);
+            router.push('/PaginaUsuario');
+          }}
+        >
+          <Form>
+            <div className="mt-4 d-flex justify-center">
+              <div className=" flex flex-col text-start col-4">
+                <p className=" self-center font-bold text-[1.5rem]">Login</p>
 
-        <Nav2 />
+                <label htmlFor="emailcpf" className="font-[700] mb-1">
+                  Nome de usuário ou Email
+                </label>
+                <Field
+                  type="text"
+                  name="emailcpf"
+                  placeholder="Digite seu nome de usuário ou Email"
+                  className="form-control text-[14px]"
+                  id="emailcpf"
+                />
+                <ErrorMessage name="emailcpf" component="div" />
 
-        <main className="flex-1 flex flex-col">
+                <label htmlFor="password" className="mt-4 mb-1 font-[700]">
+                  Senha
+                </label>
+                <Field
+                  type="password"
+                  name="password"
+                  placeholder="Digite sua senha"
+                  className="form-control text-[14px]"
+                  id="password"
+                />
+                <ErrorMessage name="password" component="div" />
 
-          <Formik
-                initialValues={{emailcpf:"", password:""}}
-                validationSchema={validation}
-                onSubmit={(valores)=>{
-                    console.log(valores.emailcpf);
-                    console.log(valores.password);
-                    router.push("/PaginaUsuario")
-                }}>
-                <Form>
-                    <div className='mt-4 d-flex justify-center'>
-                        <div className="text-center col-4">
-                            <p className='font-bold text-2xl'>Login</p>
-                            
-                            <label htmlFor="emailcpf">Email ou CPF</label>
-                            <Field
-                            type="text"
-                            name="emailcpf"
-                            className="form-control"
-                            id="emailcpf"
-                             />
-                             <ErrorMessage name='emailcpf' component="div"/>
-                            
-                             <label htmlFor="password" className="mt-2">Senha</label>
-                        <Field
-                            type="password"
-                            name="password"
-                            className="form-control"
-                            id="password"
-                        />
-                        <ErrorMessage name="password" component="div" />
-                           
-                           <button className="border-2 rounded-full bg-[#ff8110] w-20 mt-2" type="submit">Entrar</button>
-                            
-                        </div>
-                    </div>
-                    <div className="mt-4 text-center">
-                        <p id="ou">OU</p>
-                        <p className="mt-2 font-bold text-2xl">Cadastre-Se</p>
-                        <input className="border-2 rounded-full bg-[#ff8110] w-20 m-2"
-                        type="button" value="Cadastrar" onClick={()=>{router.push("/CadastroUsuario")}} />
-                    </div>
+                <Button  type="submit" title="Entrar" className='w-full mt-4 mb-3' />
 
-                </Form>    
-            </Formik>
-
-        </main>
-
-        <Footer />
-      </div>
+                <Button 
+                  title="Fazer cadastro"
+                  onClick={() => {
+                    router.push('/CadastroUsuario');
+                  }} className='w-full mt-2'
+                />
+              </div>
+            </div>
+          </Form>
+        </Formik>
+      </main>
+      <Footer/>
     </>
   );
 };

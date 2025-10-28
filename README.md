@@ -1,7 +1,3 @@
-<!-- 🖼️ Capa -->
-<p align="center">
-  <img src="https://raw.githubusercontent.com/luanzeraa-lab/Achamigos_Full-Stack/main/assets/Logo.jpg" alt="Capa do Projeto" width="800"/>
-</p>
 
 <h1 align="center">🐾 Projeto Integrador — Achamigos</h1>
 
@@ -20,6 +16,7 @@ O site busca resolver a dificuldade que pessoas têm em encontrar animais para a
 ## 🔗 Índice
 
 - [📋 Casos de Uso](#-casos-de-uso)
+- [📋 Requisitos](#-requisitos)
 - [📅 Sprints](#-sprints)
 - [📁 Repositórios Individuais](#-repositórios-individuais)
 - [⚙️ Tecnologias](#️-tecnologias)
@@ -33,6 +30,15 @@ O site busca resolver a dificuldade que pessoas têm em encontrar animais para a
 
 ---
 
+## 📋 Requisitos
+
+<img width="886" height="343" alt="image" src="https://github.com/user-attachments/assets/a65cd939-7e3c-4720-8fe8-2e348a282139" />
+
+<img width="886" height="504" alt="image" src="https://github.com/user-attachments/assets/05bfddf6-e95a-41c1-968f-241d1ad1a18e" />
+
+
+---
+
 ## 📅 Sprints
 
 As sprints foram organizadas para acompanhar o desenvolvimento do projeto de forma gradual, garantindo a entrega contínua de novas funcionalidades e melhorias.
@@ -42,7 +48,7 @@ As sprints foram organizadas para acompanhar o desenvolvimento do projeto de for
 | Sprint 1 | 15/09/2025 - 29/09/2025 | ✅ Concluída |
 | Sprint 2 | 29/09/2025 - 13/10/2025 | ✅ Concluída |
 | Sprint 3 | 13/10/2025 - 27/10/2025 | ✅ Concluída |
-| Sprint 4 | 27/10/2025 - 10/11/2025 | 🕓 Em andamento |
+| Sprint 4 | 28/10/2025 - 11/11/2025 | 🕓 Em andamento |
 
 ---
 

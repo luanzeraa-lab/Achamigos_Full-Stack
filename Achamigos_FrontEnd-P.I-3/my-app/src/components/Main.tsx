@@ -1,21 +1,22 @@
-
-import Carrossel from './Carrossel'
+import Carrossel from './Carrossel';
 import Image from 'next/image';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Main = () => {
-    return (
-        <>
-            <Carrossel/>
-            <div id="bottomcarroussel">
-                <Image id="crime" 
-                className='mt-6'
-                src="/images/abandono-de-animais---crime-federal-dyp64t3hrm.webp" 
-                alt="Crime-related image"
-                 width={1000} height={300} />
-            </div>
-        </>
-    );
+  return (
+    <>
+      <div className="flex flex-col gap-4">
+        <Carrossel />
+        {/* <Image
+          className="self-center mb-3"
+          src="/images/abandono-de-animais---crime-federal-dyp64t3hrm.webp"
+          alt="Crime-related image"
+          width={1200}
+          height={600}
+        /> */}
+      </div>
+    </>
+  );
 };
 
 export default Main;

@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #fffffe;
+}
+
+span {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  color: #2a2a2a;
+}
+
+/* Media queries customizadas para esconder elementos e outros ajustes fora do tailwindcss */
+//900px
+@media (width <= 56.25rem) {
+  // Home -> Card -> Como usar
+  .image-pet {
+    display: none;
+  }
+}
