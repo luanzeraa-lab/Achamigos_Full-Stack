@@ -1,4 +1,4 @@
-import { IEndereco } from "@/app/CadastroUsuario/IEndereco";
+import { IEndereco } from '@/app/CadastroUsuario/IEndereco';
 
 declare global {
   interface Window {

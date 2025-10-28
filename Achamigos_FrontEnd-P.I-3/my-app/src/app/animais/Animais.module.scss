@@ -1,0 +1,152 @@
+.gridcate {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #fffffe;
+  display: grid;
+  grid-template-areas:
+    'nav nav '
+    'apre apre'
+    'aside cata'
+    'aside cata'
+    'aside cata'
+    'aside cata'
+    'footer footer';
+
+  grid-template-columns: 2fr 8fr;
+
+  grid-template-rows: auto auto repeat(4, 1fr) auto;
+  gap: 10px;
+
+  & .Navc {
+    grid-area: nav;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+  }
+
+  & .apresentacao {
+    grid-area: apre;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  & .asfiltro {
+    grid-area: aside;
+    display: flex;
+    min-width: 23.375rem;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 1px 8px -1px #a3a3a3;
+    flex-direction: column;
+    background-color: #f3f4f6;
+    border-radius: 2rem;
+    padding: 1rem;
+    margin-left: 1rem;
+    height: 44.54875rem;
+    position: static;
+
+    & input[type='checkbox'] {
+      appearance: none;
+      width: 1rem;
+      height: 1rem;
+      border: 1px solid #333;
+      border-radius: 4px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    & ul {
+      list-style-type: none;
+      padding: 0;
+      & li input {
+        margin-right: 0.5rem;
+      }
+    }
+
+    & h2 {
+      font-size: 1.5rem;
+    }
+  }
+
+  & .flex-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  & .descricaoani {
+    grid-area: cata;
+    margin-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    & .figures {
+      display: flex;
+      align-items: center;
+      box-shadow: 0 1px 8px -1px #a3a3a3;
+      background-color: #fffffe;
+      border-radius: 12px;
+    }
+  }
+
+  & .footercat {
+    grid-area: footer;
+  }
+}
+
+@media (width <= 93.75rem) {
+  .gridcate {
+    & .descricaoani {
+      flex-wrap: wrap;
+      margin-right: 0px;
+      flex-direction: row;
+      justify-content: space-around;
+
+      & .figures {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        max-width: 27.375rem;
+
+        & img {
+          border-radius: 0.75rem 0.75rem 0 0;
+        }
+
+        & figcaption {
+          padding-inline: 2rem;
+          gap: 3rem;
+        }
+      }
+    }
+  }
+}
+
+@media (width <= 56.25rem) {
+  .gridcate {
+    grid-template-areas:
+      'nav'
+      'aside'
+      'apre'
+      'cata'
+      'footer';
+
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+
+    & .asfiltro {
+      width: 21.25rem;
+      margin-inline: auto;
+      margin-block: 2rem;
+    }
+
+    & .figures {
+      width: 21.25rem;
+
+      & img {
+        width: 21.25rem;
+      }
+    }
+  }
+}
