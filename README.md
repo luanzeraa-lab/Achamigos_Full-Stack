@@ -1,6 +1,5 @@
 
-  <img src="https://github.com/luanzeraa-lab/Achamigos_Full-Stack/blob/main/assets/logocerto%20-%20Copia.png?raw=true" alt="Capa do projeto Achamigos" width="600">
-
+  ![Capa do projeto](./assets/logocerto%20-%20Copia.png)
 <h1 align="center">🐾 Projeto Integrador — Achamigos</h1>
 
 O **Achamigos** é uma plataforma que conecta pessoas interessadas em adoção de animais a instituições, abrigos e ONGs de proteção animal, facilitando a busca e o processo de adoção.  
