@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/logocerto - Copia.png" alt="Capa do projeto" width="800">
+  <img src="https://github.com/luanzeraa-lab/Achamigos_Full-Stack/blob/main/assets/logocerto%20-%20Copia.png?raw=true" alt="Capa do projeto Achamigos" width="600">
 </p>
 <h1 align="center">🐾 Projeto Integrador — Achamigos</h1>
 
