@@ -1,6 +1,5 @@
 
-  ![Capa do projeto](./assets/logocerto%20-%20Copia.png)
-<h1 align="center">🐾 Projeto Integrador — Achamigos</h1>
+<img width="1280" height="358" alt="Image" src="https://github.com/user-attachments/assets/c026af7e-899f-43a8-a2aa-3b529802da94" />
 
 O **Achamigos** é uma plataforma que conecta pessoas interessadas em adoção de animais a instituições, abrigos e ONGs de proteção animal, facilitando a busca e o processo de adoção.  
 
