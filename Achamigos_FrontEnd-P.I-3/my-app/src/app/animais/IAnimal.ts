@@ -6,6 +6,7 @@ export interface IAnimal {
   sexo: string;
   porte: string;
   peso: string;
+  vacinas:string[],
   observacoes: string;
   castracao: boolean;
   imagem: File;
