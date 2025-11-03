@@ -25,6 +25,7 @@ const createAnimal = (
   formData.append('sexo', sexo);
   formData.append('porte', porte);
   formData.append('peso', peso);
+  formData.append('vacinas', JSON.stringify(vacinas));
   formData.append('observacoes', observacoes);
   formData.append('castracao', castracao ? 'true' : 'false');
   if (imagem) {
@@ -36,11 +37,23 @@ const createAnimal = (
         'Content-Type': 'multipart/form-data',
       },
     })
-
     .then((res) => {
       console.log(JSON.stringify(res.data));
+      const idAnimal = res.data._id;
+
       if (res.status === 201) {
-        alert('Animal cadastrado com sucesso!');
+        axios.post('http://localhost:8081/vacinacao', {
+          idAnimal,
+          vacinas
+        })
+
+          .then((res) => {
+            console.log(JSON.stringify(res.data));
+            alert(`Animal cadastrado com sucesso! ID: ${idAnimal}`);
+          })
+          .catch(() => {
+            alert('Falha ao tentar cadastrar as vacinas');
+          });
       } else {
         alert('Falha ao tentar cadastrar o animal');
       }
@@ -64,13 +77,12 @@ const CadastroAnimais = () => {
   const [castrado, setCastrado] = useState<boolean>(false);
   const [imgAnimal, setImgAnimal] = useState<File | undefined>(undefined);
 
-  const handleVacinaChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value, checked } = e.target;
-
+  const vacinaChecada = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value, checked } = event.target;
     if (checked) {
-      setVacinaAnimal((prev) => [...prev, value]);
+      setVacinaAnimal([...vacinaAnimal, value]);
     } else {
-      setVacinaAnimal((prev) => prev.filter((v) => v !== value));
+      setVacinaAnimal(vacinaAnimal.filter((vacina) => vacina !== value));
     }
   };
 
@@ -179,16 +191,16 @@ const CadastroAnimais = () => {
                 <h5 className="mb-4"> 🐾 Saúde do amiguinho</h5>
 
 
-{/*-------------------------- VACINAÇÃO-----------------------------------*/}
+  {/* /*-------------------------- VACINAÇÃO-----------------------------------*/}
                 
                 <div className={styles['checkbox-wrapper']}>
                   <Form.Label>💉 Vacinas</Form.Label>
 
-                <Form.Check label="V8 ou V10" value="v8" onChange={handleVacinaChange} />
-                <Form.Check label="Antirrábica" value="antirrabica" onChange={handleVacinaChange} />
-                <Form.Check label="Giardíase" value="giardiase" onChange={handleVacinaChange} />
-                <Form.Check label="Tosse dos Canis" value="tosse" onChange={handleVacinaChange} />
-                <Form.Check label="Outras" value="others" onChange={handleVacinaChange} />
+                <Form.Check label="V8 ou V10" value="v8" onChange={vacinaChecada} />
+                <Form.Check label="Antirrábica" value="antirrabica" onChange={vacinaChecada} />
+                <Form.Check label="Giardíase" value="giardiase" onChange={vacinaChecada} />
+                <Form.Check label="Tosse dos Canis" value="tosse" onChange={vacinaChecada} />
+                <Form.Check label="Outras" value="others" onChange={vacinaChecada} />
 
 
                   <Form.Label htmlFor="observations" className="mt-3 mb-0.5">
@@ -329,6 +341,5 @@ const CadastroAnimais = () => {
       </Container>
     </>
   );
-};
-
-export default CadastroAnimais;
+}
+export default CadastroAnimais;         
