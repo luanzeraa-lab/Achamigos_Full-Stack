@@ -8,18 +8,17 @@ import Nav2 from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ConsultaCep from '@/components/ConsultaCep';
 import eventosService from '@/services/eventoService';
-import eventoService from '@/services/usuarioService';
 
 const createEvento = async (
   nomeEvento: string,
-  data_Publicacao: Date,
+  data: Date,
   tipo_Evento: string,
   texto: string,
   imagem: File | undefined,
 ) => {
   const formData = new FormData();
   formData.append('nomeEvento', nomeEvento);
-  formData.append('data_Publicacao', data_Publicacao.toISOString());
+  formData.append('data', data.toISOString());
   formData.append('tipo_Evento', tipo_Evento);
   formData.append('texto', texto);
   if (imagem) {
@@ -38,7 +37,7 @@ const createEvento = async (
 
 const CadastroEventos = () => {
   const [nomeEvento, setNomeEvento] = useState<string>('');
-  const [data_Publicacao, setData_Publicacao] = useState<string>('');
+  const [data, setData] = useState<string>('');
   const [tipo_Evento, setTipo_Evento] = useState<string>('');
   const [texto, setTexto] = useState<string>('');
   const [imagemEvento, setImagemEvento] = useState<File | undefined>(undefined);
@@ -68,8 +67,8 @@ const CadastroEventos = () => {
             <Form.Label>Data</Form.Label>
             <Form.Control
               type="date"
-              value={data_Publicacao}
-              onChange={(e) => setData_Publicacao(e.target.value)}
+              value={data}
+              onChange={(e) => setData(e.target.value)}
             />
           </div>
 
@@ -147,7 +146,7 @@ const CadastroEventos = () => {
             onClick={() => {
               createEvento(
                 nomeEvento,
-                new Date(data_Publicacao),
+                new Date(data),
                 tipo_Evento,
                 texto,
                 imagemEvento,
