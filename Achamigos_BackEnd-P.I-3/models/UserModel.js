@@ -15,8 +15,6 @@ const UserSchema = new mongoose.Schema({
     senha: {type: String, required: true},
     email: {type: String, required: true},
     endereco: EnderecoSchema,
-    tipo: {type: String, required: true},
-    userStatus: {type: String, required: true},
     linkUser: {type: String}
 });
 const User = mongoose.model("User", UserSchema)
