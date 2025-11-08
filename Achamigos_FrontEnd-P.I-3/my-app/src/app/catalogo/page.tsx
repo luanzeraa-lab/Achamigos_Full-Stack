@@ -16,10 +16,10 @@ const Catalogo = () => {
 
   useEffect(()=>{
         const listaAnimal = async ()=>{
-            const response = await axios.get("http://localhost:3002/cadastroanimal");
-
-            setAnimal(response.data);
-            console.log(response.data);
+            const res = await axios.get("http://localhost:3002/animais");
+            console.log("🧩 Dados do backend:", res.data);
+            setAnimal(res.data);
+            console.log(res.data);
         };
         listaAnimal();
     }, []);
@@ -84,7 +84,7 @@ const Catalogo = () => {
                           <h2>Idade</h2>
                       <ul>
                         <li><input className="form-check-input" type="checkbox" />
-                        <label className="form-check-label">0-10 anos</label></li>
+                        <label className="form-check-label">0-10git anos</label></li>
 
                         <li><input className="form-check-input" type="checkbox" />
                         <label className="form-check-label" >10 anos+</label></li>
@@ -102,7 +102,7 @@ const Catalogo = () => {
 
                 <div className= {styles['descricaoani']}>
                    
-                        {animal.map(ani=>{
+                        {/* {animal.map(ani=>{
                     return(
                         <figure className= {styles['figures']}
                         key={ani._id}>
@@ -121,7 +121,8 @@ const Catalogo = () => {
                             </figcaption>
                         </figure>
                     )
-                    })}
+                    })} */}
+                        
 
                 </div>
             
