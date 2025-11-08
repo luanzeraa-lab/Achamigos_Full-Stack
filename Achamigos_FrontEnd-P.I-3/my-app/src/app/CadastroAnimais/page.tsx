@@ -79,7 +79,7 @@ const CadastroAnimais = () => {
         const idAnimal = res.data._id;
         if (res.status === 201) {
           axios
-            .post('http://localhost:8081/vacinacao', { idAnimal, vacinas })
+            .post(`http://localhost:8081/vacinacao/gerar/${idAnimal}`)
             .then(() => alert(`Animal cadastrado com sucesso! ID: ${idAnimal}`))
             .catch(() => alert('Falha ao tentar cadastrar as vacinas'));
         } else {
