@@ -1,5 +1,9 @@
 const mongoose = require('mongoose');
 
+const VacinaSchema = new mongoose.Schema({
+    nome: {type: String, required: true}
+})
+
 const AnimalSchema = new mongoose.Schema({
     nome: {type: String, required: true},
     idade: {type: String},
@@ -9,6 +13,7 @@ const AnimalSchema = new mongoose.Schema({
     peso: {type: String}, 
     observacoes: {type: String},
     castracao: {type: Boolean, required:true},
+    vacinas: [VacinaSchema],
     imagem: {type: String},
     userId:{
       type: mongoose.Schema.Types.ObjectId,

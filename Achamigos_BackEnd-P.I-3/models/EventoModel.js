@@ -1,16 +1,10 @@
 const mongoose = require('mongoose');
 
 const EventoSchema = new mongoose.Schema({
-    ///PK
-    idEvento : {type: Number},
-    //FK
-    idUsuario: {type: Number},
-    
-    data_Publicacao: {type: Date, default: Date.now },
-    data_Exclusao :{type: Date, default: Date.now },
+    nomeEvento: {type: String, required: true},
+    data: {type: Date, default: Date.now },
     tipo_Evento: {type: String},
     texto: {type: String},
-    eventoStatus :{type: String},
     imagem: {type: String}
 });
 const Evento = mongoose.model("Evento", EventoSchema)

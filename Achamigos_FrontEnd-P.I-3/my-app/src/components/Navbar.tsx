@@ -10,7 +10,7 @@ import Link from 'next/link';
 
 const Nav2 = () => {
   const router = useRouter();
-  // Código a ser utilizado para implementação do filtro de busca com API
+  // Código a ser utilizado para implementação do filtro de busca
   const [filtered, setFiltered] = useState<string[]>([]);
   const pages = ['Login', 'Parceiros', 'Informacoes', 'Catalogo'];
 
@@ -90,7 +90,7 @@ const Nav2 = () => {
             </Link>
           </div>
 
-          <div className="hidden max-[850px]:flex cursor-pointer max-[500px]:ml-[1rem]">
+          <div className="hidden max-[850px]:flex max-[850px]:justify-center  cursor-pointer max-[500px]:ml-[1rem]">
             <MenuMobile />
           </div>
           <Button

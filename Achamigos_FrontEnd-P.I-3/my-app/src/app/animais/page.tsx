@@ -27,13 +27,13 @@ const Animais = () => {
 
   return (
     <>
+    <div className={styles['Navc']}>
+    <Nav2 />
+    </div>
+    
       <Container fluid className={styles['gridcate']}>
-        <div className={styles['Navc']}>
-          <Nav2 />{' '}
-        </div>
-
         <div className={styles['apresentacao']}>
-          <h1 className="text-[1.875rem] font-[700]">
+          <h1 className="text-[1.875rem] font-[700] my-2">
             Pets para adoção
           </h1>
         </div>
@@ -54,7 +54,6 @@ const Animais = () => {
               </li>
 
               <li>
-                {' '}
                 <input className="form-check-input" type="checkbox" />
                 <label className="form-check-label">Outros</label>
               </li>
@@ -75,7 +74,6 @@ const Animais = () => {
               </li>
 
               <li>
-                {' '}
                 <input className="form-check-input" type="checkbox" />
                 <label className="form-check-label">Grande</label>
               </li>
@@ -96,7 +94,6 @@ const Animais = () => {
               </li>
 
               <li>
-                {' '}
                 <input className="form-check-input" type="checkbox" />
                 <label className="form-check-label">Outras</label>
               </li>
@@ -236,258 +233,11 @@ const Animais = () => {
                   <p>Muito dócil, gosta de socializar com outros cães, tem medo de chuva.</p>
                  </div>
 
-
-                  {/* <p>
-                    <span className="font-bold">Nome:</span> 
-                  </p>
-                  <p>
-                    <span className="font-bold">Idade:</span>
-                  </p>
-                  <p>
-                    <span className="font-bold">Raça:</span> 
-                  </p>
-                  <p>
-                    <span className="font-bold">Sexo:</span> 
-                  </p>
-                  <p>
-                    <span className="font-bold">Porte:</span> 
-                  </p>
-                  <p>
-                    <span className="font-bold">Peso:</span> 
-                  </p>
-                  <p>
-                    <span className="font-bold">Animal castrado?:</span>
-                   
-                  </p>
-                  <p>
-                    <span className="font-bold">Observações:</span>
-                  </p> */}
                 </figcaption>
               </figure>
-
-               <figure className={styles['figures']}>
-
-       
-                   <img
-                  className="w-[27.375rem] h-40 rounded-tl-[0.75rem] e rounded-bl-[0.75rem]"
-                  src="/images/dog-.jpg"
-                  alt="imagem"
-                />
- 
-
-                <figcaption className='px-[7rem] flex gap-[7rem]'>
-                 
-                 <div className=''>
-                  <span>Nome</span>
-                  <p>Bob</p>
-
-                  <span>Gênero</span>
-                  <p>Macho</p>
-
-                  <span>Raça</span>
-                  <p>Pitbull</p>
-                 </div>
-
-                  <div className=''>
-                  <span>Idade</span>
-                  <p>5 anos</p>
-
-                  <span>Porte</span>
-                  <p>Pequeno</p>
-
-                  <span>Peso</span>
-                  <p>4 kg</p>
-                 </div>
-
-                   <div className=''>
-                  <span>Animal castrado?</span>
-                  <p>Sim</p>
-
-                  <span>Observações:</span>
-                  <p>Muito docil</p>
-                 </div>
-
-
-                  {/* <p>
-                    <span className="font-bold">Nome:</span> 
-                  </p>
-                  <p>
-                    <span className="font-bold">Idade:</span>
-                  </p>
-                  <p>
-                    <span className="font-bold">Raça:</span> 
-                  </p>
-                  <p>
-                    <span className="font-bold">Sexo:</span> 
-                  </p>
-                  <p>
-                    <span className="font-bold">Porte:</span> 
-                  </p>
-                  <p>
-                    <span className="font-bold">Peso:</span> 
-                  </p>
-                  <p>
-                    <span className="font-bold">Animal castrado?:</span>
-                   
-                  </p>
-                  <p>
-                    <span className="font-bold">Observações:</span>
-                  </p> */}
-                </figcaption>
-              </figure>
-
- <figure className={styles['figures']}>
-
-       
-                   <img
-                  className="w-[27.375rem] h-40 rounded-tl-[0.75rem] e rounded-bl-[0.75rem]"
-                  src="/images/dog-.jpg"
-                  alt="imagem"
-                />
- 
-
-                <figcaption className='px-[7rem] flex gap-[7rem]'>
-                 
-                 <div className=''>
-                  <span>Nome</span>
-                  <p>Bob</p>
-
-                  <span>Gênero</span>
-                  <p>Macho</p>
-
-                  <span>Raça</span>
-                  <p>Pitbull</p>
-                 </div>
-
-                  <div className=''>
-                  <span>Idade</span>
-                  <p>5 anos</p>
-
-                  <span>Porte</span>
-                  <p>Pequeno</p>
-
-                  <span>Peso</span>
-                  <p>4 kg</p>
-                 </div>
-
-                   <div className=''>
-                  <span>Animal castrado?</span>
-                  <p>Sim</p>
-
-                  <span>Observações:</span>
-                  <p>Muito docil</p>
-                 </div>
-
-
-                  {/* <p>
-                    <span className="font-bold">Nome:</span> 
-                  </p>
-                  <p>
-                    <span className="font-bold">Idade:</span>
-                  </p>
-                  <p>
-                    <span className="font-bold">Raça:</span> 
-                  </p>
-                  <p>
-                    <span className="font-bold">Sexo:</span> 
-                  </p>
-                  <p>
-                    <span className="font-bold">Porte:</span> 
-                  </p>
-                  <p>
-                    <span className="font-bold">Peso:</span> 
-                  </p>
-                  <p>
-                    <span className="font-bold">Animal castrado?:</span>
-                   
-                  </p>
-                  <p>
-                    <span className="font-bold">Observações:</span>
-                  </p> */}
-                </figcaption>
-              </figure>
-
-              
- <figure className={styles['figures']}>
-
-       
-                   <img
-                  className="w-[27.375rem] h-40 rounded-tl-[0.75rem] e rounded-bl-[0.75rem]"
-                  src="/images/dog-.jpg"
-                  alt="imagem"
-                />
- 
-
-                <figcaption className='px-[7rem] flex gap-[7rem]'>
-                 
-                 <div className=''>
-                  <span>Nome</span>
-                  <p>Bob</p>
-
-                  <span>Gênero</span>
-                  <p>Macho</p>
-
-                  <span>Raça</span>
-                  <p>Pitbull</p>
-                 </div>
-
-                  <div className=''>
-                  <span>Idade</span>
-                  <p>5 anos</p>
-
-                  <span>Porte</span>
-                  <p>Pequeno</p>
-
-                  <span>Peso</span>
-                  <p>4 kg</p>
-                 </div>
-
-                   <div className=''>
-                  <span>Animal castrado?</span>
-                  <p>Sim</p>
-
-                  <span>Observações:</span>
-                  <p>Muito docil</p>
-                 </div>
-
-
-                  {/* <p>
-                    <span className="font-bold">Nome:</span> 
-                  </p>
-                  <p>
-                    <span className="font-bold">Idade:</span>
-                  </p>
-                  <p>
-                    <span className="font-bold">Raça:</span> 
-                  </p>
-                  <p>
-                    <span className="font-bold">Sexo:</span> 
-                  </p>
-                  <p>
-                    <span className="font-bold">Porte:</span> 
-                  </p>
-                  <p>
-                    <span className="font-bold">Peso:</span> 
-                  </p>
-                  <p>
-                    <span className="font-bold">Animal castrado?:</span>
-                   
-                  </p>
-                  <p>
-                    <span className="font-bold">Observações:</span>
-                  </p> */}
-                </figcaption>
-              </figure>
-
-
-
-        </div>
-
-        <div className={styles['footercat']}>
-          {' '}
-          <Footer />{' '}
         </div>
       </Container>
+      <Footer />
     </>
   );
 };
