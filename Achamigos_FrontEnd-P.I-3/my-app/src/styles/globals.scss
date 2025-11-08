@@ -10,12 +10,6 @@
   padding: 0;
 }
 
-<<<<<<< HEAD
-html, body {
-  font-family: 'Inter', sans-serif;
-  background-color: #fffffe;
-
-=======
 /* Modo claro  */
 :root {
   --bg: #fffffe;   
@@ -34,7 +28,6 @@ body {
   background-color: var(--bg);
   color: var(--text);
   transition: background-color 0.3s, color 0.3s;
->>>>>>> Integracao
 }
 
 span {
