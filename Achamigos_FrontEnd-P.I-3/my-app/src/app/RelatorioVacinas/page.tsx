@@ -12,7 +12,7 @@ const RelatorioVacinas =  () => {
   const [relatorio, setRelatorio ] = useState<IRelatorio[]>([]);
   
   useEffect(() => {
-      const fetchVacinas = async () => {
+      const listarVacinas = async () => {
         try {
           const res = await axios.get('http://localhost:8081/vacinacao');
           console.log("🧩 Dados do backend:", res.data);
@@ -21,7 +21,7 @@ const RelatorioVacinas =  () => {
           console.error('Erro ao buscar vacinas', err);
         }
       };
-      fetchVacinas();
+      listarVacinas();
     }, []);
 
   return (
@@ -36,12 +36,25 @@ const RelatorioVacinas =  () => {
     </tr>
   </thead>
   <tbody>
-    {relatorio.map((item, index) => (
+    {relatorio.sort((a1, a2) => {
+      const nomeA = a1.animalNome.toUpperCase();
+      const nomeB = a2.animalNome.toUpperCase();
+      if (nomeA < nomeB) {
+        return -1; 
+      }
+      if (nomeA > nomeB) {
+        return 1; 
+      }
+      return 0; 
+    }).map((item, index) => (
       <tr key={index} style={{ borderBottom: '2px solid #eee' }}>
         <td style={{ padding: '8px',  textAlign: 'center' }}>{item.animalNome}</td>
         <td style={{ padding: '8px',  textAlign: 'center' }}>{item.vacinaNome}</td>
         <td style={{ padding: '8px',  textAlign: 'center' }}>
-          {item.dataAplicacao}
+          {item.dataAplicacao 
+        ? new Date(item.dataAplicacao).toLocaleDateString("pt-BR")
+        : "Data Inválida"
+      }
         </td>
       </tr>
     ))}
