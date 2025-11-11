@@ -1,6 +1,4 @@
 'use client';
-
-import Image from 'next/image';
 import styles from './Animais.module.scss';
 import { Container } from 'react-bootstrap';
 import Nav2 from '@/components/Navbar';
@@ -152,11 +150,7 @@ const Animais = () => {
         </div>
 
         <div className={styles['descricaoani']}>
-
-         
-           
-          
-          {animal.map((ani) => ('Imagem:', ani.imagem);(
+          {animal.map((ani) => ('Imagem:', ani.imagem)(
                 
               <figure
                 key={ani._id}
@@ -208,53 +202,6 @@ const Animais = () => {
                 </figcaption>
               </figure>
             ))}
-
-               
-            
-              {/* <figure className={styles['figures']}>
-
-       
-                   <img
-                  className="w-[27.375rem] h-40 rounded-tl-[0.75rem] e rounded-bl-[0.75rem]"
-                  src="/images/dog-.jpg"
-                  alt="imagem"
-                /> */}
- 
-
-                {/* <figcaption className='px-[7rem]  flex gap-[7rem]'>
-                 
-                 <div className=''>
-                  <span>Nome</span>
-                  <p>Bob</p>
-
-                  <span>Gênero</span>
-                  <p>Macho</p>
-
-                  <span>Raça</span>
-                  <p>Pitbull</p>
-                 </div>
-
-                  <div className=''>
-                  <span>Idade</span>
-                  <p>5 anos</p>
-
-                  <span>Porte</span>
-                  <p>Pequeno</p>
-
-                  <span>Peso</span>
-                  <p>4 kg</p>
-                 </div>
-
-                   <div className=''>
-                  <span>Animal castrado?</span>
-                  <p>Sim</p>
-
-                  <span>Observações:</span>
-                  <p>Muito dócil, gosta de socializar com outros cães, tem medo de chuva.</p>
-                 </div>
-
-                </figcaption>
-              </figure> */}
         </div>
       </Container>
       <Footer />

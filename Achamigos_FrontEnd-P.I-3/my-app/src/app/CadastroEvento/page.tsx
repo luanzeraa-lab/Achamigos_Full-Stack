@@ -3,7 +3,7 @@ import styles from './CadastroEventos.module.scss';
 import { Button } from '../../components/Button';
 import Form from 'react-bootstrap/Form';
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import Nav2 from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ConsultaCep from '@/components/ConsultaCep';
