@@ -30,6 +30,7 @@ const CadastroAnimais = () => {
     const fetchVacinas = async () => {
       try {
         const res = await axios.get('http://localhost:8081/api/vacinas');
+        console.log('Vacinas recebidas:', res.data);
         setVacinas(res.data);
       } catch (err) {
         console.error('Erro ao buscar vacinas', err);
@@ -47,47 +48,76 @@ const CadastroAnimais = () => {
     }
   };
 
-  const createAnimal = (
-    nome: string,
-    idade: string,
-    raca: string,
-    sexo: string,
-    porte: string,
-    peso: string,
-    vacinas: string[],
-    observacoes: string,
-    castracao: boolean,
-    imagem: File | undefined
-  ) => {
-    const formData = new FormData();
-    formData.append('nome', nome);
-    formData.append('idade', idade);
-    formData.append('raca', raca);
-    formData.append('sexo', sexo);
-    formData.append('porte', porte);
-    formData.append('peso', peso);
-    formData.append('vacinas', JSON.stringify(vacinas));
-    formData.append('observacoes', observacoes);
-    formData.append('castracao', castracao ? 'true' : 'false');
-    if (imagem) formData.append('imagem', imagem);
+  const createAnimal = async (
+  nome: string,
+  idade: string,
+  raca: string,
+  sexo: string,
+  porte: string,
+  peso: string,
+  vacinasIds: string[],
+  observacoes: string,
+  castracao: boolean,
+  imagem: File | undefined
+) => {
+  const formData = new FormData();
+  formData.append('nome', nome);
+  formData.append('idade', idade);
+  formData.append('raca', raca);
+  formData.append('sexo', sexo);
+  formData.append('porte', porte);
+  formData.append('peso', peso);
+  formData.append('observacoes', observacoes);
+  formData.append('castracao', castracao ? 'true' : 'false');
 
-    axios
-      .post('http://localhost:3002/animais', formData, {
-        headers: { 'Content-Type': 'multipart/form-data' },
-      })
-      .then((res) => {
-        const idAnimal = res.data._id;
-        if (res.status === 201) {
-          axios
-            .post(`http://localhost:8081/vacinacao/gerar/${idAnimal}`)
-            .then(() => alert(`Animal cadastrado com sucesso! ID: ${idAnimal}`))
-            .catch(() => alert('Falha ao tentar cadastrar as vacinas'));
-        } else {
-          alert('Falha ao tentar cadastrar o animal');
-        }
-      })
-      .catch(() => alert('Falha ao tentar cadastrar o animal'));
-  };
+  if (imagem) formData.append('imagem', imagem);
+
+  const vacinasCompletas = vacinasIds.map(vId => { 
+  const vacinaObj = vacinas.find(v => v.id === vId); 
+  return { id: vId, nome: vacinaObj?.nome || 'Desconhecida' };
+});
+formData.append('vacinas', JSON.stringify(vacinasCompletas));
+ 
+  try {
+    
+    const res = await axios.post(
+      'http://localhost:3002/animais', 
+      formData,
+      {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          'x-api-key': '1234', 
+        },
+      }
+    );
+    const idAnimal = res.data._id;
+
+    if (res.status === 201 || res.status === 200) {
+      console.log('FormData:');
+for (const [key, value] of formData.entries()) {
+  console.log(key, value);
+}
+      try {
+        await axios.post(`http://localhost:8081/vacinacao/gerar/${idAnimal}`);
+        alert(`Animal cadastrado com sucesso! ID: ${idAnimal}`);
+      } catch (err) {
+  
+        alert('Animal cadastrado, mas falha ao tentar gerar as vacinas.');
+        console.error('Falha ao gerar vacinas:', err);
+      }
+    } else {
+      alert('Falha ao tentar cadastrar o animal');
+    }
+  } catch (err) {
+    
+    alert('Falha ao tentar cadastrar o animal');
+    console.error('Erro no cadastro inicial do animal:', err);
+    if (axios.isAxiosError(err) && err.response) {
+        console.error('Detalhe do Erro do Servidor (400):', err.response.data);
+    }
+  }
+};
+  
 
   return (
     <Container fluid id={styles['allpage']}>
@@ -191,14 +221,14 @@ const CadastroAnimais = () => {
             <div className={styles['dog-health']}>
               <h5>💉 Vacinas</h5>
               {vacinas.map((v) => (
-                <Form.Check
-                  key={v.id}
-                  label={v.nome}
-                  value={v.id}
-                  checked={vacinaAnimal.includes(v.id)}
-                  onChange={vacinaChecada}
-                />
-              ))}
+              <Form.Check
+                key={v.id}          
+                label={v.nome}
+                value={v.id}        
+                checked={vacinaAnimal.includes(v.id)} 
+                onChange={vacinaChecada}
+              />
+            ))}
 
               
               <Form.Label htmlFor="observations" className="mt-3 mb-0.5">

@@ -27,16 +27,26 @@ const RelatorioVacinas =  () => {
   return (
     <>
     <Nav2 />
-        <div >
-              {relatorio.map((item, index) => (
-  <p key={index}>
-    {item.animalNome ?? "Sem nome"} - {item.vacinaNome ?? "Sem vacina"} -{" "}
-    {item.dataAplicacao
-      ? new Date(item.dataAplicacao).toLocaleDateString("pt-BR")
-      : "Sem data"}
-  </p>
-))}
-            </div>
+        <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+  <thead>
+    <tr style={{ borderBottom: '2px solid #ccc' }}>
+      <th style={{ padding: '8px', textAlign: 'center' }}>Animal</th>
+      <th style={{ padding: '8px', textAlign: 'center' }}>Vacina</th>
+      <th style={{ padding: '8px', textAlign: 'center' }}>Data de Aplicação</th>
+    </tr>
+  </thead>
+  <tbody>
+    {relatorio.map((item, index) => (
+      <tr key={index} style={{ borderBottom: '2px solid #eee' }}>
+        <td style={{ padding: '8px',  textAlign: 'center' }}>{item.animalNome}</td>
+        <td style={{ padding: '8px',  textAlign: 'center' }}>{item.vacinaNome}</td>
+        <td style={{ padding: '8px',  textAlign: 'center' }}>
+          {item.dataAplicacao}
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
       <Footer />
     </>
   );
