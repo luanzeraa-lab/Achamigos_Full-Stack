@@ -31,6 +31,7 @@ const listarAnimais = async (req, res) => {
 const cadastrarAnimal = async (dados, file) => {
   const novoAnimal = new Animal({
     ...dados,
+    vacinas: dados.vacinas || [],
     imagem: file? `/public/${file.filename}` : null
   });
   return await novoAnimal.save();

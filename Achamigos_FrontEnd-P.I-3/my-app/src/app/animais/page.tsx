@@ -150,7 +150,11 @@ const Animais = () => {
         </div>
 
         <div className={styles['descricaoani']}>
-          {animal.map((ani) => ('Imagem:', ani.imagem)(
+
+         
+           
+          
+          {animal.map((ani) => ('Imagem', ani.imagem,
                 
               <figure
                 key={ani._id}
