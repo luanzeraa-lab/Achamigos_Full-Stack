@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const EventoSchema = new mongoose.Schema({
-    nomeEvento: {type: String, required: true},
+    nomeEvento: {type: String, required: false},
     data: {type: Date, default: Date.now },
     tipo_Evento: {type: String},
     texto: {type: String},
@@ -14,13 +14,18 @@ const listarEvento = async (req, res) => {
 }
 
 
-const cadastrarEvento = async (dados, file) =>{
-    const newEvento = new Evento({
-        ...dados,
-         imagem: file? `../public/${file.filename}` : null
-    });
-    return await newEvento.save();
-}
+const cadastrarEvento = async (dados, file) => {
+  const newEvento = new Evento({
+    tipo_Evento: dados.tipo_Evento,
+    texto: dados.texto,
+    data: dados.data,
+    nomeEvento: dados.nomeEvento || dados.tipo_Evento,
+    imagem: file ? `/public/${file.filename}` : null, 
+  });
+
+  return await newEvento.save();
+};
+
 const alterarEvento = async (id, dados) =>{
     return await Evento.findByIdAndUpdate(
         id,

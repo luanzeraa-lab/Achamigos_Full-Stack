@@ -12,7 +12,7 @@ export default [
       prettier: pluginPrettier,
     },
     rules: {
-      'prettier/prettier': 'warn', // começa com aviso, não erro
+      'prettier/prettier': 'warn', 
     },
   },
 ];

@@ -1,7 +1,7 @@
 export interface IEvento {
-  nomeEvento: string;
-  data: Date;
+  _id?: string;
+  data: string;
   tipo_Evento: string;
   texto: string;
-  imagemEvento: string;
+  imagem?: string;
 }

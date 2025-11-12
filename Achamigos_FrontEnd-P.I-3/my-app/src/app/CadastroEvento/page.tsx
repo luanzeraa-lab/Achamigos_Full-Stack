@@ -2,64 +2,69 @@
 import styles from './CadastroEventos.module.scss';
 import { Button } from '../../components/Button';
 import Form from 'react-bootstrap/Form';
-import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import Nav2 from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import ConsultaCep from '@/components/ConsultaCep';
-import eventosService from '@/services/eventoService';
-
-const createEvento = async (
-  nomeEvento: string,
-  data: Date,
-  tipo_Evento: string,
-  texto: string,
-  imagem: File | undefined,
-) => {
-  const formData = new FormData();
-  formData.append('nomeEvento', nomeEvento);
-  formData.append('data', data.toISOString());
-  formData.append('tipo_Evento', tipo_Evento);
-  formData.append('texto', texto);
-  if (imagem) {
-    formData.append('imagem', imagem);
-  }
-
-  try {
-    const res = await eventosService.create(formData);
-    console.log(JSON.stringify(res));
-    alert('Evento cadastrado com sucesso!');
-  } catch (error) {
-    console.error('Erro ao cadastrar evento:', error);
-    alert('Falha ao tentar cadastrar o evento');
-  }
-};
+import eventosService from '../../services/eventoService';
+import { IEvento } from './IEvento';
 
 const CadastroEventos = () => {
-  const [nomeEvento, setNomeEvento] = useState<string>('');
-  const [data, setData] = useState<string>('');
-  const [tipo_Evento, setTipo_Evento] = useState<string>('');
-  const [texto, setTexto] = useState<string>('');
-  const [imagemEvento, setImagemEvento] = useState<File | undefined>(undefined);
+  const [formData, setFormData] = useState<IEvento>({
+    tipo_Evento: '',
+    texto: '',
+    data: '',
+  });
 
+  const [imagem, setImagem] = useState<File | null>(null);
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setImagem(e.target.files[0]);
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    try {
+      const dataToSend = new FormData();
+      dataToSend.append('tipo_Evento', formData.tipo_Evento);
+      dataToSend.append('texto', formData.texto);
+      dataToSend.append('data', formData.data);
+
+      if (imagem) dataToSend.append('imagem', imagem);
+
+      await eventosService.create(dataToSend);
+
+      alert('Evento cadastrado com sucesso!');
+      setFormData({ tipo_Evento: '', texto: '', data: '' });
+      setImagem(null);
+    } catch (error) {
+      console.error('Erro ao cadastrar evento:', error);
+      alert('Erro ao cadastrar evento.');
+    }
+  };
   return (
     <>
     <Nav2 />
       <div className="flex flex-col items-center gap-0 mt-[2.5rem]">
-        <h1 className='text-[700] text-center'>Cadastro de eventos</h1>
-        {/* Componente reutilizável de inscrição rápida */}
-        <div className="w-full max-w-3xl px-4">
-          
+        <h1 className='text-[700] text-center'>Cadastro de eventos</h1> 
+        <div className="w-full max-w-3xl px-4">    
         </div>
-        <Form className='max-[850px]:w-[35.625rem] max-[600px]:w-[20.625rem]  shadow-sm rounded-[.5rem] h-[85rem] w-[50rem] flex flex-col gap-2 bg-[#f5f5f4] p-4 mb-[4rem]'>
+        <Form onSubmit={handleSubmit} className='max-[850px]:w-[35.625rem] max-[600px]:w-[20.625rem]  shadow-sm rounded-[.5rem] h-[85rem] w-[50rem] flex flex-col gap-2 bg-[#f5f5f4] p-4 mb-[4rem]'>
           <div>
             <Form.Label>Nome do Evento</Form.Label>
             <Form.Control
               type="text"
+              name='tipo_Evento'
               placeholder="Insira o nome do evento"
-              value={nomeEvento}
-              onChange={(e) => setNomeEvento(e.target.value)}
+              value={formData.tipo_Evento}
+              onChange={handleChange}
             />
           </div>
 
@@ -67,28 +72,9 @@ const CadastroEventos = () => {
             <Form.Label>Data</Form.Label>
             <Form.Control
               type="date"
-              value={data}
-              onChange={(e) => setData(e.target.value)}
-            />
-          </div>
-
-           <ConsultaCep />
-
-          <div>
-            <Form.Label>N°</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Insira o número do endereço"
-            />
-          </div>
-
-          <div>
-            <Form.Label>Tipo do evento</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Insira o tipo do evento"
-              value={tipo_Evento}
-              onChange={(e) => setTipo_Evento(e.target.value)}
+              name='data'
+              value={formData.data}
+              onChange={handleChange}
             />
           </div>
 
@@ -97,9 +83,10 @@ const CadastroEventos = () => {
             <Form.Control
             as="textarea" rows={4}
               type="text"
+              name='texto'
               placeholder="Digite sobre o evento..."
-              value={texto}
-              onChange={(e) => setTexto(e.target.value)}
+              value={formData.texto}
+              onChange={handleChange}
             />
           </div>
 
@@ -112,10 +99,7 @@ const CadastroEventos = () => {
                 id="imagem"
                 name="imagem"
                 accept="image/*"
-                onChange={(event) => {
-                  const file = (event.target as HTMLInputElement).files?.[0];
-                  setImagemEvento(file);
-                }}
+                onChange={handleFileChange}
               />
               <svg
                 width="48"
@@ -142,19 +126,8 @@ const CadastroEventos = () => {
           <Button
           title='Finalizar Cadastro'
           className='w-full mt-auto'
-        
-            onClick={() => {
-              createEvento(
-                nomeEvento,
-                new Date(data),
-                tipo_Evento,
-                texto,
-                imagemEvento,
-              );
-            }}
+          type='submit'
           />
-    
-         
         </Form>
       </div>
       <Footer />
