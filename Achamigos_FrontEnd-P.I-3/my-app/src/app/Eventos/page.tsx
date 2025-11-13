@@ -13,7 +13,7 @@ const Eventos = () => {
       try {
         const response = await axios.get('http://localhost:3002/eventos', {
           headers: {
-            'x-api-key': 'f19c61c3-08b0-4197-ba45-9395ec0111d0',
+            'x-api-key': '1234',
           },
         });
         setEventos(response.data);
@@ -42,7 +42,7 @@ const Eventos = () => {
               <img
                 className="rounded-[1rem] w-[18.75rem] h-[12.5rem] max-[500px]:w-[12.75rem] max-[500px]:h-[10rem]"
                 src={`http://localhost:3002${evento.imagem}`}
-                alt={evento.nomeEvento}
+                alt={evento.tipo_Evento}
               />
 
               <p className="m-0 text-[#374151]">

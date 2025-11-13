@@ -154,58 +154,46 @@ const Animais = () => {
          
            
           
-          {animal.map((ani) => ('Imagem', ani.imagem,
-                
-              <figure
-                key={ani._id}
-                className="flex bg-white dark:bg-[#1e1e1e] shadow-md rounded-xl overflow-hidden mb-6"
-              >
-                
-                <img
-                  className="w-[27.375rem] h-40 object-cover rounded-tl-xl rounded-bl-xl"
-                  src={`http://localhost:3002${ani.imagem}`}
-                  alt={ani.nome}
-                />
+   <div className="flex flex-wrap gap-lg-5">    
+  {animal.map((ani) => (
+    <figure
+      key={ani._id}
+      className="bg-white dark:bg-[#1e1e1e]
+       rounded-xl shadow-md hover:shadow-lg overflow-hidden
+        transition-transform hover:scale-[1.02] "
+    >
+      <img
+        className="rounded-[1rem] w-[20rem] h-[20rem] max-[500px]:w-[12.75rem] max-[500px]:h-[10rem]"
+        src={`http://localhost:3002${ani.imagem}`}
+        alt={ani.nome}
+      />
 
-                
-                <figcaption className="px-10 py-4 flex gap-20 w-full justify-between">
-                  
-                  <div>
-                    <span className="font-semibold text-gray-700 dark:text-gray-300">Nome</span>
-                    <p className="text-gray-900 dark:text-white mb-2">{ani.nome}</p>
+      <figcaption className="p-3 space-y-2">
+        <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100 truncate">
+        {ani.nome}
+        </h3>
+        <p className="text-sm text-gray-900 dark:text-gray-100">
+          Raça: {ani.raca} 
+        </p>
+        <p className="text-sm text-gray-600 dark:text-gray-400">
+          Sexo: {ani.sexo}
+        </p>
+        <p className="text-sm text-gray-600 dark:text-gray-400">
+          Idade: {ani.idade}
+        </p>
+        <p className="text-sm text-gray-600 dark:text-gray-400">
+          Porte: {ani.porte}
+        </p>
+        <p className="text-sm text-gray-600 dark:text-gray-400">
+          Castrado: <span className="font-medium">{ani.castracao ? 'Sim' : 'Não'}</span>
+        </p>
+      </figcaption>
+    </figure>
+  ))}
+  </div>   
 
-                    <span className="font-semibold text-gray-700 dark:text-gray-300">Gênero</span>
-                    <p className="text-gray-900 dark:text-white mb-2">{ani.sexo}</p>
 
-                    <span className="font-semibold text-gray-700 dark:text-gray-300">Raça</span>
-                    <p className="text-gray-900 dark:text-white">{ani.raca}</p>
-                  </div>
 
-                  
-                  <div>
-                    <span className="font-semibold text-gray-700 dark:text-gray-300">Idade</span>
-                    <p className="text-gray-900 dark:text-white mb-2">{ani.idade}</p>
-
-                    <span className="font-semibold text-gray-700 dark:text-gray-300">Porte</span>
-                    <p className="text-gray-900 dark:text-white mb-2">{ani.porte}</p>
-
-                    <span className="font-semibold text-gray-700 dark:text-gray-300">Peso</span>
-                    <p className="text-gray-900 dark:text-white">{ani.peso}</p>
-                  </div>
-
-                  
-                  <div className="max-w-md">
-                    <span className="font-semibold text-gray-700 dark:text-gray-300">Animal castrado?</span>
-                    <p className="text-gray-900 dark:text-white mb-2">
-                      {ani.castracao ? 'Sim' : 'Não'}
-                    </p>
-
-                    <span className="font-semibold text-gray-700 dark:text-gray-300">Observações</span>
-                    <p className="text-gray-900 dark:text-white">{ani.observacoes}</p>
-                  </div>
-                </figcaption>
-              </figure>
-            ))}
         </div>
       </Container>
       <Footer />
