@@ -187,6 +187,9 @@ const Animais = () => {
         <p className="text-sm text-gray-600 dark:text-gray-400">
           Castrado: <span className="font-medium">{ani.castracao ? 'Sim' : 'Não'}</span>
         </p>
+        <p className="text-sm text-gray-600 dark:text-gray-400">
+          <span className="font-bold">Observações:</span> {ani.observacoes}
+        </p>
       </figcaption>
     </figure>
   ))}

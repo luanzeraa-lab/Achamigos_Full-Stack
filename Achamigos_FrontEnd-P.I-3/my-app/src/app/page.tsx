@@ -11,12 +11,6 @@ import '../styles/globals.scss';
 export default function App() {
   const [darkMode, setDarkMode] = useState(false);
 
-useEffect(() => {
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme) {
-    setDarkMode(savedTheme === 'dark'); 
-  }
-}, []);
 
 useEffect(() => {
   if (darkMode) {
@@ -29,9 +23,14 @@ useEffect(() => {
 
   return (
     <div className="min-h-screen transition-colors duration-300">
-      <button
-        onClick={() => setDarkMode(prev => !prev)}
-        className="fixed top-4 right-4 p-2 rounded bg-gray-200 dark:bg-gray-800 text-black dark:text-white z-50"
+      <button className="fixed top-4 right-4 p-2 rounded bg-gray-200 dark:bg-gray-800 text-black dark:text-white z-50"
+        onClick={() => {if (darkMode) {
+          setDarkMode(false);
+        }else {
+          setDarkMode(true);
+        }
+        }}
+
       >
         {darkMode ? '🌙 Dark Mode' : '☀️ Light Mode'}
       </button>
