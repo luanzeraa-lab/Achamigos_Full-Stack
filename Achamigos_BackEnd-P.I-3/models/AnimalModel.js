@@ -12,6 +12,7 @@ const AnimalSchema = new mongoose.Schema({
     porte: {type: String, required:true},
     peso: {type: String}, 
     observacoes: {type: String},
+    linkAnimal: {type: String},
     castracao: {type: Boolean, required:true},
     vacinas: [VacinaSchema],
     imagem: {type: String},

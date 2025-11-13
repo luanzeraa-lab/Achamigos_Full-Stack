@@ -5,6 +5,7 @@ const EventoSchema = new mongoose.Schema({
     data: {type: Date, default: Date.now },
     tipo_Evento: {type: String},
     texto: {type: String},
+    linkEvento: {type: String},
     imagem: {type: String}
 });
 const Evento = mongoose.model("Evento", EventoSchema)
