@@ -173,22 +173,22 @@ const Animais = () => {
         {ani.nome}
         </h3>
         <p className="text-sm text-gray-900 dark:text-gray-100">
-          Raça: {ani.raca} 
+          <span className="font-[700]">Raça:</span>{ani.raca} 
         </p>
         <p className="text-sm text-gray-600 dark:text-gray-400">
-          Sexo: {ani.sexo}
+          <span className="font-[700]">Sexo:</span>{ani.sexo}
         </p>
         <p className="text-sm text-gray-600 dark:text-gray-400">
-          Idade: {ani.idade}
+          <span className="font-[700]">Idade:</span>{ani.idade}
         </p>
         <p className="text-sm text-gray-600 dark:text-gray-400">
-          Porte: {ani.porte}
+          <span className="font-[700]">Porte:</span>{ani.porte}
         </p>
         <p className="text-sm text-gray-600 dark:text-gray-400">
-          Castrado: <span className="font-medium">{ani.castracao ? 'Sim' : 'Não'}</span>
+           <span className="font-[700]">Castrado:</span>{ani.castracao ? 'Sim' : 'Não'}
         </p>
         <p className="text-sm text-gray-600 dark:text-gray-400">
-          <span className="font-bold">Observações:</span> {ani.observacoes}
+          <span className="font-[700]">Observações: </span>{ani.observacoes}
         </p>
       </figcaption>
     </figure>

@@ -23,19 +23,18 @@ useEffect(() => {
 
   return (
     <div className="min-h-screen transition-colors duration-300">
+
+      <Nav2 />
       <button className="fixed top-4 right-4 p-2 rounded bg-gray-200 dark:bg-gray-800 text-black dark:text-white z-50"
-        onClick={() => {if (darkMode) {
+        onClick={() => {
+          if (darkMode) {
           setDarkMode(false);
         }else {
           setDarkMode(true);
         }
         }}
-
-      >
-        {darkMode ? '🌙 Dark Mode' : '☀️ Light Mode'}
+      >{darkMode ? '🌙 Dark Mode' : '☀️ Light Mode'}
       </button>
-
-      <Nav2 />
       <Sobre />
       <ComoUsar />
       <Footer />
