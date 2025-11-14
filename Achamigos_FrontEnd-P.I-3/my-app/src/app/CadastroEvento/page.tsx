@@ -13,6 +13,7 @@ const CadastroEventos = () => {
     tipo_Evento: '',
     texto: '',
     data: '',
+    linkEvento: ''
   });
 
   const [imagem, setImagem] = useState<File | null>(null);
@@ -36,13 +37,14 @@ const CadastroEventos = () => {
       dataToSend.append('tipo_Evento', formData.tipo_Evento);
       dataToSend.append('texto', formData.texto);
       dataToSend.append('data', formData.data);
+      dataToSend.append('linkEvento', formData.linkEvento);
 
       if (imagem) dataToSend.append('imagem', imagem);
 
       await eventosService.create(dataToSend);
 
       alert('Evento cadastrado com sucesso!');
-      setFormData({ tipo_Evento: '', texto: '', data: '' });
+      setFormData({ tipo_Evento: '', texto: '', data: '', linkEvento: '' });
       setImagem(null);
     } catch (error) {
       console.error('Erro ao cadastrar evento:', error);
@@ -86,6 +88,18 @@ const CadastroEventos = () => {
               name='texto'
               placeholder="Digite sobre o evento..."
               value={formData.texto}
+              onChange={handleChange}
+            />
+          </div>
+
+            <div>
+            <Form.Label>Link do Evento</Form.Label>
+            <Form.Control
+              type="text"
+              name='linkEvento'
+              required
+              placeholder="Insira o link da publicação do evento"
+              value={formData.linkEvento}
               onChange={handleChange}
             />
           </div>

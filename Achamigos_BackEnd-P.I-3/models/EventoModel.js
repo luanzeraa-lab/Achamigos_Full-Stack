@@ -20,6 +20,7 @@ const cadastrarEvento = async (dados, file) => {
     tipo_Evento: dados.tipo_Evento,
     texto: dados.texto,
     data: dados.data,
+    linkEvento: dados.linkEvento,
     nomeEvento: dados.nomeEvento || dados.tipo_Evento,
     imagem: file ? `/public/${file.filename}` : null, 
   });

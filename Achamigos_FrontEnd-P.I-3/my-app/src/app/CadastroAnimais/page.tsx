@@ -86,7 +86,7 @@ formData.append('vacinas', JSON.stringify(vacinasCompletas));
       {
         headers: {
           'Content-Type': 'multipart/form-data',
-          'x-api-key': '1234', 
+          'x-api-key': process.env.NEXT_PUBLIC_API_KEY,
         },
       }
     );

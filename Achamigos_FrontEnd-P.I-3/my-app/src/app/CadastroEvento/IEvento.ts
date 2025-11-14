@@ -3,5 +3,6 @@ export interface IEvento {
   data: string;
   tipo_Evento: string;
   texto: string;
+  linkEvento: string;
   imagem?: string;
 }

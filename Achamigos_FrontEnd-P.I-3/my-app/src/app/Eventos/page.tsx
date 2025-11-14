@@ -13,7 +13,7 @@ const Eventos = () => {
       try {
         const response = await axios.get('http://localhost:3002/eventos', {
           headers: {
-            'x-api-key': '1234',
+            'x-api-key': process.env.NEXT_PUBLIC_API_KEY,
           },
         });
         setEventos(response.data);
@@ -37,7 +37,7 @@ const Eventos = () => {
           {eventos.map((evento) => (
             <div
               key={evento._id}
-              className="hover:scale-105 rounded-[1rem] m-auto bg-[#fffffe] p-4 outline-1 outline-[#a3a3a3] flex flex-col gap-2"
+              className="rounded-[1rem] m-auto bg-[#fffffe] p-4 outline-1 outline-[#a3a3a3] flex flex-col gap-2"
             >
               <img
                 className="rounded-[1rem] w-[18.75rem] h-[12.5rem] max-[500px]:w-[12.75rem] max-[500px]:h-[10rem]"
@@ -46,12 +46,15 @@ const Eventos = () => {
               />
 
               <p className="m-0 text-[#374151]">
-                {new Date(evento.data).toLocaleString('pt-BR')}
+                {new Date(evento.data).toLocaleDateString('pt-BR')}
               </p>
               <h1 className="font-[700] text-[1.5rem] m-0">
                 {evento.tipo_Evento}
               </h1>
               <p className="text-[#374151]">{evento.texto}</p>
+              <a href={/^https?:\/\//i.test(evento.linkEvento) ? evento.linkEvento : `https://${evento.linkEvento}`}
+                target="_blank"
+                rel="noopener noreferrer">Link para o evento</a>
             </div>
           ))}
         </div>
