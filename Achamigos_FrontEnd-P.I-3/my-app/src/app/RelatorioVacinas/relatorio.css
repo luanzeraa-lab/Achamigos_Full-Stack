@@ -1,0 +1,12 @@
+
+.relatorio {
+  display: none;
+}
+
+@media print {
+  .relatorio {
+    display: block !important;
+  }
+}
+
+

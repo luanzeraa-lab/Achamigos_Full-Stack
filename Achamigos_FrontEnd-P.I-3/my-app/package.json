@@ -25,6 +25,8 @@
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.9",
     "react-dom": "^18.2.0",
+    "react-smart-print": "^1.2.1",
+    "react-to-print": "^3.2.0",
     "sass": "^1.93.2",
     "scss": "^0.2.4",
     "yup": "^1.7.0"

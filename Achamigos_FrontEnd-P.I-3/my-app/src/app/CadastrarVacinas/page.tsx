@@ -10,11 +10,13 @@ import Footer from '@/components/Footer';
 
 const CadastroVacina = () => {
   const [nomeVacina, setNomeVacina] = useState<string>('');
+  const [validadeVacina, setValidadeVacina] = useState<string>('');
   
 
   const createVacina = async () => {
     const novaVacina: IVacina = {
       nome: nomeVacina,
+      validade: validadeVacina,
     };
 
     try {
@@ -41,6 +43,15 @@ const CadastroVacina = () => {
               placeholder="Insira o nome"
               value={nomeVacina}
               onChange={(e) => setNomeVacina(e.target.value)}
+            />
+          </div>
+          <div>
+            <Form.Label>Validade</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Insira a validade"
+              value={validadeVacina}
+              onChange={(e) => setValidadeVacina(e.target.value)}
             />
           </div>
             <input type="button" value="Cadastrar Vacina" className='bg-[#3a86ff] text-white font-[600] h-[2.5rem] rounded-[0.5rem] mt-4 hover:bg-[#265f9f] cursor-pointer'

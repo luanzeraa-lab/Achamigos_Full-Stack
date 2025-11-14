@@ -1,11 +1,13 @@
 'use client';
 
-import Form from 'react-bootstrap/Form';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { IRelatorio } from './IRelatorio';
 import Nav2 from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import PaginaRelatorio from '@/components/PaginaRelatorio';
+import "./relatorio.css";
+
 
 
 const RelatorioVacinas =  () => {
@@ -60,6 +62,8 @@ const RelatorioVacinas =  () => {
     ))}
   </tbody>
 </table>
+<PaginaRelatorio dados={relatorio} />
+
       <Footer />
     </>
   );

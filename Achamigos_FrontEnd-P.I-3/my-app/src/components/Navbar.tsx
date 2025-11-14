@@ -2,15 +2,27 @@
 import Image from 'next/image';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { SearchBar } from './SearchBar';
 import { Button } from './Button';
 import MenuMobile from './MenuMobile';
 import Link from 'next/link';
 
 const Nav2 = () => {
+  const [darkMode, setDarkMode] = useState(false);
+  
+  
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add('dark');
+    } else {
+      document.body.classList.remove('dark');
+    }
+    localStorage.setItem('theme', darkMode ? 'dark' : 'light');
+  }, [darkMode]);
+
   const router = useRouter();
-  // Código a ser utilizado para implementação do filtro de busca
+  
   const [filtered, setFiltered] = useState<string[]>([]);
   const pages = ['Login', 'Parceiros', 'Informacoes', 'Catalogo'];
 
@@ -20,6 +32,7 @@ const Nav2 = () => {
     );
     setFiltered(results);
   };
+
 
   return (
     <>
@@ -41,8 +54,8 @@ const Nav2 = () => {
             height={32}
             className="cursor-pointer"
           />
-        </div>
 
+        </div>
         <Image
           src="/icons/search.svg"
           alt="botão de pesquisa"
@@ -50,7 +63,7 @@ const Nav2 = () => {
           height={24}
           className="hidden max-[850px]:hidden max-[999px]:flex cursor-pointer"
         />
-
+    
         <div>
           <SearchBar placeholder="Procurar" onSearch={handleSearch} />
         </div>
@@ -102,6 +115,16 @@ const Nav2 = () => {
           />
         </div>
       </nav>
+      <button className="fixed top-4 right-4 p-2 rounded bg-gray-200 dark:bg-gray-800 text-black dark:text-white z-50"
+        onClick={() => {
+          if (darkMode) {
+          setDarkMode(false);
+        }else {
+          setDarkMode(true);
+        }
+        }}
+      >{darkMode ? '🌙 Dark Mode' : '☀️ Light Mode'}
+      </button>
     </>
   );
 };
