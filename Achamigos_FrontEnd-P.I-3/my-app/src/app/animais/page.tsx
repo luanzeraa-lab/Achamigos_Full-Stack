@@ -154,13 +154,11 @@ const Animais = () => {
          
            
           
-   <div className="flex flex-wrap gap-lg-5">    
+   <div className="flex flex-wrap gap-lg-5 ">    
   {animal.map((ani) => (
-    <figure
+    <figure 
       key={ani._id}
-      className="bg-white dark:bg-[#1e1e1e]
-       rounded-xl shadow-md hover:shadow-lg overflow-hidden
-        transition-transform hover:scale-[1.02] "
+      className={styles['figures']}
     >
       <img
         className="rounded-[1rem] w-[20rem] h-[20rem] max-[500px]:w-[12.75rem] max-[500px]:h-[10rem]"
@@ -168,27 +166,32 @@ const Animais = () => {
         alt={ani.nome}
       />
 
-      <figcaption className="p-3 space-y-2">
+      <figcaption className="justify-start p-4">
         <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100 truncate">
         {ani.nome}
         </h3>
-        <p className="text-sm text-gray-900 dark:text-gray-100">
-          <span className="font-[700]">Raça:</span>{ani.raca} 
+        <p className="text-sm text-gray-900 dark:text-gray-100 flex gap-2 mb-0">
+          <span className="font-[700]">Raça:</span><p>{ani.raca}</p>
+        </p>
+        <p className="text-sm text-gray-600 dark:text-gray-400 flex gap-2 mb-0">
+          <span className="font-[700]">Sexo:</span><p>{ani.sexo}</p>
+        </p>
+        <p className="text-sm text-gray-600 dark:text-gray-400 flex gap-2 mb-0 ">
+          <span className="font-[700]">Idade:</span><p>{ani.idade}</p>
+        </p>
+        <p className="text-sm text-gray-600 dark:text-gray-400 flex gap-2 mb-0">
+          <span className="font-[700]">Porte:</span><p>{ani.porte}</p>
+        </p>
+        <p className="text-sm text-gray-600 dark:text-gray-400 flex gap-2 mb-0">
+           <span className="font-[700]">Castrado:</span><p>{ani.castracao ? 'Sim' : 'Não'}</p>
         </p>
         <p className="text-sm text-gray-600 dark:text-gray-400">
-          <span className="font-[700]">Sexo:</span>{ani.sexo}
+          <span className="font-[700]">Observações:</span><p>{ani.porte}</p>
         </p>
-        <p className="text-sm text-gray-600 dark:text-gray-400">
-          <span className="font-[700]">Idade:</span>{ani.idade}
-        </p>
-        <p className="text-sm text-gray-600 dark:text-gray-400">
-          <span className="font-[700]">Porte:</span>{ani.porte}
-        </p>
-        <p className="text-sm text-gray-600 dark:text-gray-400">
-           <span className="font-[700]">Castrado:</span>{ani.castracao ? 'Sim' : 'Não'}
-        </p>
-        <p className="text-sm text-gray-600 dark:text-gray-400">
-          <span className="font-[700]">Observações: </span>{ani.observacoes}
+        <p className="text-sm text-gray-600 dark:text-gray-400 flex gap-2">
+          <a href={/^https?:\/\//i.test(ani.linkAnimal) ? ani.linkAnimal : `https://${ani.linkAnimal}`}
+                target="_blank"
+                rel="noopener noreferrer">Encontre seu Amiguinho</a>
         </p>
       </figcaption>
     </figure>

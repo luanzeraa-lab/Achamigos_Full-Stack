@@ -13,7 +13,7 @@ const Eventos = () => {
       try {
         const response = await axios.get('http://localhost:3002/eventos', {
           headers: {
-            'x-api-key': process.env.NEXT_PUBLIC_API_KEY,
+            'x-api-key': 1234,
           },
         });
         setEventos(response.data);

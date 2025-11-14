@@ -16,6 +16,7 @@ const AnimalSchema = new mongoose.Schema({
     castracao: {type: Boolean, required:true},
     vacinas: [VacinaSchema],
     imagem: {type: String},
+    tipo: {type: String, required:true},
     userId:{
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",

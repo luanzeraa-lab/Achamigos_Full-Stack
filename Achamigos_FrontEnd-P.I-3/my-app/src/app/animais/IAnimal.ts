@@ -8,6 +8,8 @@ export interface IAnimal {
   peso: string;
   vacinas:string[],
   observacoes: string;
+  linkAnimal: string;
   castracao: boolean;
   imagem: File;
+  tipo: string;
 }

@@ -5,6 +5,7 @@ import { Container, Image, Button } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import { link } from 'fs';
 
 interface IVacina {
   id: string;
@@ -23,6 +24,8 @@ const CadastroAnimais = () => {
   const [vacinas, setVacinas] = useState<IVacina[]>([]);
   const [vacinaAnimal, setVacinaAnimal] = useState<string[]>([]);
   const [obsAnimal, setObsAnimal] = useState('');
+  const [linkAnimal, setLinkAnimal] = useState('');
+  const [tipo, setTipo] = useState('');
   const [castrado, setCastrado] = useState(false);
   const [imgAnimal, setImgAnimal] = useState<File | undefined>(undefined);
 
@@ -57,7 +60,9 @@ const CadastroAnimais = () => {
   peso: string,
   vacinasIds: string[],
   observacoes: string,
+  linkAnimal: string,
   castracao: boolean,
+  tipo: string,
   imagem: File | undefined
 ) => {
   const formData = new FormData();
@@ -68,7 +73,9 @@ const CadastroAnimais = () => {
   formData.append('porte', porte);
   formData.append('peso', peso);
   formData.append('observacoes', observacoes);
+  formData.append('linkAnimal', linkAnimal);
   formData.append('castracao', castracao ? 'true' : 'false');
+  formData.append('tipo', tipo);
 
   if (imagem) formData.append('imagem', imagem);
 
@@ -86,7 +93,7 @@ formData.append('vacinas', JSON.stringify(vacinasCompletas));
       {
         headers: {
           'Content-Type': 'multipart/form-data',
-          'x-api-key': process.env.NEXT_PUBLIC_API_KEY,
+          'x-api-key': 1234,
         },
       }
     );
@@ -153,6 +160,20 @@ for (const [key, value] of formData.entries()) {
                   value={nomeAnimal}
                   onChange={(e) => setNomeAnimal(e.target.value)}
                 />
+              </div>
+
+              <div className={styles['select-wrapper']}>
+                <Form.Label htmlFor="gender">Tipo</Form.Label>
+                <Form.Select
+                  id="gender"
+                  value={tipo}
+                  onChange={(e) => setTipo(e.target.value)}
+                >
+                  <option value="">Selecione...</option>
+                  <option value="macho">Cachorro</option>
+                  <option value="femea">Gato</option>
+                  <option value="femea">Outro</option>
+                </Form.Select>
               </div>
 
               <div className={styles['input-wrapper']}>
@@ -243,6 +264,17 @@ for (const [key, value] of formData.entries()) {
                 onChange={(e) => setObsAnimal(e.target.value)}
               />
 
+              <Form.Label htmlFor="linkAnimal" className="mt-3 mb-0.5">
+                🔗 Link para mais informações sobre o animal
+              </Form.Label>
+              <Form.Control
+                id="linkAnimal"
+                type="text"
+                placeholder="Escreva informações adicionais sobre o animal"
+                value={linkAnimal}
+                onChange={(e) => setLinkAnimal(e.target.value)}
+              />
+
               
               <Form.Label className="mt-3 mb-0.5">✂️ Castração</Form.Label>
               <Form.Check
@@ -301,7 +333,9 @@ for (const [key, value] of formData.entries()) {
                     pesoAnimal,
                     vacinaAnimal,
                     obsAnimal,
+                    linkAnimal,
                     castrado,
+                    tipo,
                     imgAnimal
                   )
                 }
