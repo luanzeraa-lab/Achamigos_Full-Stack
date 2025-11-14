@@ -8,7 +8,7 @@ const SECRET = process.env.JWT_SECRET || 'seusegredoaqui';
 exports.cadastrar = async (req, res) => {
   try {
     
-    const { nome, cnpj, telefone, userLogin, senha, email, endereco, tipo, userStatus, linkUser } = req.body;
+    const { nome, cnpj, telefone, userLogin, senha, email, endereco, linkUser } = req.body;
 
     
     if (await User.findOne({ email })) {
@@ -21,7 +21,7 @@ exports.cadastrar = async (req, res) => {
 
     
     const user = await User.create({
-      nome, cnpj, telefone, userLogin, senha, email, endereco, tipo, userStatus, linkUser
+      nome, cnpj, telefone, userLogin, senha, email, endereco, linkUser
     });
 
     

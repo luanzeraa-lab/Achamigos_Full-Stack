@@ -28,11 +28,11 @@ exports.alterarUser = async(req, res) => {
     try {
         const {id} = req.params;
         const {nome, telefone, cnpj, userLogin, senha, email,
-               endereco, tipo, userStatus, linkUser} = req.body;
+               endereco, linkUser} = req.body;
         const usuarioAtualizado = await UserModel.alterarUser(
           id,
           {nome, telefone, cnpj, userLogin, senha, email,
-           endereco, tipo, userStatus, linkUser},
+           endereco, linkUser},
            {new: true})
            
            if (!usuarioAtualizado){

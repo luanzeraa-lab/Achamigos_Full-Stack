@@ -9,7 +9,5 @@ export interface IUser {
   senha: string;
   email: string;
   endereco: IEndereco;
-  tipo: string;
-  userStatus: string;
   linkUser: string;
 }

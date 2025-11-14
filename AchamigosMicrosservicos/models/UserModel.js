@@ -17,9 +17,7 @@ const UserSchema = new mongoose.Schema({
   userLogin:   { type: String, required: true },  
   senha:       { type: String, required: true },   
   email:       { type: String, required: true, unique: true }, 
-  endereco:    { type: EnderecoSchema, required: true },      
-  tipo:        { type: String, required: true },   
-  userStatus:  { type: String, required: true },   
+  endereco:    { type: EnderecoSchema, required: true },       
   linkUser:    { type: String }                    
 });
 

@@ -9,6 +9,7 @@ import Nav2 from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ConsultaCep from '@/components/ConsultaCep';
 import { IEndereco } from './IEndereco';
+import { header } from 'framer-motion/client';
 
 const CadastroUser = () => {
   const [nomeUser, setNomeUser] = useState<string>('');
@@ -18,8 +19,6 @@ const CadastroUser = () => {
   const [senhaUser, setSenhaUser] = useState<string>('');
   const [emailUser, setEmailUser] = useState<string>('');
   const [numeroUser, setNumeroUser] = useState<string>('');
-  const [tipoUser, setTipoUser] = useState<string>('');
-  const [userStatus, setUserStatus] = useState<string>('');
   const [linkUser, setLinkUser] = useState<string>('');
 
   const createUser = async () => {
@@ -33,13 +32,19 @@ const CadastroUser = () => {
       senha: senhaUser,
       email: emailUser,
       endereco,
-      tipo: tipoUser,
-      userStatus: userStatus,
       linkUser: linkUser,
     };
 
     try {
-      const res = await axios.post('http://localhost:3002/users', novoUser);
+  const res = await axios.post(
+    'http://localhost:5001/users/register',
+    novoUser,
+    {
+      headers: {
+        'x-api-key': 1234
+      }
+    }
+  );
       if (res.status === 201) {
         alert('Usuário cadastrado com sucesso!');
       } else {
@@ -126,25 +131,6 @@ const CadastroUser = () => {
               placeholder="Insira o número do endereço"
               value={numeroUser}
               onChange={(e) => setNumeroUser(e.target.value)}
-            />
-          </div>
-
-          <div>
-            <Form.Label>Tipo</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Insira o tipo de usuário"
-              value={tipoUser}
-              onChange={(e) => setTipoUser(e.target.value)}
-            />
-          </div>
-
-          <div>
-            <Form.Label>Status</Form.Label>
-            <Form.Control
-              type="text"
-              value={userStatus}
-              onChange={(e) => setUserStatus(e.target.value)}
             />
           </div>
 
