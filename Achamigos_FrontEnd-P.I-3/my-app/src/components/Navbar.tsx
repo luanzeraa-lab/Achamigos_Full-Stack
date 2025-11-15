@@ -1,6 +1,5 @@
 'use client';
 import Image from 'next/image';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { SearchBar } from './SearchBar';
@@ -10,7 +9,12 @@ import Link from 'next/link';
 
 const Nav2 = () => {
   const [darkMode, setDarkMode] = useState(false);
-  
+  const [isLogged, setIsLogged] = useState(false);
+
+  useEffect(() => {
+    const id = localStorage.getItem('userId');
+    setIsLogged(!!id); 
+  }, []);
   
   useEffect(() => {
     if (darkMode) {
@@ -67,6 +71,7 @@ const Nav2 = () => {
         <div>
           <SearchBar placeholder="Procurar" onSearch={handleSearch} />
         </div>
+        
 
         <div className="flex gap-4 items-center">
           <div className="flex gap-4 max-[850px]:hidden">
@@ -106,25 +111,51 @@ const Nav2 = () => {
           <div className="hidden max-[850px]:flex max-[850px]:justify-center  cursor-pointer max-[500px]:ml-[1rem]">
             <MenuMobile />
           </div>
-          <Button
-            title="Login"
-            className='max-[500px]:hidden'
-            onClick={() => {
-              router.push('/login');
-            }}
-          />
+
+           
+          <div className="flex gap-2 items-center">
+            {!isLogged && (
+              <Button
+                title="Login"
+                className="max-[500px]:hidden"
+                onClick={() => router.push('/login')}
+              />
+            )}
+
+            {isLogged && (
+              <>
+                <Button
+                  title="Minha Página"
+                  className="max-[500px]:hidden "
+                  onClick={() => router.push('/PaginaUsuario')}
+                />
+                <Button
+                  title="Logout"
+                  onClick={() => {
+                    localStorage.removeItem('userId');
+                    setIsLogged(false);
+                    router.push('/login');
+                  }}
+                  className="max-[500px]:hidden"
+                >
+                  
+                </Button>
+              </>
+            )}
+          </div>
         </div>
       </nav>
-      <button className="fixed top-4 right-4 p-2 rounded bg-gray-200 dark:bg-gray-800 text-black dark:text-white z-50"
-        onClick={() => {
-          if (darkMode) {
-          setDarkMode(false);
-        }else {
-          setDarkMode(true);
-        }
-        }}
-      >{darkMode ? '🌙 Dark Mode' : '☀️ Light Mode'}
-      </button>
+
+          <button className="fixed top-4 right-4 p-2 rounded bg-gray-200 dark:bg-gray-800 text-black dark:text-white z-50"
+            onClick={() => {
+              if (darkMode) {
+              setDarkMode(false);
+            }else {
+              setDarkMode(true);
+            }
+            }}
+          >{darkMode ? '🌙 Dark Mode' : '☀️ Light Mode'}
+          </button>
     </>
   );
 };

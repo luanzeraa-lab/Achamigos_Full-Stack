@@ -1,5 +1,6 @@
 
 const UserModel = require ('../models/UserModel')
+const bcrypt = require("bcryptjs");
 
 exports.listarUser = async (req, res) =>{
   try {
@@ -13,32 +14,24 @@ exports.listarUser = async (req, res) =>{
   }
 }
 
-// exports.cadastrarUser = async(req, res) => {
-//     try {
-//         const newUser = await UserModel.cadastrarUser(req.body);
-        
-//         res.status(200).json(newUser);
-
-//     } catch (error) {
-//         res.status(400).json({error: error.message})
-//     }
-// }
-
 exports.alterarUser = async(req, res) => {
     try {
         const {id} = req.params;
-        const {nome, telefone, cnpj, userLogin, senha, email,
-               endereco, linkUser} = req.body;
-        const usuarioAtualizado = await UserModel.alterarUser(
-          id,
-          {nome, telefone, cnpj, userLogin, senha, email,
-           endereco, linkUser},
-           {new: true})
+        const dadosAtualizados = {...req.body};
+
+        if (dadosAtualizados.senha && dadosAtualizados.senha.trim() !== "") {
+          dadosAtualizados.senha = bcrypt.hashSync(dadosAtualizados.senha, 10);
+        }
+
+        const usuarioAtualizado = await UserModel.alterarUser(id, dadosAtualizados, {
+          new: true,
+        });
            
-           if (!usuarioAtualizado){
+         if (!usuarioAtualizado){
             return res.status(400).json({message: "Usuário não encontrado"})
-           }
-           res.status(200).json(usuarioAtualizado) 
+         }
+            res.status(200).json(usuarioAtualizado) 
+
         } catch (error) {
            res.status(400).json({error: "Erro"})
         }

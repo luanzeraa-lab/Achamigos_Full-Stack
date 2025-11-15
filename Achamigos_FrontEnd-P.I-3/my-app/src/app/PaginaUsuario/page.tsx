@@ -2,16 +2,36 @@
 
 import Nav2 from '@/components/Navbar';
 import Footer from '@/components/Footer';
-
+import { useEffect, useState } from "react";
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
 const PaginaUsuario = () => {
   const router = useRouter();
 
+   const [usuario, setUsuario] = useState(null);
+
+    useEffect(() => {
+      const userStr = localStorage.getItem("user");
+      if (userStr) {
+        setUsuario(JSON.parse(userStr));
+      } else {
+        router.push("/Login");
+      }
+    }, []);
+
   return (
     <>
     <Nav2 />
+      {usuario ? (
+        <div className="text-center mb-8">
+          <h1 className="text-2xl font-bold">Bem-vindo, {usuario.nome}!</h1>
+          <p>Login: {usuario.userLogin}</p>
+        </div>
+      ) : (
+        <p>Carregando...</p>
+      )}
+    
       <div className="my-[4rem] flex flex-col gap-[5rem] bg-[#fffffe]">
         <div className="flex m-auto items-center justify-center gap-4
          shadow-lg rounded-[0.75rem] w-[60rem] h-[8rem] max-[1000px]:w-[40rem] max-[700px]:w-[21.25rem]">
@@ -21,7 +41,7 @@ const PaginaUsuario = () => {
             width={60}
             height={60}
             onClick={() => {
-              router.push('/CadastroAnimais');
+              router.push('/GerenciarPerfil');
             }}
             className="cursor-pointer max-[700px]:w-[2rem] max-[700px]:h-[2rem]"
           />
@@ -31,7 +51,7 @@ const PaginaUsuario = () => {
             type="button"
             value={'Gerenciar Perfil'}
             onClick={() => {
-              router.push('/CadastroAnimais');
+              router.push('/GerenciarPerfil');
             }}
           />
         </div>

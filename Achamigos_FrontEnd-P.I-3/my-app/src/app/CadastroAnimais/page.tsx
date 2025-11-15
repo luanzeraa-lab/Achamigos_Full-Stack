@@ -14,6 +14,18 @@ interface IVacina {
 
 const CadastroAnimais = () => {
   const router = useRouter();
+  const [userId, setUserId] = useState<string | null>(null);
+
+  useEffect(() => {
+    const id = localStorage.getItem("userId");
+    if (!id) {
+      router.push("/Login");
+    } else {
+      setUserId(id);
+    }
+  }, []);
+
+
 
   const [nomeAnimal, setNomeAnimal] = useState('');
   const [idadeAnimal, setIdadeAnimal] = useState('');
@@ -76,6 +88,7 @@ const CadastroAnimais = () => {
   formData.append('linkAnimal', linkAnimal);
   formData.append('castracao', castracao ? 'true' : 'false');
   formData.append('tipo', tipo);
+  formData.append('userId', userId || '');
 
   if (imagem) formData.append('imagem', imagem);
 
@@ -323,6 +336,7 @@ for (const [key, value] of formData.entries()) {
               <Button
                 className={styles['btn-primary']}
                 type="button"
+                disabled={!userId}
                 onClick={() =>
                   createAnimal(
                     nomeAnimal,

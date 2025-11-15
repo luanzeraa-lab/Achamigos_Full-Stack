@@ -28,7 +28,8 @@ const Login = () => {
       const data = await res.json();
 
       if (data.status === 'success') {
-        
+        localStorage.setItem("userId", data.user.id);
+        localStorage.setItem("user", JSON.stringify(data.user));
         router.push('/PaginaUsuario');
       } else {
         

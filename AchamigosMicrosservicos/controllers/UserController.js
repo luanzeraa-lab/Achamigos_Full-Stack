@@ -38,31 +38,31 @@ exports.cadastrar = async (req, res) => {
 };
 
 
-exports.login = async (req, res) => {
-  try {
+// exports.login = async (req, res) => {
+//   try {
     
-    const { userLogin, senha } = req.body;
+//     const { userLogin, senha } = req.body;
 
     
-    const user = await User.findOne({ userLogin }).select('+senha');
+//     const user = await User.findOne({ userLogin }).select('+senha');
 
     
-    if (!user || !(await bcrypt.compare(senha, user.senha))) {
-      return res.status(401).json({ error: 'Credenciais inválidas' });
-    }
+//     if (!user || !(await bcrypt.compare(senha, user.senha))) {
+//       return res.status(401).json({ error: 'Credenciais inválidas' });
+//     }
 
     
-    const token = jwt.sign({ id: user._id }, SECRET, { expiresIn: '1d' });
+//     const token = jwt.sign({ id: user._id }, SECRET, { expiresIn: '1d' });
 
     
-    const userObj = user.toObject();
-    delete userObj.senha;
-    delete userObj.__v;
+//     const userObj = user.toObject();
+//     delete userObj.senha;
+//     delete userObj.__v;
 
     
-    return res.json({ user: userObj, token });
-  } catch (err) {
+//     return res.json({ user: userObj, token });
+//   } catch (err) {
     
-    return res.status(500).json({ error: 'Erro ao fazer login' });
-  }
-};
+//     return res.status(500).json({ error: 'Erro ao fazer login' });
+//   }
+// };

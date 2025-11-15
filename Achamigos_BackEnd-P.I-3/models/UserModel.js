@@ -23,14 +23,6 @@ const listarUser = async (req, res) => {
     return await User.find();
 }
 
-
-// const cadastrarUser = async (dados) => {
-//   const newUser = new User({
-//     ...dados
-//   });
-//   return await newUser.save();
-// };
-
 const alterarUser = async (id, dados) => {
    return await User.findByIdAndUpdate(
     id,
