@@ -40,7 +40,11 @@ const Nav2 = () => {
 
   return (
     <>
-      <nav className="flex justify-around items-center bg-[#f3f4f6] py-3">
+      <nav className="flex justify-around items-center 
+                bg-gray-100 
+                dark:bg-gray-900
+                py-3">
+                  
         <div className="flex gap-[1.5rem] items-center">
           <Image
             src="/images/logocerto.png"
@@ -77,38 +81,50 @@ const Nav2 = () => {
           <div className="flex gap-4 max-[850px]:hidden">
             <Link
               href="/"
-              className="no-underline p-0 h-fit text-[#0d0d0d] hover:text-[#d9376e]
-             hover:underline underline-offset-1"
+              className="no-underline p-0 h-fit 
+                 text-gray-900
+                 dark:text-white 
+                 hover:text-[#d9376e] 
+                 hover:underline underline-offset-1"
             >
               Home
             </Link>
 
             <Link
               href="/parceiros"
-              className="no-underline p-0 h-fit text-[#0d0d0d] hover:text-[#d9376e]
-             hover:underline underline-offset-1"
+              className="no-underline p-0 h-fit 
+                 text-gray-900
+                 dark:text-white 
+                 hover:text-[#d9376e]
+                 hover:underline underline-offset-1"
             >
               Parceiros
             </Link>
 
             <Link
               href="/animais"
-              className="no-underline p-0 h-fit text-[#0d0d0d] hover:text-[#d9376e]
-             hover:underline underline-offset-1"
+              className="no-underline p-0 h-fit 
+                 text-gray-900
+                 dark:text-white  
+                 hover:text-[#d9376e]
+                 hover:underline underline-offset-1"
             >
               Animais
             </Link>
 
             <Link
               href="/Eventos"
-              className=" no-underline p-0 h-fit text-[#0d0d0d] hover:text-[#d9376e]
-             hover:underline underline-offset-1"
+              className="no-underline p-0 h-fit 
+                 text-gray-900
+                 dark:text-white 
+                 hover:text-[#d9376e]
+                 hover:underline underline-offset-1"
             >
               Eventos
             </Link>
           </div>
 
-          <div className="hidden max-[850px]:flex max-[850px]:justify-center  cursor-pointer max-[500px]:ml-[1rem]">
+          <div className="hidden max-[850px]:flex max-[850px]:justify-center cursor-pointer max-[500px]:ml-[1rem]">
             <MenuMobile />
           </div>
 

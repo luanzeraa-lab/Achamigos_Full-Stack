@@ -4,7 +4,10 @@ const comoUsar = () => {
   return (
     <>
       <div className="relative mb-4">
-        <h1 className="text-[2.5rem] font-[700] max-[480px]:text-[2rem] text-[#292929] text-center mb-4">
+        <h1 className="text-[2.5rem] font-[700] max-[480px]:text-[2rem]
+        text-gray-900
+        dark:text-white 
+        text-center mb-4">
           Como encontrar o seu novo pet no nosso site?
         </h1>
         <div className="grid grid-cols-2 gap-4  max-[900px]:grid-cols-1">
