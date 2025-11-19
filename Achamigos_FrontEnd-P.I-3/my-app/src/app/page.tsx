@@ -5,7 +5,7 @@ import Nav2 from '../components/Navbar';
 import Footer from '../components/Footer';
 import ComoUsar from '../components/ComoUsar';
 import Sobre from '../components/Sobre';
-import '../styles/globals.scss';
+
 
 export default function App() {
   

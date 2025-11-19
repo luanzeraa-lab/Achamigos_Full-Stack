@@ -1,5 +1,5 @@
 'use client';
-import styles from './CadastroAnimais.module.scss'
+import styles from './CadastroAnimais.module.scss';
 import { useRouter } from 'next/navigation';
 import { Container, Image, Button } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
@@ -7,12 +7,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { link } from 'fs';
 
-interface IVacina {
-  id: string;
-  nome: string;
-}
-
-const CadastroAnimais = () => {
+const AlterarAnimal = () => {
   const router = useRouter();
   const [userId, setUserId] = useState<string | null>(null);
 
@@ -25,119 +20,61 @@ const CadastroAnimais = () => {
     }
   }, []);
 
-
-
   const [nomeAnimal, setNomeAnimal] = useState('');
   const [idadeAnimal, setIdadeAnimal] = useState('');
   const [racaAnimal, setRacaAnimal] = useState('');
   const [sexoAnimal, setSexoAnimal] = useState('');
   const [porteAnimal, setPorteAnimal] = useState('');
   const [pesoAnimal, setPesoAnimal] = useState('');
-  const [vacinas, setVacinas] = useState<IVacina[]>([]);
-  const [vacinaAnimal, setVacinaAnimal] = useState<string[]>([]);
   const [obsAnimal, setObsAnimal] = useState('');
   const [linkAnimal, setLinkAnimal] = useState('');
   const [tipo, setTipo] = useState('');
   const [castrado, setCastrado] = useState(false);
   const [imgAnimal, setImgAnimal] = useState<File | undefined>(undefined);
 
-  useEffect(() => {
-    const fetchVacinas = async () => {
-      try {
-        const res = await axios.get('http://localhost:8081/api/vacinas');
-        console.log('Vacinas recebidas:', res.data);
-        setVacinas(res.data);
-      } catch (err) {
-        console.error('Erro ao buscar vacinas', err);
-      }
-    };
-    fetchVacinas();
-  }, []);
+  const createAnimal = async (
+    nome: string,
+    idade: string,
+    raca: string,
+    sexo: string,
+    porte: string,
+    peso: string,
+    observacoes: string,
+    linkAnimal: string,
+    castracao: boolean,
+    tipo: string,
+    imagem: File | undefined
+  ) => {
+    const formData = new FormData();
+    formData.append('nome', nome);
+    formData.append('idade', idade);
+    formData.append('raca', raca);
+    formData.append('sexo', sexo);
+    formData.append('porte', porte);
+    formData.append('peso', peso);
+    formData.append('observacoes', observacoes);
+    formData.append('linkAnimal', linkAnimal);
+    formData.append('castracao', castracao ? 'true' : 'false');
+    formData.append('tipo', tipo);
+    formData.append('userId', userId || '');
 
-  const vacinaChecada = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { value, checked } = event.target;
-    if (checked) {
-      setVacinaAnimal([...vacinaAnimal, value]);
-    } else {
-      setVacinaAnimal(vacinaAnimal.filter((v) => v !== value));
+    if (imagem) formData.append('imagem', imagem);
+
+    try {
+      const res = await axios.put(
+        'http://localhost:3002/animais/:id',
+        formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+            'x-api-key': 1234,
+          },
+        }
+      );
+    } catch (err) {
+      console.error('Erro ao cadastrar animal:', err);
     }
   };
-
-  const createAnimal = async (
-  nome: string,
-  idade: string,
-  raca: string,
-  sexo: string,
-  porte: string,
-  peso: string,
-  vacinasIds: string[],
-  observacoes: string,
-  linkAnimal: string,
-  castracao: boolean,
-  tipo: string,
-  imagem: File | undefined
-) => {
-  const formData = new FormData();
-  formData.append('nome', nome);
-  formData.append('idade', idade);
-  formData.append('raca', raca);
-  formData.append('sexo', sexo);
-  formData.append('porte', porte);
-  formData.append('peso', peso);
-  formData.append('observacoes', observacoes);
-  formData.append('linkAnimal', linkAnimal);
-  formData.append('castracao', castracao ? 'true' : 'false');
-  formData.append('tipo', tipo);
-  formData.append('userId', userId || '');
-
-  if (imagem) formData.append('imagem', imagem);
-
-  const vacinasCompletas = vacinasIds.map(vId => { 
-  const vacinaObj = vacinas.find(v => v.id === vId); 
-  return { id: vId, nome: vacinaObj?.nome || 'Desconhecida' };
-});
-formData.append('vacinas', JSON.stringify(vacinasCompletas));
- 
-  try {
-    
-    const res = await axios.post(
-      'http://localhost:3002/animais', 
-      formData,
-      {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-          'x-api-key': 1234,
-        },
-      }
-    );
-    const idAnimal = res.data._id;
-
-    if (res.status === 201 || res.status === 200) {
-      console.log('FormData:');
-for (const [key, value] of formData.entries()) {
-  console.log(key, value);
-}
-      try {
-        await axios.post(`http://localhost:8081/vacinacao/gerar/${idAnimal}`);
-        alert(`Animal cadastrado com sucesso! ID: ${idAnimal}`);
-      } catch (err) {
-  
-        alert('Animal cadastrado, mas falha ao tentar gerar as vacinas.');
-        console.error('Falha ao gerar vacinas:', err);
-      }
-    } else {
-      alert('Falha ao tentar cadastrar o animal');
-    }
-  } catch (err) {
-    
-    alert('Falha ao tentar cadastrar o animal');
-    console.error('Erro no cadastro inicial do animal:', err);
-    if (axios.isAxiosError(err) && err.response) {
-        console.error('Detalhe do Erro do Servidor (400):', err.response.data);
-    }
-  }
-};
-  
 
   return (
     <Container fluid id={styles['allpage']}>
@@ -161,9 +98,9 @@ for (const [key, value] of formData.entries()) {
           </p>
 
           <Form>
-            
             <div className={styles['dog-info']}>
               <h5>🐾 Informações do amiguinho</h5>
+
               <div className={styles['input-wrapper']}>
                 <Form.Label htmlFor="name">Nome</Form.Label>
                 <Form.Control
@@ -183,9 +120,9 @@ for (const [key, value] of formData.entries()) {
                   onChange={(e) => setTipo(e.target.value)}
                 >
                   <option value="">Selecione...</option>
-                  <option value="macho">Cachorro</option>
-                  <option value="femea">Gato</option>
-                  <option value="femea">Outro</option>
+                  <option value="cachorro">Cachorro</option>
+                  <option value="gato">Gato</option>
+                  <option value="outro">Outro</option>
                 </Form.Select>
               </div>
 
@@ -251,64 +188,47 @@ for (const [key, value] of formData.entries()) {
               </div>
             </div>
 
-            
-            <div className={styles['dog-health']}>
-              <h5>💉 Vacinas</h5>
-              {vacinas.map((v) => (
-              <Form.Check
-                key={v.id}          
-                label={v.nome}
-                value={v.id}        
-                checked={vacinaAnimal.includes(v.id)} 
-                onChange={vacinaChecada}
-              />
-            ))}
+            <Form.Label htmlFor="observations" className="mt-3 mb-0.5">
+              🐶 Observações
+            </Form.Label>
+            <Form.Control
+              id="observations"
+              as="textarea"
+              rows={5}
+              placeholder="Escreva informações adicionais sobre o animal"
+              value={obsAnimal}
+              onChange={(e) => setObsAnimal(e.target.value)}
+            />
 
-              
-              <Form.Label htmlFor="observations" className="mt-3 mb-0.5">
-                🐶 Observações
-              </Form.Label>
-              <Form.Control
-                id="observations"
-                as="textarea"
-                rows={5}
-                placeholder="Escreva informações adicionais sobre o animal"
-                value={obsAnimal}
-                onChange={(e) => setObsAnimal(e.target.value)}
-              />
+            <Form.Label htmlFor="linkAnimal" className="mt-3 mb-0.5">
+              🔗 Link para mais informações sobre o animal
+            </Form.Label>
+            <Form.Control
+              id="linkAnimal"
+              type="text"
+              placeholder="Insira o link"
+              value={linkAnimal}
+              onChange={(e) => setLinkAnimal(e.target.value)}
+            />
 
-              <Form.Label htmlFor="linkAnimal" className="mt-3 mb-0.5">
-                🔗 Link para mais informações sobre o animal
-              </Form.Label>
-              <Form.Control
-                id="linkAnimal"
-                type="text"
-                placeholder="Escreva informações adicionais sobre o animal"
-                value={linkAnimal}
-                onChange={(e) => setLinkAnimal(e.target.value)}
-              />
+            <Form.Label className="mt-3 mb-0.5">✂️ Castração</Form.Label>
+            <Form.Check
+              type="radio"
+              id="castrado-sim"
+              name="castracao"
+              label="Sim"
+              checked={castrado === true}
+              onChange={() => setCastrado(true)}
+            />
+            <Form.Check
+              type="radio"
+              id="castrado-nao"
+              name="castracao"
+              label="Não"
+              checked={castrado === false}
+              onChange={() => setCastrado(false)}
+            />
 
-              
-              <Form.Label className="mt-3 mb-0.5">✂️ Castração</Form.Label>
-              <Form.Check
-                type="radio"
-                id="castrado-sim"
-                name="castracao"
-                label="Sim"
-                checked={castrado === true}
-                onChange={() => setCastrado(true)}
-              />
-              <Form.Check
-                type="radio"
-                id="castrado-nao"
-                name="castracao"
-                label="Não"
-                checked={castrado === false}
-                onChange={() => setCastrado(false)}
-              />
-            </div>
-
-            
             <div className="droparea-wrapper">
               <h5>📷 Foto do animal</h5>
               <div className={styles['droparea']}>
@@ -316,11 +236,12 @@ for (const [key, value] of formData.entries()) {
                   className={styles['inputcontrol']}
                   type="file"
                   id="imagem"
-                  name="imagem"
                   accept="image/*"
-                  onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                    setImgAnimal(event.target.files ? event.target.files[0] : undefined);
-                  }}
+                  onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                    setImgAnimal(
+                      event.target.files ? event.target.files[0] : undefined
+                    )
+                  }
                 />
                 <p>
                   Clique aqui para <br /> selecionar arquivos
@@ -328,11 +249,11 @@ for (const [key, value] of formData.entries()) {
               </div>
             </div>
 
-            
             <div className={styles['action-wrapper']}>
               <Button className={styles['btn-secondary']} type="button">
                 Salvar respostas
               </Button>
+
               <Button
                 className={styles['btn-primary']}
                 type="button"
@@ -345,7 +266,6 @@ for (const [key, value] of formData.entries()) {
                     sexoAnimal,
                     porteAnimal,
                     pesoAnimal,
-                    vacinaAnimal,
                     obsAnimal,
                     linkAnimal,
                     castrado,
@@ -375,7 +295,7 @@ for (const [key, value] of formData.entries()) {
             </div>
 
             <h2>
-              Porque, para nós, toda <span> adoção </span> importa
+              Porque, para nós, toda <span>adoção</span> importa
             </h2>
 
             <p>
@@ -383,6 +303,7 @@ for (const [key, value] of formData.entries()) {
               ambiente acolhedor, seguro e cheio de amor.
             </p>
           </header>
+
           <Image
             className={styles['logoprincipal']}
             src="/images/logocerto.png"
@@ -396,4 +317,4 @@ for (const [key, value] of formData.entries()) {
   );
 };
 
-export default CadastroAnimais;
+export default AlterarAnimal;

@@ -56,6 +56,7 @@ const PaginaUsuario = () => {
           />
         </div>
 
+        <div className='flex gap-4 max-w-[60rem] m-auto '> 
         <div className="flex m-auto items-center justify-center gap-4 shadow-lg
          rounded-[0.75rem] w-[60rem] h-[8rem] max-[1000px]:w-[40rem] max-[700px]:w-[21.25rem]">
           <Image
@@ -77,6 +78,29 @@ const PaginaUsuario = () => {
               router.push('/CadastroAnimais');
             }}
           />
+        </div>
+        <div className="flex m-auto items-center justify-center gap-4 shadow-lg
+         rounded-[0.75rem] w-[60rem] h-[8rem] max-[1000px]:w-[40rem] max-[700px]:w-[21.25rem]">
+          <Image
+            src="/icons/dog-perfil.svg"
+            alt="clique para ir para cadastro de animais"
+            width={60}
+            height={60}
+            onClick={() => {
+              router.push('/GerenciarAnimais');
+            }}
+            className="cursor-pointer max-[700px]:w-[2rem] max-[700px]:h-[2rem]"
+          />
+          <input
+            className="bg-transparent border-none font-[600] text-[2rem] w-[19.75rem]
+             max-[700px]:text-[1.5rem] max-[700px]:w-[15rem]"
+            type="button"
+            value={'Gerenciar animais'}
+            onClick={() => {
+              router.push('/GerenciarAnimais');
+            }}
+          />
+        </div>
         </div>
 
         <div className="flex m-auto items-center justify-center gap-4 shadow-lg
@@ -111,7 +135,7 @@ const PaginaUsuario = () => {
               width={55}
               height={55}
               onClick={() => {
-                router.push('/CadastroEvento');
+                router.push('/CadastrarVacinas');
               }}
               className="cursor-pointer max-[700px]:w-[2rem] max-[700px]:h-[2rem]"
             />
@@ -133,7 +157,7 @@ const PaginaUsuario = () => {
               width={55}
               height={55}
               onClick={() => {
-                router.push('/CadastroEvento');
+                router.push('/RelatorioVacinas');
               }}
               className="cursor-pointer max-[700px]:w-[2rem] max-[700px]:h-[2rem]"
             />

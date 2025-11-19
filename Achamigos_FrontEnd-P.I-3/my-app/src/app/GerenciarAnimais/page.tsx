@@ -1,0 +1,122 @@
+'use client';
+import styles from './Animais.module.scss';
+import { Container } from 'react-bootstrap';
+import Nav2 from '@/components/Navbar';
+import { Button } from '../../components/Button';
+import Footer from '@/components/Footer';
+import axios from 'axios';
+import { IAnimal } from './IAnimal';
+import { useEffect, useState } from 'react';
+
+
+const GerenciarAnimais = () => {
+    const [animal, setAnimal] = useState<IAnimal[]>([]);
+    const [userId, setUserId] = useState<string | null>(null);
+    
+    useEffect(() => {
+    const id = localStorage.getItem("userId");
+    setUserId(id);
+    }, []);
+    
+  
+  useEffect(() => {
+  const listaAnimal = async () => {
+    try {
+      const res = await axios.get('http://localhost:3002/animais', {
+        headers: {
+          'x-api-key': '1234', 
+        },
+      });
+      const animaisFiltrados = res.data.filter((animal: any)=>{
+        return animal.userId === userId || animal.user?._id === userId;
+      })
+      setAnimal(animaisFiltrados);
+
+    } catch (err) {
+      console.error('Erro ao buscar animais:', err);
+    }
+  };
+
+  listaAnimal();
+}, [userId]);
+
+
+  return (
+    <>
+    <div className={styles['Navc']}>
+    <Nav2 />
+    </div>
+    
+      <Container fluid className={styles['gridcate']}>
+        <div className={styles['apresentacao']}>
+          <h1 className="text-[1.875rem] font-bold my-2">
+            Seus animais
+          </h1>
+        </div>
+
+         
+   <div className={styles['descricaoani']}>
+
+  <div className="flex flex-wrap gap-5">    
+    {animal.map((ani) => (
+      <figure 
+        key={ani._id}
+        className={styles['figures']}
+      >
+        <img
+          className="rounded-[1rem] w-[20rem] h-[20rem] max-[500px]:w-[12.75rem] max-[500px]:h-[10rem]"
+          src={`http://localhost:3002${ani.imagem}`}
+          alt={ani.nome}
+        />
+
+        <figcaption className="justify-start p-4">
+          <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100 truncate">
+            {ani.nome}
+          </h3>
+
+          <p className="text-sm text-gray-900 dark:text-gray-100 flex gap-2 mb-0">
+            <span className="font-[700]">Raça:</span> {ani.raca}
+          </p>
+
+          <p className="text-sm text-gray-600 dark:text-gray-400 flex gap-2 mb-0">
+            <span className="font-[700]">Sexo:</span> {ani.sexo}
+          </p>
+
+          <p className="text-sm text-gray-600 dark:text-gray-400 flex gap-2 mb-0">
+            <span className="font-[700]">Idade:</span> {ani.idade}
+          </p>
+
+          <p className="text-sm text-gray-600 dark:text-gray-400 flex gap-2 mb-0">
+            <span className="font-[700]">Porte:</span> {ani.porte}
+          </p>
+
+          <p className="text-sm text-gray-600 dark:text-gray-400 flex gap-2 mb-0">
+            <span className="font-[700]">Castrado:</span> {ani.castracao ? 'Sim' : 'Não'}
+          </p>
+
+          <p className="text-sm text-gray-600 dark:text-gray-400">
+            <span className="font-[700]">Observações:</span> {ani.porte}
+          </p>
+
+          <p className="text-sm text-gray-600 dark:text-gray-400 flex gap-2">
+            <a 
+              href={/^https?:\/\//i.test(ani.linkAnimal) ? ani.linkAnimal : `https://${ani.linkAnimal}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Encontre seu Amiguinho
+            </a>
+          </p>
+        </figcaption>
+      </figure>
+    ))}
+  </div>
+
+</div>
+      </Container>
+      <Footer />
+    </>
+  );
+};
+
+export default GerenciarAnimais;
