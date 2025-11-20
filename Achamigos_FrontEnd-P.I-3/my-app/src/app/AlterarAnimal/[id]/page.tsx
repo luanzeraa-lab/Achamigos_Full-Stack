@@ -1,109 +1,151 @@
 'use client';
-import { useParams, useRouter } from 'next/navigation';
-import { useState } from 'react';
-import { Container, Form, Button } from 'react-bootstrap';
+
+import styles from './CadastroAnimais.module.scss';
+import { Container, Image, Button } from 'react-bootstrap';
+import Form from 'react-bootstrap/Form';
 import axios from 'axios';
+import { useState, useEffect } from 'react';
+import { useParams, useRouter } from 'next/navigation';
 
-const AtualizarAnimal = () => {
-  const { id } = useParams();
+const AlterarAnimal = () => {
   const router = useRouter();
+  const { id } = useParams();
 
-  const [nome, setNome] = useState('');
-  const [idade, setIdade] = useState('');
-  const [raca, setRaca] = useState('');
-  const [sexo, setSexo] = useState('');
-  const [porte, setPorte] = useState('');
-  const [peso, setPeso] = useState('');
-  const [castrado, setCastrado] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [animal, setAnimal] = useState({
+    nome: '',
+    idade: '',
+    raca: '',
+    sexo: '',
+    porte: '',
+    peso: '',
+    castrado: '',
+    img: '',
+  });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  useEffect(() => {
+    const fetchAnimal = async () => {
+      try {
+        const res = await axios.get(`http://localhost:3002/animais/${id}`, {
+          headers: { 'x-api-key': '1234' },
+        });
+
+        setLoading(false);
+      } catch (err) {
+        console.error('Erro ao buscar animal:', err);
+        alert('Erro ao buscar dados do animal');
+        setLoading(false);
+      }
+    };
+
+    fetchAnimal();
+  }, [id]);
+
+  const handleChange = (e: any) => {
+    const { name, value } = e.target;
+    setAnimal({ ...animal, [name]: value });
+  };
+
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
 
-    const animalData = { nome, idade, raca, sexo, porte, peso, castrado };
-
     try {
-      
-      await axios.put(`http://localhost:3002/animais/${id}`, animalData, {
-        headers: {
-          'x-api-key': '1234'}
-      });
+      await axios.put(
+        `http://localhost:3002/animais/${id}`,
+        animal,
+        { headers: { 'x-api-key': '1234' } }
+      );
 
       alert('Animal atualizado com sucesso!');
-      router.push('/Animais'); 
+      router.push('/GerenciarAnimais');
     } catch (err) {
       console.error(err);
-      alert('Erro ao atualizar o animal.');
+      alert('Erro ao atualizar animal');
     }
   };
 
+  if (loading) {
+    return <p>Carregando dados...</p>;
+  }
+
   return (
-    <Container className="mt-5">
-      <h2>Atualizar Animal</h2>
-      <p>ID do animal: {id}</p>
+    <Container className={styles.formContainer}>
+      <h1>Alterar Animal</h1>
+
       <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3">
+        <Form.Group>
           <Form.Label>Nome</Form.Label>
-          <Form.Control value={nome} onChange={e => setNome(e.target.value)} />
+          <Form.Control
+            name="nome"
+            value={animal.nome}
+            onChange={handleChange}
+          />
         </Form.Group>
 
-        <Form.Group className="mb-3">
+        <Form.Group>
           <Form.Label>Idade</Form.Label>
-          <Form.Control value={idade} onChange={e => setIdade(e.target.value)} />
+          <Form.Control
+            name="idade"
+            value={animal.idade}
+            onChange={handleChange}
+          />
         </Form.Group>
 
-        <Form.Group className="mb-3">
+        <Form.Group>
           <Form.Label>Raça</Form.Label>
-          <Form.Control value={raca} onChange={e => setRaca(e.target.value)} />
+          <Form.Control
+            name="raca"
+            value={animal.raca}
+            onChange={handleChange}
+          />
         </Form.Group>
 
-        <Form.Group className="mb-3">
+        <Form.Group>
           <Form.Label>Sexo</Form.Label>
-          <Form.Select value={sexo} onChange={e => setSexo(e.target.value)}>
-            <option value="">Selecione...</option>
-            <option value="macho">Macho</option>
-            <option value="femea">Fêmea</option>
-          </Form.Select>
+          <Form.Control
+            name="sexo"
+            value={animal.sexo}
+            onChange={handleChange}
+          />
         </Form.Group>
 
-        <Form.Group className="mb-3">
+        <Form.Group>
           <Form.Label>Porte</Form.Label>
-          <Form.Select value={porte} onChange={e => setPorte(e.target.value)}>
-            <option value="">Selecione...</option>
-            <option value="pequeno">Pequeno</option>
-            <option value="medio">Médio</option>
-            <option value="grande">Grande</option>
+          <Form.Control
+            name="porte"
+            value={animal.porte}
+            onChange={handleChange}
+          />
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label>Peso</Form.Label>
+          <Form.Control
+            name="peso"
+            value={animal.peso}
+            onChange={handleChange}
+          />
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label>Castrado</Form.Label>
+          <Form.Select
+            name="castrado"
+            value={animal.castrado}
+            onChange={handleChange}
+          >
+            <option value="">Selecione</option>
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
           </Form.Select>
         </Form.Group>
 
-        <Form.Group className="mb-3">
-          <Form.Label>Peso (kg)</Form.Label>
-          <Form.Control value={peso} onChange={e => setPeso(e.target.value)} />
-        </Form.Group>
-
-        <Form.Group className="mb-3">
-          <Form.Label>Castração</Form.Label>
-          <div>
-            <Form.Check
-              inline
-              type="radio"
-              label="Sim"
-              checked={castrado === true}
-              onChange={() => setCastrado(true)}
-            />
-            <Form.Check
-              inline
-              type="radio"
-              label="Não"
-              checked={castrado === false}
-              onChange={() => setCastrado(false)}
-            />
-          </div>
-        </Form.Group>
-
-        <Button type="submit">Salvar Alterações</Button>
+        <Button type="submit" className="mt-3">
+          Atualizar
+        </Button>
       </Form>
     </Container>
   );
 };
 
-export default AtualizarAnimal;
+export default AlterarAnimal;

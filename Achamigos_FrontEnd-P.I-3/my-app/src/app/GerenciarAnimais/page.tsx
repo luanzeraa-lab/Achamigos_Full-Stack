@@ -9,7 +9,6 @@ import { IAnimal } from './IAnimal';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-
 const GerenciarAnimais = () => {
     const router = useRouter()
     const [animal, setAnimal] = useState<IAnimal[]>([]);
@@ -20,7 +19,6 @@ const GerenciarAnimais = () => {
     setUserId(id);
     }, []);
     
-  
   useEffect(() => {
   const listaAnimal = async () => {
     try {
@@ -42,6 +40,26 @@ const GerenciarAnimais = () => {
   listaAnimal();
 }, [userId]);
 
+const deletarAnimal = async (id) => {
+  if (!confirm("Tem certeza que deseja deletar este animal?"))
+    
+    return;
+
+  try {
+    await axios.delete(`http://localhost:3002/animais/${id}`, {
+      headers: { 
+        'x-api-key': '1234'
+       }
+    });
+
+    setAnimal((old) => old.filter((a) => a._id !== id));
+
+    alert("Animal deletado com sucesso!");
+  } catch (err) {
+    console.error("Erro ao deletar animal:", err);
+    alert("Erro ao deletar animal!");
+  }
+};
 
   return (
     <>
@@ -118,12 +136,12 @@ const GerenciarAnimais = () => {
                   <Button
                   title="Alterar Animal"
                   className="max-[500px]:hidden "
-                  onClick={() => router.push('../AlterarAnimal/${ani._id}')}
+                  onClick={() => router.push(`../AlterarAnimal/${ani._id}`)}
                 />
                   <Button
                   title="Deletar Animal"
                   className="max-[500px]:hidden "
-                  onClick={() => router.push('/PaginaUsuario')}
+                  onClick={() => deletarAnimal(ani._id)}
                 />
                 </div>
                 </figcaption>
