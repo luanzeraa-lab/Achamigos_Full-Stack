@@ -13,6 +13,21 @@ exports.listarAnimal = async (req, res) =>{
   }
 }
 
+exports.buscarAnimalPorId = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const animal = await AnimalModel.buscarAnimalPorId(id);
+
+    if (!animal) {
+      return res.status(404).json({ message: "Animal não encontrado" });
+    }
+
+    res.status(200).json(animal);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
 exports.cadastrarAnimal = async (req, res) => {
     const animalData = { ...req.body };
     if (animalData.vacinas && typeof animalData.vacinas === 'string') {

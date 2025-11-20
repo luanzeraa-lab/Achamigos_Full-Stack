@@ -14,6 +14,7 @@ const animalController = require('../controllers/AnimalController')
 });
 const upload = multer({storage})
     
+router.get('/animais/:id', animalController.buscarAnimalPorId);
 router.get('/animais', (animalController.listarAnimal));
 router.post('/animais', upload.single('imagem'), animalController.cadastrarAnimal);
 router.put('/animais/:id', (animalController.alterarAnimal));

@@ -30,6 +30,14 @@ const listarAnimais = async (req, res) => {
     return await Animal.find();
 }
 
+const buscarAnimalPorId = async (id) =>{
+  try {
+    return await Animal.findById(id);
+  } catch (error) {
+    throw error;
+  }
+}
+
 const cadastrarAnimal = async (dados, file) => {
   const novoAnimal = new Animal({
     ...dados,
@@ -52,7 +60,7 @@ const excluirAnimal = async (id) => {
   );
 }
 
-module.exports = {Animal, cadastrarAnimal, alterarAnimal, excluirAnimal, listarAnimais};
+module.exports = {Animal, cadastrarAnimal, alterarAnimal, excluirAnimal, listarAnimais, buscarAnimalPorId};
 
 
 

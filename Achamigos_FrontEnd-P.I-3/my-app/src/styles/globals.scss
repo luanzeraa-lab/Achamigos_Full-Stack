@@ -12,7 +12,7 @@
 
 /* Modo claro  */
 :root {
-  --bg: #fffffe;   
+  --bg: #fdfdfd;   
   --text: #2a2a2a; 
   --span: #2a2a2a;
 }
@@ -24,6 +24,9 @@ body.dark {
   --span: #d1d5db;
 }
 
+body.dark nav {
+    background-color: #1f2937 !important; 
+}
 body.dark footer {
     background-color: #1f2937 !important; 
 }

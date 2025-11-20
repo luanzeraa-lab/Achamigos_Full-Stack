@@ -41,7 +41,7 @@ const Nav2 = () => {
   return (
     <>
       <nav className="flex justify-around items-center 
-                bg-gray-100 
+                bg-[#f3f4f6] 
                 dark:bg-gray-900
                 py-3">
                   

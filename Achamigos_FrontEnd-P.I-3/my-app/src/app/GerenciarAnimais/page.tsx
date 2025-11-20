@@ -57,7 +57,7 @@ const GerenciarAnimais = () => {
         </div>
 
          
-   <div className={styles['descricaoani']} onClick={() => router.push('../AlterarAnimal')}>
+   <div className={styles['descricaoani']} >
 
         <div className="flex flex-wrap gap-5">    
             {animal.map((ani) => (
@@ -109,6 +109,23 @@ const GerenciarAnimais = () => {
                     Encontre seu Amiguinho
                     </a>
                 </p>
+                <div className='flex gap-2'>
+                  <Button
+                  title="Vacinar Animal"
+                  className="max-[500px]:hidden "
+                  onClick={() => router.push('/PaginaUsuario')}
+                />
+                  <Button
+                  title="Alterar Animal"
+                  className="max-[500px]:hidden "
+                  onClick={() => router.push('../AlterarAnimal/${ani._id}')}
+                />
+                  <Button
+                  title="Deletar Animal"
+                  className="max-[500px]:hidden "
+                  onClick={() => router.push('/PaginaUsuario')}
+                />
+                </div>
                 </figcaption>
             </figure>
             ))}
