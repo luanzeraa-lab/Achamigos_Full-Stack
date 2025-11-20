@@ -1,0 +1,147 @@
+ .Navc {
+    
+    top: 0;
+    z-index: 40;
+  }
+
+.gridcate {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #fffffe;
+  display: grid;
+  grid-template-areas:
+    'apre apre'
+    'aside cata'
+    'aside cata'
+    'aside cata'
+    'aside cata';
+
+  grid-template-columns: 2fr 8fr;
+  grid-template-rows: auto auto repeat(4, 1fr) auto;
+  gap: 10px;
+ 
+  & .apresentacao {
+    grid-area: apre;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  & .asfiltro {
+    grid-area: aside;
+    display: flex;
+    min-width: 20rem;
+    justify-content: center;
+    align-items: start;
+    box-shadow: 0 1px 8px -1px #a3a3a3;
+    flex-direction: column;
+    background-color: #f3f4f6;
+    border-radius: 2rem;
+    padding: 1rem;
+    padding-left: 3rem;
+    margin-left: 1rem;
+    height: 44.54875rem;
+    position: static;
+
+    & input[type='checkbox'] {
+      appearance: none;
+      width: 1rem;
+      height: 1rem;
+      border: 1px solid #333;
+      border-radius: 4px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    & ul {
+      list-style-type: none;
+      padding: 0;
+      & li input {
+        margin-right: 0.5rem;
+      }
+    }
+
+    & h2 {
+      font-size: 1.5rem;
+    }
+  }
+
+  & .flex-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  & .descricaoani {
+    grid-area: cata;
+    margin-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    & .figures {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      box-shadow: 0 1px 8px -1px #a3a3a3;
+      background-color: #fffffe;
+      border-radius: 12px;
+    }
+  }
+}
+
+@media (width <= 93.75rem) {
+  .gridcate {
+    & .descricaoani {
+      flex-wrap: wrap;
+      margin-right: 0px;
+      flex-direction: row;
+      justify-content: space-around;
+
+      & .figures {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        max-width: 27.375rem;
+        height: fit-content;
+
+        & img {
+          border-radius: 0.75rem 0.75rem 0 0;
+        }
+
+        & figcaption {
+          padding-inline: 2rem;
+          gap: 3rem;
+        }
+      }
+    }
+  }
+}
+
+@media (width <= 56.25rem) {
+  .gridcate {
+    grid-template-areas:
+      'aside'
+      'apre'
+      'cata';
+
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+
+    & .asfiltro {
+      min-width: 20rem;
+      width: 20rem;
+      margin-inline: auto;
+      margin-block: 2rem;
+    }
+
+    & .figures {
+      width: 20rem;
+      height: fit-content;
+
+      & img {
+        width: 20rem;
+      }
+    }
+  }
+}

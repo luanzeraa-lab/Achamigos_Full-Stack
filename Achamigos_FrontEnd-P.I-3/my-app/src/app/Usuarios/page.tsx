@@ -1,5 +1,5 @@
 'use client';
-import styles from './Animais.module.scss';
+import styles from './Usuarios.module.scss';
 import { Container } from 'react-bootstrap';
 import Nav2 from '@/components/Navbar';
 import { Button } from '../../components/Button';
@@ -20,14 +20,14 @@ const [user, setUser] = useState<any[]>([]);
         },
       });
 
-      setAnimal(res.data);
+      setUser(res.data);
       console.log(res.data);
     } catch (err) {
       console.error('Erro ao buscar animais:', err);
     }
   };
 
-  listaAnimal();
+  listaUsers();
 }, []);
 
 
@@ -40,162 +40,44 @@ const [user, setUser] = useState<any[]>([]);
       <Container fluid className={styles['gridcate']}>
         <div className={styles['apresentacao']}>
           <h1 className="text-[1.875rem] font-bold my-2">
-            Pets para adoção
+            Parceiros do Achamigos
           </h1>
         </div>
 
-        <div className={styles['asfiltro']}>
-          <h2>Filtros</h2>
-          <div className={styles['flex-col']}>
-            <h2>Animais</h2>
-            <ul>
-              <li>
-                <input className="form-check-input" type="checkbox" />
-                <label className="form-check-label">Gato</label>
-              </li>
+        
 
-              <li>
-                <input className="form-check-input" type="checkbox" />
-                <label className="form-check-label">Cachorro</label>
-              </li>
-
-              <li>
-                <input className="form-check-input" type="checkbox" />
-                <label className="form-check-label">Outros</label>
-              </li>
-            </ul>
-          </div>
-
-          <div className={styles['flex-col']}>
-            <h2>Porte</h2>
-            <ul>
-              <li>
-                <input className="form-check-input" type="checkbox" />
-                <label className="form-check-label">Pequeno</label>
-              </li>
-
-              <li>
-                <input className="form-check-input" type="checkbox" />
-                <label className="form-check-label">Médio</label>
-              </li>
-
-              <li>
-                <input className="form-check-input" type="checkbox" />
-                <label className="form-check-label">Grande</label>
-              </li>
-            </ul>
-          </div>
-
-          <div className={styles['flex-col']}>
-            <h2>Cidade</h2>
-            <ul>
-              <li>
-                <input className="form-check-input" type="checkbox" />
-                <label className="form-check-label">Sorocaba</label>
-              </li>
-
-              <li>
-                <input className="form-check-input" type="checkbox" />
-                <label className="form-check-label">Votorantim</label>
-              </li>
-
-              <li>
-                <input className="form-check-input" type="checkbox" />
-                <label className="form-check-label">Outras</label>
-              </li>
-            </ul>
-          </div>
-
-           <div className={styles['flex-col']}>
-            <h2>Castrado</h2>
-            <ul>
-              <li>
-                <input className="form-check-input" type="checkbox" />
-                <label className="form-check-label">Sim</label>
-              </li>
-
-              <li>
-                <input className="form-check-input" type="checkbox" />
-                <label className="form-check-label">Não</label>
-              </li>
-
-              <li>
-                <input className="form-check-input" type="checkbox" />
-                <label className="form-check-label">NA</label>
-              </li>
-            </ul>
-          </div>
-
-          <div className={styles['flex-col']}>
-            <h2>Idade</h2>
-            <ul>
-              <li>
-                <input className="form-check-input" type="checkbox" />
-                <label className="form-check-label">0-10 anos</label>
-              </li>
-
-              <li>
-                <input className="form-check-input" type="checkbox" />
-                <label className="form-check-label">10 anos+</label>
-              </li>
-            </ul>
-
-          <Button
-            title="Filtrar"
-            className='w-full'
-          />
-            
-          </div>
-        </div>
-
-        <div className={styles['descricaoani']}>
+      <div className={styles['descricaoani']}>
 
          
            
           
-   <div className="flex flex-wrap gap-lg-5 ">    
-  {animal.map((ani) => (
-    <figure 
-      key={ani._id}
-      className={styles['figures']}
-    >
-      <img
-        className="rounded-[1rem] w-[20rem] h-[20rem] max-[500px]:w-[12.75rem] max-[500px]:h-[10rem]"
-        src={`http://localhost:3002${ani.imagem}`}
-        alt={ani.nome}
-      />
+          <div className="flex flex-wrap gap-lg-5 ">    
+          {user.map((user) => (
+            <figure 
+              key={user._id}
+              className={styles['figures']}
+            >
+              
 
-      <figcaption className="justify-start p-4">
-        <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100 truncate">
-        {ani.nome}
-        </h3>
-        <p className="text-sm text-gray-900 dark:text-gray-100 flex gap-2 mb-0">
-          <span className="font-[700]">Raça:</span><p>{ani.raca}</p>
-        </p>
-        <p className="text-sm text-gray-600 dark:text-gray-400 flex gap-2 mb-0">
-          <span className="font-[700]">Sexo:</span><p>{ani.sexo}</p>
-        </p>
-        <p className="text-sm text-gray-600 dark:text-gray-400 flex gap-2 mb-0 ">
-          <span className="font-[700]">Idade:</span><p>{ani.idade}</p>
-        </p>
-        <p className="text-sm text-gray-600 dark:text-gray-400 flex gap-2 mb-0">
-          <span className="font-[700]">Porte:</span><p>{ani.porte}</p>
-        </p>
-        <p className="text-sm text-gray-600 dark:text-gray-400 flex gap-2 mb-0">
-           <span className="font-[700]">Castrado:</span><p>{ani.castracao ? 'Sim' : 'Não'}</p>
-        </p>
-        <p className="text-sm text-gray-600 dark:text-gray-400">
-          <span className="font-[700]">Observações:</span><p>{ani.porte}</p>
-        </p>
-        <p className="text-sm text-gray-600 dark:text-gray-400 flex gap-2">
-          <a href={/^https?:\/\//i.test(ani.linkAnimal) ? ani.linkAnimal : `https://${ani.linkAnimal}`}
-                target="_blank"
-                rel="noopener noreferrer">Encontre seu Amiguinho</a>
-        </p>
-      </figcaption>
-    </figure>
-  ))}
-  </div>   
+              <figcaption className="justify-start p-4">
+                <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100 truncate">
+                {user.nome}
+                </h3>
+                <p className="text-sm text-gray-900 dark:text-gray-100 flex gap-2 mb-0">
+                  <span className="font-[700]">Telefone:</span><p>{user.telefone}</p>
+                </p>
+                <p className="text-sm text-gray-600 dark:text-gray-400 flex gap-2 mb-0">
+                  <span className="font-[700]">Email:</span><p>{user.email}</p>
+                </p>
+                <p className="text-sm text-gray-600 dark:text-gray-400 flex gap-2">
+                  <a href={/^https?:\/\//i.test(user.linkUser) ? user.linkUser : `https://${user.linkUser}`}
+                        target="_blank"
+                        rel="noopener noreferrer">Conheça nosso parceiro</a>
+                </p>
+              </figcaption>
+            </figure>
+          ))}
+          </div>   
 
 
 

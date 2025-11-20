@@ -6,7 +6,7 @@ export default function Relatorio({ dados }) {
         <div key={item._id} style={{ marginBottom: "20px" }}>
           <p><strong>Animal:</strong> {item.animalNome}</p>
           <p><strong>Vacina:</strong> {item.vacinaNome}</p>
-          <p><strong>data:</strong> {item.dataAplicacao}kg</p>
+          <p><strong>data:</strong> {item.dataAplicacao}</p>
           <hr />
         </div>
       ))}

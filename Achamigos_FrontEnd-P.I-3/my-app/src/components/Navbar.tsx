@@ -90,16 +90,6 @@ const Nav2 = () => {
               Home
             </Link>
 
-            <Link
-              href="/parceiros"
-              className="no-underline p-0 h-fit 
-                 text-gray-900
-                 dark:text-white 
-                 hover:text-[#d9376e]
-                 hover:underline underline-offset-1"
-            >
-              Parceiros
-            </Link>
 
             <Link
               href="/animais"
@@ -128,6 +118,16 @@ const Nav2 = () => {
             <MenuMobile />
           </div>
 
+            <Link
+              href="/Usuarios"
+              className="no-underline p-0 h-fit 
+                 text-gray-900
+                 dark:text-white 
+                 hover:text-[#d9376e]
+                 hover:underline underline-offset-1"
+            >
+              Parceiros
+            </Link>
            
           <div className="flex gap-2 items-center">
             {!isLogged && (

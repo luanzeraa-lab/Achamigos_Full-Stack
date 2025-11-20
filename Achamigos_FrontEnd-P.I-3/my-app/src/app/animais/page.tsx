@@ -38,18 +38,18 @@ const Animais = () => {
     <Nav2 />
     </div>
     
-      <Container fluid className={styles['gridcate']}>
+      <Container id='darks'  fluid className={styles['gridcate']}>
         <div className={styles['apresentacao']}>
           <h1 className="text-[1.875rem] font-bold my-2">
             Pets para adoção
           </h1>
         </div>
 
-        <div className={styles['asfiltro']}>
+        <div id='darks' className={styles['asfiltro']}>
           <h2>Filtros</h2>
           <div className={styles['flex-col']}>
             <h2>Animais</h2>
-            <ul>
+            <ul >
               <li>
                 <input className="form-check-input" type="checkbox" />
                 <label className="form-check-label">Gato</label>
@@ -166,12 +166,12 @@ const Animais = () => {
         alt={ani.nome}
       />
 
-      <figcaption className="justify-start p-4">
-        <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100 truncate">
+      <figcaption id='info' className="justify-start p-4">
+        <h3 id='infoAnimais'className="text-base font-semibold text-gray-900 dark:text-gray-100 truncate">
         {ani.nome}
         </h3>
         <p className="text-sm text-gray-900 dark:text-gray-100 flex gap-2 mb-0">
-          <span className="font-[700]">Raça:</span><p>{ani.raca}</p>
+          <span className="font-[700]">Raça:</span><p className='info'>{ani.raca}</p>
         </p>
         <p className="text-sm text-gray-600 dark:text-gray-400 flex gap-2 mb-0">
           <span className="font-[700]">Sexo:</span><p>{ani.sexo}</p>
@@ -186,7 +186,7 @@ const Animais = () => {
            <span className="font-[700]">Castrado:</span><p>{ani.castracao ? 'Sim' : 'Não'}</p>
         </p>
         <p className="text-sm text-gray-600 dark:text-gray-400">
-          <span className="font-[700]">Observações:</span><p>{ani.porte}</p>
+          <span className="font-[700]">Observações:</span><p>{ani.observacoes}</p>
         </p>
         <p className="text-sm text-gray-600 dark:text-gray-400 flex gap-2">
           <a href={/^https?:\/\//i.test(ani.linkAnimal) ? ani.linkAnimal : `https://${ani.linkAnimal}`}
