@@ -36,7 +36,8 @@ Com isso, o Achamigos contribui para **reduzir o número de pets abandonados** e
 
 ## 📋 Casos de Uso
 
-<img width="822" height="438" alt="casos_de_uso" src="https://github.com/user-attachments/assets/ae8f6a1b-331a-4389-a362-7143ccc72514" />  
+<img width="886" height="523" alt="image" src="https://github.com/user-attachments/assets/493cd8d1-aaf5-4972-b983-e281a5a70f34" />
+  
 
 ## 📋 Descrição de Casos de Uso
 
