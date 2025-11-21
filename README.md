@@ -1,15 +1,24 @@
 
 <img width="1280" height="358" alt="Image" src="https://github.com/user-attachments/assets/c026af7e-899f-43a8-a2aa-3b529802da94" />
 
-O **Achamigos** é uma plataforma que conecta pessoas interessadas em adoção de animais a instituições, abrigos e ONGs de proteção animal, facilitando a busca e o processo de adoção.  
+## Sobre o Site Achamigos
 
-Seus principais objetivos são:  
+O **Achamigos** é uma plataforma que visa conectar pessoas interessadas em adoção de animais a instituições de adoção, abrigos e organizações de proteção animal, facilitando tanto a busca quanto o processo de adoção.
 
-- **Conectar adoções:** unir pessoas e instituições com o mesmo propósito — conectar um animal a uma nova família.  
-- **Aumentar a visibilidade:** exibir perfis detalhados dos animais, com fotos, descrições e histórico.  
-- **Educar:** promover informações sobre cuidados, eventos e os benefícios da adoção responsável.  
+### Objetivos Principais
 
-O site busca resolver a dificuldade que pessoas têm em encontrar animais para adoção e dar maior visibilidade aos abrigos, reduzindo o número de pets abandonados e promovendo adoções conscientes.  
+- **Conectar adoções:** unir pessoas e instituições com o mesmo propósito — encontrar um lar para animais de estimação.
+- **Aumentar a visibilidade:** exibir perfis completos de animais com descrição, fotos, detalhes e outras informações relevantes.
+- **Educação:** informar o público sobre cuidados, processos de adoção, eventos e os benefícios da adoção responsável.
+
+### Problema que o site resolve
+
+O site busca solucionar:
+- A dificuldade das pessoas em encontrar animais para adoção;
+- A falta de visibilidade que abrigos e instituições enfrentam para promover seus animais;
+
+Com isso, o Achamigos contribui para **reduzir o número de pets abandonados** e facilitar a **conexão entre animais e lares adequados**.
+
 
 ---
 
@@ -17,6 +26,7 @@ O site busca resolver a dificuldade que pessoas têm em encontrar animais para a
 
 - [📋 Casos de Uso](#-casos-de-uso)
 - [📋 Requisitos](#-requisitos)
+- [📋 Estratégia de Testes](#-estratégia-de-testes)
 - [📅 Sprints](#-sprints)
 - [📁 Repositórios Individuais](#-repositórios-individuais)
 - [⚙️ Tecnologias](#️-tecnologias)
@@ -26,7 +36,17 @@ O site busca resolver a dificuldade que pessoas têm em encontrar animais para a
 
 ## 📋 Casos de Uso
 
-<img width="822" height="438" alt="casos_de_uso" src="https://github.com/user-attachments/assets/ae8f6a1b-331a-4389-a362-7143ccc72514" />
+<img width="822" height="438" alt="casos_de_uso" src="https://github.com/user-attachments/assets/ae8f6a1b-331a-4389-a362-7143ccc72514" />  
+
+## 📋 Descrição de Casos de Uso
+
+<img width="690" height="1311" alt="image" src="https://github.com/user-attachments/assets/c7d15df4-ce6d-4d3e-835d-82b15fac0c83" />  
+
+<img width="724" height="1325" alt="image" src="https://github.com/user-attachments/assets/34195c29-a1c1-449f-85fa-8f34e2d4055d" />  
+
+<img width="754" height="1336" alt="image" src="https://github.com/user-attachments/assets/5adedc4b-3b6d-4d78-9d77-5594cdcda2b2" />  
+
+<img width="736" height="1334" alt="image" src="https://github.com/user-attachments/assets/fb9959a9-7356-4289-987d-3a186ae9bcec" />  
 
 ---
 
@@ -36,6 +56,27 @@ O site busca resolver a dificuldade que pessoas têm em encontrar animais para a
 
 <img width="886" height="504" alt="image" src="https://github.com/user-attachments/assets/05bfddf6-e95a-41c1-968f-241d1ad1a18e" />
 
+---
+
+## 📋 Estratégia de Testes
+
+A aplicação dos testes será realizada de forma manual e, sempre que viável, com o auxílio de ferramentas de automação — especialmente para verificação de funcionalidades específicas e elementos de interface. Serão contemplados os seguintes tipos de testes: **teste de unidade**, **teste de integração**, **teste de interface (UI/UX)** e **teste de usabilidade**.
+
+### **Teste de Unidade**
+Consiste na verificação isolada de funções, componentes ou módulos do sistema, com o objetivo de assegurar que cada parte executa corretamente sua funcionalidade individual.  
+**Exemplo:** Validação de formulários e upload de imagens.
+
+### **Teste de Integração**
+Tem como finalidade assegurar que os diferentes módulos, componentes e páginas do sistema interajam de forma coesa, garantindo consistência e comunicação correta entre as partes.  
+**Exemplo:** Verificação da exibição correta dos cadastros de animais e notas em suas respectivas páginas.
+
+### **Teste de Interface (UI/UX)**
+Refere-se à avaliação dos elementos visuais e da experiência do usuário com a interface do sistema, garantindo que os componentes gráficos estejam operacionais e proporcionem navegação fluida e intuitiva.  
+**Exemplo:** Verificação da responsividade dos botões e da clareza na navegação entre páginas.
+
+### **Teste de Usabilidade**
+Busca analisar se o sistema pode ser utilizado de maneira intuitiva e eficiente pelo usuário final, sem a necessidade de esforços excessivos para compreender seu funcionamento.  
+**Exemplo:** Avaliação da capacidade do usuário de localizar rapidamente um animal específico em suas buscas e da facilidade com que casas parceiras inserem informações e realizam publicações de animais e avaliações.
 
 ---
 
