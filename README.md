@@ -230,19 +230,19 @@ npm run dev
 # 📝 Variáveis de Ambiente
 Crie o arquivo `.env`  nos respectivos diretórios e preencha com as suas configurações.
 
-### **Back-End Principal (`Achamigos_BackEnd-P.I-3/.env`)**
--PORT=sua_porta
--MONGO_URL=sua_url_mongodb
--JWT_SECRET=sua_senha_segura
+### Back-End Principal (`Achamigos_BackEnd-P.I-3/.env`)
+PORT=sua_porta
+MONGO_URL=sua_url_mongodb
+JWT_SECRET=sua_senha_segura
 
 ### **Microsserviço (AchamigosMicrosservicos/.env)**
--PORT=sua_porta
--MONGO_URL=sua_url_mongodb
--API_PRINCIPAL=http://localhost:3002
+PORT=sua_porta
+MONGO_URL=sua_url_mongodb
+API_PRINCIPAL=http://localhost:3002
 
 ### **Front-End (Achamigos_FrontEnd-P.I-3/.env.local)**
--NEXT_PUBLIC_API_URL=http://localhost:<sua_porta>
--NEXT_PUBLIC_MICRO_URL=http://localhost:<sua_porta>
+NEXT_PUBLIC_API_URL=http://localhost:<sua_porta>
+NEXT_PUBLIC_MICRO_URL=http://localhost:<sua_porta>
 
 ## 👨‍💻 Colaboradores
 
