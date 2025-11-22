@@ -143,6 +143,105 @@ Utilizamos os seguintes recursos e ferramentas:
 
 
 ---
+# 🧩 Dependências do Projeto
+
+Este repositório contém **três serviços independentes**:
+
+- 🟩 **Back-End Principal (Node.js/Express)**  
+  Pasta: `Achamigos_BackEnd-P.I-3`
+
+- 🎨 **Front-End (Next.js / React)**  
+  Pasta: `Achamigos_FrontEnd-P.I-3`
+
+- 🔄 **Microsserviço Node.js**  
+  Pasta: `AchamigosMicrosservicos`
+
+Abaixo estão listadas todas as dependências instaladas em cada módulo.
+
+---
+
+# 📦 Back-End Principal (`Achamigos_BackEnd-P.I-3`)
+
+### **Dependências**
+- express  
+- mongoose  
+- cors  
+- multer   
+- bcrypt  
+- dotenv  
+- axios  
+
+---
+
+# 🔄 Microsserviço (`AchamigosMicrosservicos`)
+
+### **Dependências**
+- express  
+- axios  
+- cors  
+- dotenv  
+- mongoose  
+- multer  
+
+---
+
+# 🎨 Front-End (`Achamigos_FrontEnd-P.I-3`)
+
+### **Dependências**
+- react  
+- react-dom  
+- next  
+- axios  
+- sass  
+- bootstrap  
+- react-bootstrap  
+- tailwindcss  
+- postcss  
+
+---
+
+# 🚀 Como Rodar o Projeto
+
+## 1️⃣ Rodando o Back-End Principal
+```bash
+cd Achamigos_BackEnd-P.I-3
+npm install
+node --watch api.js
+```
+---
+
+## 2️⃣ Rodando o Microssserviço
+```bash
+cd AchamigosMicrosservicos
+npm install
+npm start
+```
+---
+
+## 3️⃣ Rodando o Front-End
+
+```bash
+cd Achamigos_FrontEnd-P.I-3
+npm install
+npm run dev
+```
+---
+
+# 📝 Variáveis de Ambiente
+
+### **Back-End Principal (`Achamigos_BackEnd-P.I-3/.env`)**
+PORT=3002
+MONGO_URL=sua_url_mongodb
+JWT_SECRET=sua_senha_segura
+
+### **Microsserviço (AchamigosMicrosservicos/.env)**
+PORT=5001
+MONGO_URL=sua_url_mongodb
+API_PRINCIPAL=http://localhost:3002
+
+### **Front-End (Achamigos_FrontEnd-P.I-3/.env.local)**
+NEXT_PUBLIC_API_URL=http://localhost:3002
+NEXT_PUBLIC_MICRO_URL=http://localhost:5001
 
 ## 👨‍💻 Colaboradores
 
