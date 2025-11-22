@@ -25,7 +25,7 @@ class FiltroService{
             animaisFiltrados.porte = porte;
         }
         if (castrado !== undefined){
-            animaisFiltrados.castrado = castrado;
+            animaisFiltrados.castracao = castrado;
         }
         if (idade){
             animaisFiltrados.idade = idade;

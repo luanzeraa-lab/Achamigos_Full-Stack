@@ -115,7 +115,7 @@ const deletarAnimal = async (id) => {
                 </p>
 
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                    <span className="font-[700]">Observações:</span> {ani.porte}
+                    <span className="font-[700]">Observações:</span> {ani.observacoes}
                 </p>
 
                 <p className="text-sm text-gray-600 dark:text-gray-400 flex gap-2">

@@ -14,17 +14,17 @@ const AlterarAnimal = () => {
   const [loading, setLoading] = useState(true);
   const [animal, setAnimal] = useState({
     nome: '',
-    idade: '',
+    idade: 0, 
     raca: '',
     sexo: '',
     porte: '',
-    peso: '',
-    castrado: '',
+    peso: 0, 
+    castracao: false,
     img: '',
   });
 
   useEffect(() => {
-    const fetchAnimal = async () => {
+    const getAnimal = async () => {
       try {
         const res = await axios.get(`http://localhost:3002/animais/${id}`, {
           headers: { 'x-api-key': '1234' },
@@ -38,13 +38,22 @@ const AlterarAnimal = () => {
       }
     };
 
-    fetchAnimal();
+    getAnimal();
   }, [id]);
 
-  const handleChange = (e: any) => {
-    const { name, value } = e.target;
+   const handleChange = (
+  e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+) => {
+  const { name, value } = e.target;
+
+  if (name === 'idade' || name === 'peso') {
+    setAnimal({ ...animal, [name]: value === '' ? 0 : parseFloat(value) });
+  } else if (name === 'castrado') {
+    setAnimal({ ...animal, castracao: value === 'sim' });
+  } else {
     setAnimal({ ...animal, [name]: value });
-  };
+  }
+};
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -83,9 +92,10 @@ const AlterarAnimal = () => {
         </Form.Group>
 
         <Form.Group>
-          <Form.Label>Idade</Form.Label>
+          <Form.Label>Idade (Anos de vida)</Form.Label>
           <Form.Control
             name="idade"
+            type="number"
             value={animal.idade}
             onChange={handleChange}
           />
@@ -101,27 +111,37 @@ const AlterarAnimal = () => {
         </Form.Group>
 
         <Form.Group>
-          <Form.Label>Sexo</Form.Label>
-          <Form.Control
-            name="sexo"
-            value={animal.sexo}
-            onChange={handleChange}
-          />
-        </Form.Group>
+  <Form.Label>Sexo</Form.Label>
+  <Form.Select
+    name="sexo"
+    value={animal.sexo}
+    onChange={handleChange}
+  >
+    <option value="">Selecione...</option>
+    <option value="macho">Macho</option>
+    <option value="femea">Fêmea</option>
+  </Form.Select>
+</Form.Group>
 
-        <Form.Group>
-          <Form.Label>Porte</Form.Label>
-          <Form.Control
-            name="porte"
-            value={animal.porte}
-            onChange={handleChange}
-          />
-        </Form.Group>
+<Form.Group>
+  <Form.Label>Porte</Form.Label>
+  <Form.Select
+    name="porte"
+    value={animal.porte}
+    onChange={handleChange}
+  >
+    <option value="">Selecione...</option>
+    <option value="pequeno">Pequeno</option>
+    <option value="medio">Médio</option>
+    <option value="grande">Grande</option>
+  </Form.Select>
+</Form.Group>
 
         <Form.Group>
           <Form.Label>Peso</Form.Label>
           <Form.Control
             name="peso"
+            type="number"
             value={animal.peso}
             onChange={handleChange}
           />
@@ -131,7 +151,7 @@ const AlterarAnimal = () => {
           <Form.Label>Castrado</Form.Label>
           <Form.Select
             name="castrado"
-            value={animal.castrado}
+            value={animal.castracao ? 'sim' : 'nao'}
             onChange={handleChange}
           >
             <option value="">Selecione</option>

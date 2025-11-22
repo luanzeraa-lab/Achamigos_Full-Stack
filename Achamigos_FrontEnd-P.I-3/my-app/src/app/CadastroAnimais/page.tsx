@@ -28,11 +28,11 @@ const CadastroAnimais = () => {
 
 
   const [nomeAnimal, setNomeAnimal] = useState('');
-  const [idadeAnimal, setIdadeAnimal] = useState('');
+  const [idadeAnimal, setIdadeAnimal] = useState<number | ''>('');
   const [racaAnimal, setRacaAnimal] = useState('');
   const [sexoAnimal, setSexoAnimal] = useState('');
   const [porteAnimal, setPorteAnimal] = useState('');
-  const [pesoAnimal, setPesoAnimal] = useState('');
+  const [pesoAnimal, setPesoAnimal] = useState<number | ''>('');
   const [vacinas, setVacinas] = useState<IVacina[]>([]);
   const [vacinaAnimal, setVacinaAnimal] = useState<string[]>([]);
   const [obsAnimal, setObsAnimal] = useState('');
@@ -65,11 +65,11 @@ const CadastroAnimais = () => {
 
   const createAnimal = async (
   nome: string,
-  idade: string,
+  idade: number | '',
   raca: string,
   sexo: string,
   porte: string,
-  peso: string,
+  peso: number | '',
   vacinasIds: string[],
   observacoes: string,
   linkAnimal: string,
@@ -79,11 +79,11 @@ const CadastroAnimais = () => {
 ) => {
   const formData = new FormData();
   formData.append('nome', nome);
-  formData.append('idade', idade);
+  if (idadeAnimal !== '') formData.append('idade', idadeAnimal.toString());
   formData.append('raca', raca);
   formData.append('sexo', sexo);
   formData.append('porte', porte);
-  formData.append('peso', peso);
+  if (pesoAnimal !== '') formData.append('peso', pesoAnimal.toString());
   formData.append('observacoes', observacoes);
   formData.append('linkAnimal', linkAnimal);
   formData.append('castracao', castracao ? 'true' : 'false');
@@ -120,6 +120,7 @@ for (const [key, value] of formData.entries()) {
       try {
         await axios.post(`http://localhost:8081/vacinacao/gerar/${idAnimal}`);
         alert(`Animal cadastrado com sucesso! ID: ${idAnimal}`);
+        router.push('/PaginaUsuario');
       } catch (err) {
   
         alert('Animal cadastrado, mas falha ao tentar gerar as vacinas.');
@@ -183,20 +184,21 @@ for (const [key, value] of formData.entries()) {
                   onChange={(e) => setTipo(e.target.value)}
                 >
                   <option value="">Selecione...</option>
-                  <option value="macho">Cachorro</option>
-                  <option value="femea">Gato</option>
-                  <option value="femea">Outro</option>
+                  <option value="Cachorro">Cachorro</option>
+                  <option value="Gato">Gato</option>
+                  <option value="Outro">Outro</option>
                 </Form.Select>
               </div>
 
               <div className={styles['input-wrapper']}>
-                <Form.Label htmlFor="age">Idade</Form.Label>
+                <Form.Label htmlFor="age">Idade (Anos de vida)</Form.Label>
                 <Form.Control
                   id="age"
-                  type="text"
+                  type="number"
                   placeholder="Insira a idade"
                   value={idadeAnimal}
-                  onChange={(e) => setIdadeAnimal(e.target.value)}
+                  onChange={(e) => setIdadeAnimal(e.target.value === '' ? '' : parseInt(e.target.value))}
+
                 />
               </div>
 
@@ -242,11 +244,11 @@ for (const [key, value] of formData.entries()) {
                 <Form.Label htmlFor="weight">Peso (kg)</Form.Label>
                 <Form.Control
                   id="weight"
-                  type="text"
+                  type="number"
                   step="0.1"
                   placeholder="Peso em kg"
                   value={pesoAnimal}
-                  onChange={(e) => setPesoAnimal(e.target.value)}
+                  onChange={(e) => setPesoAnimal(e.target.value === '' ? '' : parseFloat(e.target.value))}
                 />
               </div>
             </div>

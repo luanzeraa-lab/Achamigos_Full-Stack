@@ -6,11 +6,11 @@ const VacinaSchema = new mongoose.Schema({
 
 const AnimalSchema = new mongoose.Schema({
     nome: {type: String, required: true},
-    idade: {type: String},
+    idade: {type: Number},
     raca: {type: String, required: true},
     sexo: {type: String, required: true},
     porte: {type: String, required:true},
-    peso: {type: String}, 
+    peso: {type: Number}, 
     observacoes: {type: String},
     linkAnimal: {type: String},
     castracao: {type: Boolean, required:true},
