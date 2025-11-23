@@ -36,24 +36,24 @@ Com isso, o Achamigos contribui para **reduzir o número de pets abandonados** e
 
 ## 📋 Casos de Uso
 
-<img width="886" height="523" alt="image" src="https://github.com/user-attachments/assets/493cd8d1-aaf5-4972-b983-e281a5a70f34" />
+<img width="886" height="504" alt="image" src="https://github.com/user-attachments/assets/493cd8d1-aaf5-4972-b983-e281a5a70f34" />
   
 
 ## 📋 Descrição de Casos de Uso
 
-<img width="690" height="1311" alt="image" src="https://github.com/user-attachments/assets/c7d15df4-ce6d-4d3e-835d-82b15fac0c83" />  
+<img width="730" height="1330" alt="image" src="https://github.com/user-attachments/assets/c7d15df4-ce6d-4d3e-835d-82b15fac0c83" />  
 
-<img width="724" height="1325" alt="image" src="https://github.com/user-attachments/assets/34195c29-a1c1-449f-85fa-8f34e2d4055d" />  
+<img width="730" height="1330" alt="image" src="https://github.com/user-attachments/assets/34195c29-a1c1-449f-85fa-8f34e2d4055d" />  
 
-<img width="754" height="1336" alt="image" src="https://github.com/user-attachments/assets/5adedc4b-3b6d-4d78-9d77-5594cdcda2b2" />  
+<img width="730" height="1330" alt="image" src="https://github.com/user-attachments/assets/5adedc4b-3b6d-4d78-9d77-5594cdcda2b2" />  
 
-<img width="736" height="1334" alt="image" src="https://github.com/user-attachments/assets/fb9959a9-7356-4289-987d-3a186ae9bcec" />  
+<img width="730" height="1330" alt="image" src="https://github.com/user-attachments/assets/fb9959a9-7356-4289-987d-3a186ae9bcec" />  
 
 ---
 
 ## 📋 Requisitos
 
-<img width="886" height="343" alt="image" src="https://github.com/user-attachments/assets/a65cd939-7e3c-4720-8fe8-2e348a282139" />
+<img width="886" height="504" alt="image" src="https://github.com/user-attachments/assets/a65cd939-7e3c-4720-8fe8-2e348a282139" />
 
 <img width="886" height="504" alt="image" src="https://github.com/user-attachments/assets/05bfddf6-e95a-41c1-968f-241d1ad1a18e" />
 
@@ -83,14 +83,39 @@ Busca analisar se o sistema pode ser utilizado de maneira intuitiva e eficiente 
 
 ## 📅 Sprints
 
-As sprints foram organizadas para acompanhar o desenvolvimento do projeto de forma gradual, garantindo a entrega contínua de novas funcionalidades e melhorias.
+Este documento resume as atividades, objetivos e resultados alcançados em cada uma das cinco Sprints do projeto, conforme registrado na ferramenta de gerenciamento Jira
 
-| 🏁 Sprint | 📆 Data | 🔍 Status |
-|:----------:|:--------:|:----------:|
-| Sprint 1 | 15/09/2025 - 29/09/2025 | ✅ Concluída |
+| Sprint 1 | 10/09/2025 - 24/09/2025 | ✅ Concluída |
+<img width="940" height="450" alt="image" src="https://github.com/user-attachments/assets/9ae544f5-475d-4007-b201-6e285eac44ae" />  
+<img width="940" height="450" alt="image" src="https://github.com/user-attachments/assets/31b69314-3b84-454f-8e44-7c8688f83d3c" />  
+<img width="940" height="450" alt="image" src="https://github.com/user-attachments/assets/4c3ec946-8e31-442f-bc52-4942ceea469c" />  
+<img width="940" height="450" alt="image" src="https://github.com/user-attachments/assets/11f6d019-7568-4499-b5f8-f240e2fcb5e4" />  
+
+
 | Sprint 2 | 29/09/2025 - 13/10/2025 | ✅ Concluída |
-| Sprint 3 | 13/10/2025 - 27/10/2025 | ✅ Concluída |
-| Sprint 4 | 28/10/2025 - 11/11/2025 | 🕓 Em andamento |
+<img width="940" height="450" alt="image" src="https://github.com/user-attachments/assets/a7dcd2d0-6e49-45ab-b96e-14f72be9693c" />  
+<img width="940" height="450" alt="image" src="https://github.com/user-attachments/assets/42fc4d74-d14e-4562-89a6-09cd42ac03fb" />  
+<img width="940" height="450" alt="image" src="https://github.com/user-attachments/assets/82c8489d-fe25-4f18-bad8-c63eae128003" />  
+
+
+| Sprint 3 | 14/10/2025 - 27/10/2025 | ✅ Concluída |
+<img width="940" height="450" alt="image" src="https://github.com/user-attachments/assets/6d48ebc8-beac-45a9-b8c4-fb0b58f3ee44" />  
+<img width="940" height="450" alt="image" src="https://github.com/user-attachments/assets/d3b59946-19e2-449a-919e-c85ec0ca4526" />  
+<img width="940" height="450" alt="image" src="https://github.com/user-attachments/assets/ffd62515-9cb9-40be-8e1e-e63e2ff060fa" />  
+<img width="940" height="450" alt="image" src="https://github.com/user-attachments/assets/3cb9f540-13f3-4811-9dcf-8b0397b05a91" />
+
+
+| Sprint 4 | 28/10/2025 - 11/11/2025 | ✅ Concluída |
+<img width="940" height="450" alt="image" src="https://github.com/user-attachments/assets/08bdce8f-f034-4eb9-90ab-746f80eff389" />  
+<img width="940" height="450" alt="image" src="https://github.com/user-attachments/assets/9426b80c-f2d9-4bff-8c69-d50b1afab784" />  
+<img width="940" height="450" alt="image" src="https://github.com/user-attachments/assets/735696b7-c22d-4f98-b085-85f3d2b5cd2f" />  
+
+
+| Sprint 5 | 11/11/2025 - 25/11/2025 | ✅ Concluída |
+<img width="940" height="450" alt="image" src="https://github.com/user-attachments/assets/8d62ebc7-d8e5-4199-947f-4c0db22ee396" />  
+<img width="940" height="450" alt="image" src="https://github.com/user-attachments/assets/c6df55f7-b508-41ae-9c3e-4207c27ac002" />  
+<img width="940" height="450" alt="image" src="https://github.com/user-attachments/assets/cc64cba7-0ac8-4edf-ae97-3d14bffe3485" />
+
 
 ---
 
