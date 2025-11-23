@@ -14,7 +14,7 @@ const [user, setUser] = useState<any[]>([]);
   useEffect(() => {
   const listaUsers = async () => {
     try {
-      const res = await axios.get('http://localhost:3002/users', {
+      const res = await axios.get('http://localhost:3002/api/users', {
         headers: {
           'x-api-key': '1234', 
         },
@@ -64,10 +64,10 @@ const [user, setUser] = useState<any[]>([]);
                 {user.nome}
                 </h3>
                 <p className="text-sm text-gray-900 dark:text-gray-100 flex gap-2 mb-0">
-                  <span className="font-[700]">Telefone:</span><p>{user.telefone}</p>
+                  <span className="font-[700]">Telefone:</span><span>{user.telefone}</span>
                 </p>
                 <p className="text-sm text-gray-600 dark:text-gray-400 flex gap-2 mb-0">
-                  <span className="font-[700]">Email:</span><p>{user.email}</p>
+                  <span className="font-[700]">Email:</span><span>{user.email}</span>
                 </p>
                 <p className="text-sm text-gray-600 dark:text-gray-400 flex gap-2">
                   <a href={/^https?:\/\//i.test(user.linkUser) ? user.linkUser : `https://${user.linkUser}`}

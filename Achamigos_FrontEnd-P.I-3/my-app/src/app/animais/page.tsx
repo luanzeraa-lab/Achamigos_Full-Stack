@@ -35,7 +35,7 @@ const Animais = () => {
   useEffect(() => {
     const listaAnimal = async () => {
       try {
-        const res = await axios.get('http://localhost:3002/animais', {
+        const res = await axios.get('http://localhost:3002/api/animais', {
           headers: { 'x-api-key': '1234' },
         });
         setAnimaisOriginais(res.data);

@@ -39,7 +39,7 @@ const GerenciarPerfil = () => {
 
     try {
         const res = await axios.put(
-        `http://localhost:3002/users/${userId}`,
+        `http://localhost:3002/api/users/${userId}`,
         novoUser,
         {
             headers: {

@@ -26,7 +26,7 @@ const AlterarAnimal = () => {
   useEffect(() => {
     const getAnimal = async () => {
       try {
-        const res = await axios.get(`http://localhost:3002/animais/${id}`, {
+        const res = await axios.get(`http://localhost:3002/api/animais/${id}`, {
           headers: { 'x-api-key': '1234' },
         });
 
@@ -60,7 +60,7 @@ const AlterarAnimal = () => {
 
     try {
       await axios.put(
-        `http://localhost:3002/animais/${id}`,
+        `http://localhost:3002/api/animais/${id}`,
         animal,
         { headers: { 'x-api-key': '1234' } }
       );

@@ -22,7 +22,7 @@ const GerenciarAnimais = () => {
   useEffect(() => {
   const listaAnimal = async () => {
     try {
-      const res = await axios.get('http://localhost:3002/animais', {
+      const res = await axios.get('http://localhost:3002/api/animais', {
         headers: {
           'x-api-key': '1234', 
         },
@@ -46,7 +46,7 @@ const deletarAnimal = async (id) => {
     return;
 
   try {
-    await axios.delete(`http://localhost:3002/animais/${id}`, {
+    await axios.delete(`http://localhost:3002/api/animais/${id}`, {
       headers: { 
         'x-api-key': '1234'
        }

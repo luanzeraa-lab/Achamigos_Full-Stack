@@ -15,6 +15,7 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@fontsource/maven-pro": "^5.2.7",
+    "algoliasearch": "^5.44.0",
     "axios": "^1.13.2",
     "bootstrap": "^5.3.3",
     "express": "^5.1.0",

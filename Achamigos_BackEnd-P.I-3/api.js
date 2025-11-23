@@ -6,7 +6,7 @@ const multer = require("multer");
 
 const animalRoute = require('./routes/AnimalRoute');
 const userRoute = require('./routes/UserRoute');
-const filtroRoute = require('./routes/FiltroRoute');
+// const filtroRoute = require('./routes/FiltroRoute');
 const eventoRoute = require('./routes/EventoRoute');
 
 const apiKeyAuth = require('./middleware/apiKeyAuth');
@@ -35,10 +35,10 @@ const swaggerOptions = {
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, swaggerOptions));
 
 app.use(apiKeyAuth);
-app.use(animalRoute);
-app.use(userRoute);
-app.use(eventoRoute);
-app.use('/filtros', filtroRoute);
+app.use('/api',animalRoute);
+app.use('/api',userRoute);
+app.use('/api',eventoRoute);
+// app.use('/filtros', filtroRoute);
 
 
 mongoose.connect(process.env.MONGO_URI)

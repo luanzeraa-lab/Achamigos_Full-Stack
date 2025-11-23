@@ -16,14 +16,14 @@ const Nav2 = () => {
     setIsLogged(!!id); 
   }, []);
   
-  useEffect(() => {
-    if (darkMode) {
-      document.body.classList.add('dark');
-    } else {
-      document.body.classList.remove('dark');
-    }
-    localStorage.setItem('theme', darkMode ? 'dark' : 'light');
-  }, [darkMode]);
+  // useEffect(() => {
+  //   if (darkMode) {
+  //     document.body.classList.add('dark');
+  //   } else {
+  //     document.body.classList.remove('dark');
+  //   }
+  //   localStorage.setItem('theme', darkMode ? 'dark' : 'light');
+  // }, [darkMode]);
 
   const router = useRouter();
   
@@ -49,8 +49,8 @@ const Nav2 = () => {
           <Image
             src="/images/logocerto.png"
             alt="logo"
-            width={150}
-            height={70}
+            width={250}
+            height={80}
             className="cursor-pointer w-[9.375rem] h-[4.375rem] max-[500px]:w-[7rem] h-[3.36rem]"
             onClick={() => router.push('/')}
           />
@@ -72,9 +72,9 @@ const Nav2 = () => {
           className="hidden max-[850px]:hidden max-[999px]:flex cursor-pointer"
         />
     
-        <div>
+        {/* <div>
           <SearchBar placeholder="Procurar" onSearch={handleSearch} />
-        </div>
+        </div> */}
         
 
         <div className="flex gap-4 items-center">

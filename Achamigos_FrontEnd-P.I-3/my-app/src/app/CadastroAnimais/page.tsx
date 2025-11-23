@@ -101,7 +101,7 @@ formData.append('vacinas', JSON.stringify(vacinasCompletas));
   try {
     
     const res = await axios.post(
-      'http://localhost:3002/animais', 
+      'http://localhost:3002/api/animais', 
       formData,
       {
         headers: {
@@ -332,9 +332,6 @@ for (const [key, value] of formData.entries()) {
 
             
             <div className={styles['action-wrapper']}>
-              <Button className={styles['btn-secondary']} type="button">
-                Salvar respostas
-              </Button>
               <Button
                 className={styles['btn-primary']}
                 type="button"

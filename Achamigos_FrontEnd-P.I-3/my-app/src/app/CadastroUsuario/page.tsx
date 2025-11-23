@@ -3,6 +3,7 @@
 import { Button } from '../../components/Button';
 import Form from 'react-bootstrap/Form';
 import axios from 'axios';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { IUser } from './IUser';
 import Nav2 from '@/components/Navbar';
@@ -12,6 +13,7 @@ import { IEndereco } from './IEndereco';
 import { header } from 'framer-motion/client';
 
 const CadastroUser = () => {
+  const router = useRouter();
   const [nomeUser, setNomeUser] = useState<string>('');
   const [telefoneUser, setTelefoneUser] = useState<string>('');
   const [cnpjUser, setCnpjUser] = useState<string>('');
@@ -47,6 +49,7 @@ const CadastroUser = () => {
   );
       if (res.status === 201) {
         alert('Usuário cadastrado com sucesso!');
+        router.push('/PaginaUsuario');
       } else {
         alert('Falha ao tentar cadastrar o usuário');
       }
