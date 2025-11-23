@@ -54,6 +54,7 @@ const Eventos = () => {
               <p className="text-[#374151]">{evento.texto}</p>
               <a href={/^https?:\/\//i.test(evento.linkEvento) ? evento.linkEvento : `https://${evento.linkEvento}`}
                 target="_blank"
+                style={{ textDecoration: "underline", color: "blue" }}
                 rel="noopener noreferrer">Link para o evento</a>
             </div>
           ))}

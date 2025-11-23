@@ -195,26 +195,27 @@ const Animais = () => {
                     {ani.nome}
                   </h3>
                   <p className="text-sm text-gray-900 dark:text-gray-100 flex gap-2 mb-0">
-                    <span className="font-[700]">Raça:</span><p className='info'>{ani.raca}</p>
+                    <span className="font-[700]">Raça:</span><span>{ani.raca}</span>
                   </p>
                   <p className="text-sm text-gray-600 dark:text-gray-400 flex gap-2 mb-0">
-                    <span className="font-[700]">Sexo:</span><p>{ani.sexo}</p>
+                    <span className="font-[700]">Sexo:</span><span>{ani.sexo}</span>
                   </p>
                   <p className="text-sm text-gray-600 dark:text-gray-400 flex gap-2 mb-0 ">
-                    <span className="font-[700]">Idade:</span><p>{ani.idade}</p>
+                    <span className="font-[700]">Idade:</span><span>{ani.idade}</span>
                   </p>
                   <p className="text-sm text-gray-600 dark:text-gray-400 flex gap-2 mb-0">
-                    <span className="font-[700]">Porte:</span><p>{ani.porte}</p>
+                    <span className="font-[700]">Porte:</span><span>{ani.porte}</span>
                   </p>
                   <p className="text-sm text-gray-600 dark:text-gray-400 flex gap-2 mb-0">
-                    <span className="font-[700]">Castrado:</span><p>{ani.castracao ? 'Sim' : 'Não'}</p>
+                    <span className="font-[700]">Castrado:</span><span>{ani.castracao ? 'Sim' : 'Não'}</span>
                   </p>
                   <p className="text-sm text-gray-600 dark:text-gray-400">
-                    <span className="font-[700]">Observações:</span><p>{ani.observacoes}</p>
+                    <span className="font-[700]">Observações:</span><span>{ani.observacoes}</span>
                   </p>
                   <p className="text-sm text-gray-600 dark:text-gray-400 flex gap-2">
                     <a href={/^https?:\/\//i.test(ani.linkAnimal) ? ani.linkAnimal : `https://${ani.linkAnimal}`}
                       target="_blank"
+                      style={{ textDecoration: "underline", color: "blue" }}
                       rel="noopener noreferrer">Encontre seu Amiguinho</a>
                   </p>
                 </figcaption>

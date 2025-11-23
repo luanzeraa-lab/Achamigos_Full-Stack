@@ -118,16 +118,17 @@ const deletarAnimal = async (id) => {
                     <span className="font-[700]">Observações:</span> {ani.observacoes}
                 </p>
 
-                <p className="text-sm text-gray-600 dark:text-gray-400 flex gap-2">
-                    <a 
+                <p className="text-sm text-gray-600 flex gap-2">
+                  <a
                     href={/^https?:\/\//i.test(ani.linkAnimal) ? ani.linkAnimal : `https://${ani.linkAnimal}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    >
+                    className="underline text-blue-600"
+                  >
                     Encontre seu Amiguinho
-                    </a>
+                  </a>
                 </p>
-                <div className='flex gap-2'>
+                                <div className='flex gap-2'>
                   <Button
                   title="Vacinar Animal"
                   className="max-[500px]:hidden "

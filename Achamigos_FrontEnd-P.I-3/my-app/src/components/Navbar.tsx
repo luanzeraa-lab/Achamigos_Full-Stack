@@ -162,7 +162,7 @@ const Nav2 = () => {
         </div>
       </nav>
 
-          <button className="fixed top-4 right-4 p-2 rounded bg-gray-200 dark:bg-gray-800 text-black dark:text-white z-50"
+          {/* <button className="fixed top-4 right-4 p-2 rounded bg-gray-200 dark:bg-gray-800 text-black dark:text-white z-50"
             onClick={() => {
               if (darkMode) {
               setDarkMode(false);
@@ -171,7 +171,7 @@ const Nav2 = () => {
             }
             }}
           >{darkMode ? '🌙 Dark Mode' : '☀️ Light Mode'}
-          </button>
+          </button> */}
     </>
   );
 };

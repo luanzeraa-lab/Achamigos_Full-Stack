@@ -72,6 +72,7 @@ const [user, setUser] = useState<any[]>([]);
                 <p className="text-sm text-gray-600 dark:text-gray-400 flex gap-2">
                   <a href={/^https?:\/\//i.test(user.linkUser) ? user.linkUser : `https://${user.linkUser}`}
                         target="_blank"
+                        style={{ textDecoration: "underline", color: "blue" }}
                         rel="noopener noreferrer">Conheça nosso parceiro</a>
                 </p>
               </figcaption>
