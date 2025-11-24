@@ -39,7 +39,7 @@ const CadastroUser = () => {
 
     try {
   const res = await axios.post(
-    'http://localhost:5001/users/register',
+    `${process.env.NEXT_PUBLIC_MICRO_URL}/users/register`,
     novoUser,
     {
       headers: {
@@ -49,7 +49,7 @@ const CadastroUser = () => {
   );
       if (res.status === 201) {
         alert('Usuário cadastrado com sucesso!');
-        router.push('/PaginaUsuario');
+        router.push('/login');
       } else {
         alert('Falha ao tentar cadastrar o usuário');
       }

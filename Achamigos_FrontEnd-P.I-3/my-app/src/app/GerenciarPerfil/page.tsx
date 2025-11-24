@@ -39,7 +39,7 @@ const GerenciarPerfil = () => {
 
     try {
         const res = await axios.put(
-        `http://localhost:3002/api/users/${userId}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/users/${userId}`,
         novoUser,
         {
             headers: {

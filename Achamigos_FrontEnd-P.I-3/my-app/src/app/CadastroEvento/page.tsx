@@ -7,6 +7,7 @@ import Nav2 from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import eventosService from '../../services/eventoService';
 import { IEvento } from './IEvento';
+import { useRouter } from 'next/navigation';
 
 const CadastroEventos = () => {
   const [formData, setFormData] = useState<IEvento>({
@@ -15,7 +16,7 @@ const CadastroEventos = () => {
     data: '',
     linkEvento: ''
   });
-
+  const router = useRouter();
   const [imagem, setImagem] = useState<File | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -46,6 +47,7 @@ const CadastroEventos = () => {
       alert('Evento cadastrado com sucesso!');
       setFormData({ tipo_Evento: '', texto: '', data: '', linkEvento: '' });
       setImagem(null);
+      router.push('/Eventos');
     } catch (error) {
       console.error('Erro ao cadastrar evento:', error);
       alert('Erro ao cadastrar evento.');

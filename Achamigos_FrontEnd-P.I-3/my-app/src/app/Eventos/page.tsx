@@ -11,7 +11,7 @@ const Eventos = () => {
   useEffect(() => {
     const fetchEventos = async () => {
       try {
-        const response = await axios.get('http://localhost:3002/api/eventos', {
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/eventos`, {
           headers: {
             'x-api-key': 1234,
           },
@@ -41,7 +41,7 @@ const Eventos = () => {
             >
               <img
                 className="rounded-[1rem] w-[18.75rem] h-[12.5rem] max-[500px]:w-[12.75rem] max-[500px]:h-[10rem]"
-                src={`http://localhost:3002${evento.imagem}`}
+                src={`${process.env.NEXT_PUBLIC_API_URL}${evento.imagem}`}
                 alt={evento.tipo_Evento}
               />
 

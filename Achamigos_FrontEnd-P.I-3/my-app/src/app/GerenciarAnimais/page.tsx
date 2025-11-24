@@ -22,7 +22,7 @@ const GerenciarAnimais = () => {
   useEffect(() => {
   const listaAnimal = async () => {
     try {
-      const res = await axios.get('http://localhost:3002/api/animais', {
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/animais`, {
         headers: {
           'x-api-key': '1234', 
         },
@@ -46,7 +46,7 @@ const deletarAnimal = async (id) => {
     return;
 
   try {
-    await axios.delete(`http://localhost:3002/api/animais/${id}`, {
+    await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/api/animais/${id}`, {
       headers: { 
         'x-api-key': '1234'
        }
@@ -85,7 +85,7 @@ const deletarAnimal = async (id) => {
             >
                 <img
                 className="rounded-[1rem] w-[20rem] h-[20rem] max-[500px]:w-[12.75rem] max-[500px]:h-[10rem]"
-                src={`http://localhost:3002${ani.imagem}`}
+                src={`${process.env.NEXT_PUBLIC_API_URL}${ani.imagem}`}
                 alt={ani.nome}
                 />
 

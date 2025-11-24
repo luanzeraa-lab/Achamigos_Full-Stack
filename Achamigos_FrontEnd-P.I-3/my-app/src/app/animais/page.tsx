@@ -35,9 +35,10 @@ const Animais = () => {
   useEffect(() => {
     const listaAnimal = async () => {
       try {
-        const res = await axios.get('http://localhost:3002/api/animais', {
-          headers: { 'x-api-key': '1234' },
-        });
+        const res = await axios.get(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/animais`,
+          { headers: { 'x-api-key': '1234' } }
+        );
         setAnimaisOriginais(res.data);
         setAnimaisFiltrados(res.data); 
       } catch (err) {
@@ -187,7 +188,7 @@ const Animais = () => {
               <figure key={ani._id} className={styles['figures']}>
                 <img
                   className="rounded-[1rem] w-[20rem] h-[20rem] max-[500px]:w-[12.75rem] max-[500px]:h-[10rem]"
-                  src={`http://localhost:3002${ani.imagem}`}
+                  src={`${process.env.NEXT_PUBLIC_API_URL}${ani.imagem}`}
                   alt={ani.nome}
                 />
                 <figcaption id='info' className="justify-start p-4">

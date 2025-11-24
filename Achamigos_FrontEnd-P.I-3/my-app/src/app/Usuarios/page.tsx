@@ -14,7 +14,7 @@ const [user, setUser] = useState<any[]>([]);
   useEffect(() => {
   const listaUsers = async () => {
     try {
-      const res = await axios.get('http://localhost:3002/api/users', {
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/users`, {
         headers: {
           'x-api-key': '1234', 
         },

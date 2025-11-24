@@ -26,10 +26,10 @@ const AlterarAnimal = () => {
   useEffect(() => {
     const getAnimal = async () => {
       try {
-        const res = await axios.get(`http://localhost:3002/api/animais/${id}`, {
-          headers: { 'x-api-key': '1234' },
-        });
-
+        await axios.get(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/animais/${id}`,
+          { headers: { 'x-api-key': '1234' } }
+        );
         setLoading(false);
       } catch (err) {
         console.error('Erro ao buscar animal:', err);
@@ -60,7 +60,7 @@ const AlterarAnimal = () => {
 
     try {
       await axios.put(
-        `http://localhost:3002/api/animais/${id}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/animais/${id}`,
         animal,
         { headers: { 'x-api-key': '1234' } }
       );

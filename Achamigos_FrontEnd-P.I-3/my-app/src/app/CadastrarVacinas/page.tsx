@@ -6,13 +6,13 @@ import { useState } from 'react';
 import { IVacina } from './IVacina';
 import Nav2 from '@/components/Navbar';
 import Footer from '@/components/Footer';
-
+import { useRouter } from 'next/navigation';
 
 const CadastroVacina = () => {
   const [nomeVacina, setNomeVacina] = useState<string>('');
   const [validadeVacina, setValidadeVacina] = useState<string>('');
   
-
+  const router = useRouter();
   const createVacina = async () => {
     const novaVacina: IVacina = {
       nome: nomeVacina,
@@ -23,6 +23,8 @@ const CadastroVacina = () => {
       const res = await axios.post('http://localhost:8081/api/vacinas', novaVacina);
         if (res.status === 200 || res.status === 201) {
         alert('Vacina cadastrada com sucesso!');
+        router.push('/PaginaUsuario');
+          
         setNomeVacina('');
       } else {
         alert('Falha ao tentar cadastrar o vacina');
