@@ -35,12 +35,11 @@ mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("✅ Conexão com o banco de dados bem-sucedida!"))
   .catch(err => console.log("❌ Erro ao conectar ao banco de dados:", err));
 
-if (process.env.NODE_ENV !== "production") {
-  const port = process.env.PORT || 5001;
-  app.listen(port, () => {
-    console.log(`🚀 Servidor local iniciado na porta ${port}`);
-  });
-}
+const port = process.env.PORT || 5001;
+app.listen(port, "0.0.0.0", () => {
+  console.log(`🚀 Servidor rodando na porta ${port}`);
+});
+
 
 
 module.exports = app;
