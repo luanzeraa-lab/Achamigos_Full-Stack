@@ -6,7 +6,7 @@
     "version": "1.0.0"
   },
   "host": "localhost:3002",
-  "basePath": "/",
+  "basePath": "/api",
   "schemes": [
     "http"
   ],
