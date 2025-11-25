@@ -275,6 +275,7 @@ API_PRINCIPAL=http://localhost:3002
 NEXT_PUBLIC_API_URL=http://localhost:3002
 NEXT_PUBLIC_MICRO_URL=http://localhost:5001
 ```
+---
 
 ## 📝 Rotas do Back-end no Swagger
 
