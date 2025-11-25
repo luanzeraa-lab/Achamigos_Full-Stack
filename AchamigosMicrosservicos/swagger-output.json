@@ -47,7 +47,7 @@
     }
   },
   "paths": {
-    "/users/register": {
+    "/api/users/register": {
       "post": {
         "summary": "Cadastrar usuário",
         "requestBody": {
