@@ -7,7 +7,7 @@
   },
   "host": "achamigos-back-end.onrender.com",
   "basePath": "/api",
-  "schemes": ["http", "https"],
+  "schemes": ["https"],
   "securityDefinitions": {
     "apiKeyAuth": {
       "type": "apiKey",

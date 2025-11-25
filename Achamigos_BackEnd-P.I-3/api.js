@@ -32,7 +32,12 @@ const swaggerOptions = {
   customSiteTitle: "API Achamigos",
   customfavIcon: "/public/fav2.png",
 };
-app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, swaggerOptions));
+
+const swaggerDocumentUrl = process.env.NODE_ENV === "production"
+  ? "https://achamigos-back-end.onrender.com/swagger-output.json"
+  : swaggerDocument;
+
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocumentUrl, swaggerOptions));
 
 app.use(apiKeyAuth);
 app.use('/api',animalRoute);
