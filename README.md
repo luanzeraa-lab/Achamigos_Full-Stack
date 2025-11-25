@@ -278,8 +278,14 @@ NEXT_PUBLIC_MICRO_URL=http://localhost:5001
 
 ## 📝 Rotas do Back-end no Swagger
 
+- 🧩 **Back-End Node.js:**
 [https://achamigos-back-end.onrender.com/docs/](https://achamigos-back-end.onrender.com/docs/)
 
+
+- 🔄 **Microsserviço Node:**
+[https://achamigos-full-stack.onrender.com/docs](https://achamigos-full-stack.onrender.com/docs)
+
+---
 
 ## 👨‍💻 Colaboradores
 
