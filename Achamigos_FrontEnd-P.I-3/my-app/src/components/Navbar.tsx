@@ -2,12 +2,15 @@
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
-import { SearchBar } from './SearchBar';
+import { fontSize } from "../hooks/fontSize";
 import { Button } from './Button';
 import MenuMobile from './MenuMobile';
 import Link from 'next/link';
 
 const Nav2 = () => {
+  
+  const [open, setOpen] = useState(false);
+  const { increase, decrease } = fontSize();
   const [darkMode, setDarkMode] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
 
@@ -26,7 +29,6 @@ const Nav2 = () => {
   // }, [darkMode]);
 
   const router = useRouter();
-  
   const [filtered, setFiltered] = useState<string[]>([]);
   const pages = ['Login', 'Parceiros', 'Informacoes', 'Catalogo'];
 
@@ -61,21 +63,29 @@ const Nav2 = () => {
             width={32}
             height={32}
             className="cursor-pointer"
+            onClick={() => setOpen(!open)}
           />
 
+          {open && (
+          <div className="self-start bg-white border shadow-lg rounded p-3 flex gap-2 z-50">
+            <button
+              onClick={increase}
+              className="px-2 py-1 border rounded hover:bg-gray-100"
+            >
+              A+
+            </button>
+
+            <button
+              onClick={decrease}
+              className="px-2 py-1 border rounded hover:bg-gray-100"
+            >
+              A-
+            </button>
+          </div>
+        )}
+
+
         </div>
-        <Image
-          src="/icons/search.svg"
-          alt="botão de pesquisa"
-          width={24}
-          height={24}
-          className="hidden max-[850px]:hidden max-[999px]:flex cursor-pointer"
-        />
-    
-        {/* <div>
-          <SearchBar placeholder="Procurar" onSearch={handleSearch} />
-        </div> */}
-        
 
         <div className="flex gap-4 items-center">
           <div className="flex gap-4 max-[850px]:hidden">
@@ -112,13 +122,8 @@ const Nav2 = () => {
             >
               Eventos
             </Link>
-          </div>
 
-          <div className="hidden max-[850px]:flex max-[850px]:justify-center cursor-pointer max-[500px]:ml-[1rem]">
-            <MenuMobile />
-          </div>
-
-            <Link
+               <Link
               href="/Usuarios"
               className="no-underline p-0 h-fit 
                  text-gray-900
@@ -129,6 +134,12 @@ const Nav2 = () => {
               Parceiros
             </Link>
            
+          </div>
+
+          <div className="hidden max-[850px]:flex max-[850px]:justify-center cursor-pointer max-[500px]:ml-[1rem]">
+            <MenuMobile />
+          </div>
+
           <div className="flex gap-2 items-center">
             {!isLogged && (
               <Button
