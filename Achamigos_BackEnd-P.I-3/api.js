@@ -21,7 +21,7 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, swaggerOption
 
 // Rotas do microsserviço
 const userRoute = require('./routes/UserRoute');
-app.use('/', userRoute);
+app.use('/api', userRoute);
 
 // Endpoint raiz
 app.get("/", (req, res) => {
