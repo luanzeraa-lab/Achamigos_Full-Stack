@@ -31,6 +31,7 @@ Com isso, o Achamigos contribui para **reduzir o número de pets abandonados** e
 - [📁 Repositórios Individuais](#-repositórios-individuais)
 - [⚙️ Tecnologias](#️-tecnologias)
 - [📝 Rotas do Back-end no Swagger](#-rotas-do-back-end-no-swagger)
+- [🖥️ Hospedagem](#-hospedagem)
 - [👨‍💻 Colaboradores](#-colaboradores)
 
 ---
@@ -285,6 +286,12 @@ NEXT_PUBLIC_MICRO_URL=http://localhost:5001
 
 - 🔄 **Microsserviço Node:**
 [https://achamigos-full-stack.onrender.com/docs](https://achamigos-full-stack.onrender.com/docs)
+
+---
+
+## 🖥️ Hospedagem
+
+[https://achamigos-full-stack-p6dr.onrender.com/](https://achamigos-full-stack-p6dr.onrender.com/)
 
 ---
 
