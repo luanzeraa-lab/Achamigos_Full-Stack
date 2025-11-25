@@ -16,7 +16,7 @@ const RelatorioVacinas =  () => {
   useEffect(() => {
       const listarVacinas = async () => {
         try {
-          const res = await axios.get('http://localhost:8081/vacinacao');
+          const res = await axios.get('https://vacinaspringboot.onrender.com/vacinacao');
           console.log("🧩 Dados do backend:", res.data);
       setRelatorio(res.data);
         } catch (err) {
