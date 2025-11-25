@@ -183,7 +183,7 @@ const Animais = () => {
         </div>
 
         <div className={styles['descricaoani']}>
-          <div className="flex flex-wrap gap-lg-5">
+          <div className="flex flex-wrap gap-4 justify-center">
             {animaisFiltrados.map(ani => (
               <figure key={ani._id} className={styles['figures']}>
                 <img
