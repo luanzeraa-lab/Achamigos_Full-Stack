@@ -44,7 +44,7 @@ const CadastroAnimais = () => {
   useEffect(() => {
     const fetchVacinas = async () => {
       try {
-        const res = await axios.get('https://achamigos-full-stack-p6dr.onrender.com/api/vacinas');
+        const res = await axios.get('https://vacinaspringboot.onrender.com/api/vacinas');
         console.log('Vacinas recebidas:', res.data);
         setVacinas(res.data);
       } catch (err) {
@@ -118,7 +118,7 @@ for (const [key, value] of formData.entries()) {
   console.log(key, value);
 }
       try {
-        await axios.post(`https://achamigos-full-stack-p6dr.onrender.com/vacinacao/gerar/${idAnimal}`);
+        await axios.post(`https://vacinaspringboot.onrender.com/vacinacao/gerar/${idAnimal}`);
         alert(`Animal cadastrado com sucesso! ID: ${idAnimal}`);
         router.push('/PaginaUsuario');
       } catch (err) {
