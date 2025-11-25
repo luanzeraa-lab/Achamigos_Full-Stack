@@ -5,11 +5,9 @@
     "description": "Documentação da API Achamigos",
     "version": "1.0.0"
   },
-  "host": "localhost:3002",
+  "host": "achamigos-back-end.onrender.com",
   "basePath": "/api",
-  "schemes": [
-    "http"
-  ],
+  "schemes": ["http", "https"],
   "securityDefinitions": {
     "apiKeyAuth": {
       "type": "apiKey",
@@ -306,60 +304,6 @@
           },
           "403": {
             "description": "Forbidden"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/filtros/animais/cidade/{cidade}": {
-      "get": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "cidade",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/filtros/animais/porte/{porte}": {
-      "get": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "porte",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"
