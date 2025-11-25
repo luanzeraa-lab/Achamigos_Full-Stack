@@ -20,7 +20,7 @@ const CadastroVacina = () => {
     };
 
     try {
-      const res = await axios.post('http://localhost:8081/api/vacinas', novaVacina);
+      const res = await axios.post('https://vacinaspringboot.onrender.com/api/vacinas', novaVacina);
         if (res.status === 200 || res.status === 201) {
         alert('Vacina cadastrada com sucesso!');
         router.push('/PaginaUsuario');
