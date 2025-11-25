@@ -30,6 +30,7 @@ Com isso, o Achamigos contribui para **reduzir o número de pets abandonados** e
 - [📅 Sprints](#-sprints)
 - [📁 Repositórios Individuais](#-repositórios-individuais)
 - [⚙️ Tecnologias](#️-tecnologias)
+- [📝 Rotas do Back-end no Swagger](#-rotas-do-back-end-no-swagger)
 - [👨‍💻 Colaboradores](#-colaboradores)
 
 ---
@@ -274,6 +275,11 @@ API_PRINCIPAL=http://localhost:3002
 NEXT_PUBLIC_API_URL=http://localhost:3002
 NEXT_PUBLIC_MICRO_URL=http://localhost:5001
 ```
+
+## 📝 Rotas do Back-end no Swagger
+
+[https://achamigos-back-end.onrender.com/docs/](https://achamigos-back-end.onrender.com/docs/)
+
 
 ## 👨‍💻 Colaboradores
 
