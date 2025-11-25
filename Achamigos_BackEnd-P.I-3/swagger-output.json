@@ -1,320 +1,300 @@
 {
-  "swagger": "2.0",
+  "openapi": "3.0.3",
   "info": {
     "title": "API Achamigos",
     "description": "Documentação da API Achamigos",
     "version": "1.0.0"
   },
-  "host": "achamigos-back-end.onrender.com",
-  "basePath": "/api",
-  "schemes": ["https"],
-  "securityDefinitions": {
-    "apiKeyAuth": {
-      "type": "apiKey",
-      "in": "header",
-      "name": "x-api-key"
+  "servers": [
+    {
+      "url": "https://achamigos-back-end.onrender.com/api"
     }
-  },
+  ],
   "paths": {
     "/animais": {
       "get": {
-        "description": "",
+        "summary": "Listar animais",
         "responses": {
-          "403": {
-            "description": "Forbidden"
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
           },
-          "default": {
-            "description": ""
-          }
-        }
+          "403": { "description": "Forbidden" }
+        },
+        "security": [
+          { "apiKeyAuth": [] }
+        ]
       },
       "post": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "nome": { "example": "any" },
-                "idade": { "example": "any" },
-                "raca": { "example": "any" },
-                "sexo": { "example": "any" },
-                "porte": { "example": "any" },
-                "peso": { "example": "any" },
-                "observacoes": { "example": "any" },
-                "castracao": { "example": true },
-                "imagem": { "example": "any" },
-                "userId": { "example": "any" }
+        "summary": "Criar animal",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nome": { "example": "any" },
+                  "idade": { "example": "any" },
+                  "raca": { "example": "any" },
+                  "sexo": { "example": "any" },
+                  "porte": { "example": "any" },
+                  "peso": { "example": "any" },
+                  "observacoes": { "example": "any" },
+                  "castracao": { "example": true },
+                  "imagem": { "example": "any" },
+                  "userId": { "example": "any" }
+                }
               }
             }
           }
-        ],
+        },
         "responses": {
-          "201": {
-            "description": "Created"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        }
+          "201": { "description": "Created" },
+          "400": { "description": "Bad Request" },
+          "403": { "description": "Forbidden" }
+        },
+        "security": [
+          { "apiKeyAuth": [] }
+        ]
       }
     },
     "/animais/{id}": {
       "put": {
-        "description": "",
+        "summary": "Atualizar animal",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "nome": { "example": "any" },
-                "idade": { "example": "any" },
-                "raca": { "example": "any" },
-                "sexo": { "example": "any" },
-                "porte": { "example": "any" },
-                "peso": { "example": "any" },
-                "observacoes": { "example": "any" },
-                "castracao": { "example": true },
-                "imagem": { "example": "any" }
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nome": { "example": "any" },
+                  "idade": { "example": "any" },
+                  "raca": { "example": "any" },
+                  "sexo": { "example": "any" },
+                  "porte": { "example": "any" },
+                  "peso": { "example": "any" },
+                  "observacoes": { "example": "any" },
+                  "castracao": { "example": true },
+                  "imagem": { "example": "any" }
+                }
               }
             }
           }
-        ],
+        },
         "responses": {
-          "403": {
-            "description": "Forbidden"
-          },
-          "default": {
-            "description": ""
-          }
-        }
+          "200": { "description": "OK" },
+          "403": { "description": "Forbidden" }
+        },
+        "security": [
+          { "apiKeyAuth": [] }
+        ]
       },
       "delete": {
-        "description": "",
+        "summary": "Deletar animal",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "schema": { "type": "string" }
           }
         ],
         "responses": {
-          "403": {
-            "description": "Forbidden"
-          },
-          "default": {
-            "description": ""
-          }
-        }
+          "200": { "description": "OK" },
+          "403": { "description": "Forbidden" }
+        },
+        "security": [
+          { "apiKeyAuth": [] }
+        ]
       }
     },
     "/users": {
       "get": {
-        "description": "",
+        "summary": "Listar usuários",
         "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        }
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "apiKeyAuth": [] }
+        ]
       }
     },
     "/users/{id}": {
       "put": {
-        "description": "",
+        "summary": "Atualizar usuário",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "nome": { "example": "any" },
-                "telefone": { "example": "any" },
-                "cnpj": { "example": "any" },
-                "userLogin": { "example": "any" },
-                "senha": { "example": "any" },
-                "email": { "example": "any" },
-                "endereco": { "example": "any" },
-                "tipo": { "example": "any" },
-                "userStatus": { "example": "any" },
-                "linkUser": { "example": "any" }
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nome": { "example": "any" },
+                  "telefone": { "example": "any" },
+                  "cnpj": { "example": "any" },
+                  "userLogin": { "example": "any" },
+                  "senha": { "example": "any" },
+                  "email": { "example": "any" },
+                  "endereco": { "example": "any" },
+                  "tipo": { "example": "any" },
+                  "userStatus": { "example": "any" },
+                  "linkUser": { "example": "any" }
+                }
               }
             }
           }
-        ],
+        },
         "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        }
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "403": { "description": "Forbidden" }
+        },
+        "security": [
+          { "apiKeyAuth": [] }
+        ]
       },
       "delete": {
-        "description": "",
+        "summary": "Deletar usuário",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "schema": { "type": "string" }
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        }
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "403": { "description": "Forbidden" }
+        },
+        "security": [
+          { "apiKeyAuth": [] }
+        ]
       }
     },
     "/eventos": {
       "get": {
-        "description": "",
+        "summary": "Listar eventos",
         "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        }
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "apiKeyAuth": [] }
+        ]
       },
       "post": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "data_Publicacao": { "example": "any" },
-                "data_Exclusao": { "example": "any" },
-                "tipo_Evento": { "example": "any" },
-                "texto": { "example": "any" },
-                "eventoStatus": { "example": "any" },
-                "imagem": { "example": "any" }
+        "summary": "Criar evento",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "data_Publicacao": { "example": "any" },
+                  "data_Exclusao": { "example": "any" },
+                  "tipo_Evento": { "example": "any" },
+                  "texto": { "example": "any" },
+                  "eventoStatus": { "example": "any" },
+                  "imagem": { "example": "any" }
+                }
               }
             }
           }
-        ],
+        },
         "responses": {
-          "201": {
-            "description": "Created"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
+          "201": { "description": "Created" },
+          "400": { "description": "Bad Request" },
+          "403": { "description": "Forbidden" },
+          "500": { "description": "Internal Server Error" }
+        },
+        "security": [
+          { "apiKeyAuth": [] }
+        ]
       }
     },
     "/eventos/{id}": {
       "put": {
-        "description": "",
+        "summary": "Atualizar evento",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "schema": { "type": "string" }
           }
         ],
         "responses": {
-          "201": {
-            "description": "Created"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
+          "201": { "description": "Created" },
+          "400": { "description": "Bad Request" },
+          "403": { "description": "Forbidden" },
+          "500": { "description": "Internal Server Error" }
+        },
+        "security": [
+          { "apiKeyAuth": [] }
+        ]
       },
       "delete": {
-        "description": "",
+        "summary": "Deletar evento",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "schema": { "type": "string" }
           }
         ],
         "responses": {
-          "201": {
-            "description": "Created"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
+          "201": { "description": "Created" },
+          "400": { "description": "Bad Request" },
+          "403": { "description": "Forbidden" },
+          "500": { "description": "Internal Server Error" }
+        },
+        "security": [
+          { "apiKeyAuth": [] }
+        ]
       }
     }
   },
-  "security": [
-    {
-      "apiKeyAuth": []
+  "components": {
+    "securitySchemes": {
+      "apiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-api-key"
+      }
     }
-  ]
+  }
 }
