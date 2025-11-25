@@ -16,7 +16,7 @@ const Login = () => {
 
   const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
     try {
-      const res = await fetch('http://localhost:8082/login', {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_LOGIN_URL}/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

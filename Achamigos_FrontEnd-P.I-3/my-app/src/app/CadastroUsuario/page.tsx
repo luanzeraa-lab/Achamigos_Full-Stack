@@ -64,7 +64,13 @@ const CadastroUser = () => {
     <div className='flex flex-col items-center gap-0 mt-[2.5rem]'>
       <h1 className='text-[700] text-center'>Cadastre já sua ONG no Achamigos! </h1>
      
-        <Form className='max-[850px]:w-[35.625rem] max-[600px]:w-[20.625rem]  shadow-sm rounded-[.5rem] h-[80rem] w-[50rem] flex flex-col gap-2 bg-[#f5f5f4] p-4 mb-[4rem]'>
+        <Form className='max-[850px]:w-[35.625rem] max-[600px]:w-[20.625rem]  shadow-sm rounded-[.5rem] h-[80rem] w-[50rem] flex flex-col gap-2 bg-[#f5f5f4] p-4 mb-[4rem]'
+         onKeyDown={(e) => {
+        if (e.key === "Enter") {
+        e.preventDefault(); 
+        createUser();      
+      }
+  }}>
           <div>
             <Form.Label>Nome</Form.Label>
             <Form.Control
@@ -81,7 +87,7 @@ const CadastroUser = () => {
               type="text"
               placeholder="Insira o telefone"
               value={telefoneUser}
-              onChange={(e) => setTelefoneUser(e.target.value)}
+              onChange={(e) => setTelefoneUser(e.target.value.replace(/\D/g, ""))}
             />
           </div>
 
@@ -91,7 +97,7 @@ const CadastroUser = () => {
               type="text"
               placeholder="Insira o CNPJ"
               value={cnpjUser}
-              onChange={(e) => setCnpjUser(e.target.value)}
+              onChange={(e) => setCnpjUser(e.target.value.replace(/\D/g, ""))}
             />
           </div>
 
