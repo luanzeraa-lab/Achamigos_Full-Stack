@@ -37,30 +37,41 @@ const CadastroVacina = () => {
   return (
     <>
     <Nav2 />
-        <Form className='max-[850px]:w-[35.625rem] max-[600px]:w-[20.625rem]  shadow-sm rounded-[.5rem] h-[80rem] w-[50rem] flex flex-col gap-2 bg-[#f5f5f4] p-4 mb-[4rem]'>
-          <div>
-            <Form.Label>Nome</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Insira o nome"
-              value={nomeVacina}
-              onChange={(e) => setNomeVacina(e.target.value)}
-              required
-            />
-          </div>
-          <div>
-            <Form.Label>Validade</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Insira a validade"
-              value={validadeVacina}
-              onChange={(e) => setValidadeVacina(e.target.value)}
-              required
-            />
-          </div>
-            <input type="button" value="Cadastrar Vacina" className='bg-[#3a86ff] text-white font-[600] h-[2.5rem] rounded-[0.5rem] mt-4 hover:bg-[#265f9f] cursor-pointer'
-            onClick={() => createVacina()}/>
-        </Form>
+        <Form
+  className='max-[850px]:w-[35.625rem] max-[600px]:w-[20.625rem] shadow-sm rounded-[.5rem] h-[80rem] w-[50rem] flex flex-col gap-2 bg-[#f5f5f4] p-4 mb-[4rem]'
+  onSubmit={(e) => {
+    e.preventDefault(); // impede reload
+    createVacina();     // chama sua função
+  }}
+>
+  <div>
+    <Form.Label>Nome</Form.Label>
+    <Form.Control
+      type="text"
+      placeholder="Insira o nome"
+      value={nomeVacina}
+      onChange={(e) => setNomeVacina(e.target.value)}
+      required
+    />
+  </div>
+
+  <div>
+    <Form.Label>Validade</Form.Label>
+    <Form.Control
+      type="text"
+      placeholder="Insira a validade"
+      value={validadeVacina}
+      onChange={(e) => setValidadeVacina(e.target.value)}
+      required
+    />
+  </div>
+
+  <input
+    type="submit"
+    value="Cadastrar Vacina"
+    className='bg-[#3a86ff] text-white font-[600] h-[2.5rem] rounded-[0.5rem] mt-4 hover:bg-[#265f9f] cursor-pointer'
+  />
+</Form>
 
    
       <Footer />
