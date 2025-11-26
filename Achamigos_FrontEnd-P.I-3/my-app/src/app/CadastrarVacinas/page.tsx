@@ -45,6 +45,7 @@ const CadastroVacina = () => {
               placeholder="Insira o nome"
               value={nomeVacina}
               onChange={(e) => setNomeVacina(e.target.value)}
+              required
             />
           </div>
           <div>
@@ -54,6 +55,7 @@ const CadastroVacina = () => {
               placeholder="Insira a validade"
               value={validadeVacina}
               onChange={(e) => setValidadeVacina(e.target.value)}
+              required
             />
           </div>
             <input type="button" value="Cadastrar Vacina" className='bg-[#3a86ff] text-white font-[600] h-[2.5rem] rounded-[0.5rem] mt-4 hover:bg-[#265f9f] cursor-pointer'

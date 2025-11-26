@@ -153,11 +153,11 @@ const Nav2 = () => {
               <>
                 <Button
                   title="Minha Página"
-                  className="max-[500px]:hidden "
+                  className="max-[500px]:hidden p-0"
                   onClick={() => router.push('/PaginaUsuario')}
                 />
                 <Button
-                  title="Logout"
+                  title="Sair"
                   onClick={() => {
                     localStorage.removeItem('userId');
                     setIsLogged(false);
