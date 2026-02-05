@@ -149,7 +149,7 @@ const PaginaUsuario = () => {
               }}
             />
           </div>
-          <div className="flex m-auto items-center justify-center gap-4 shadow-lg
+          {/* <div className="flex m-auto items-center justify-center gap-4 shadow-lg
           rounded-[0.75rem] w-[60rem] h-[8rem] max-[1000px]:w-[40rem] max-[700px]:w-[21.25rem]">
             <Image
               src="/icons/events-perfil.svg"
@@ -170,7 +170,7 @@ const PaginaUsuario = () => {
                 router.push('/RelatorioVacinas');
               }}
             />
-          </div>
+          </div> */}
         </div>  
 
       </div>
